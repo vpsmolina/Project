@@ -1,15 +1,14 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { NotFoundComponent } from "./not-found/not-found.component";
-import { UserFormComponent } from "./user-form/user-form.component";
-import { UsersComponent } from "./users/users.component";
 
+import { IncidentsComponent } from "./incidents/incidents.component";
+import { MainComponent } from "./main/main.component";
 
+const childRoutes: Routes = [
+  {path: "add", component: IncidentsComponent},
+];
 const routes: Routes = [
-  { path: "", component: UsersComponent },
-  { path: "form/edit", component: UserFormComponent },
-  { path: "form/create", component: UserFormComponent },
-  { path: "**", component: NotFoundComponent}];
+  { path: "", component: MainComponent, children: childRoutes }];
 
 export const routing = RouterModule.forRoot(routes);
 
