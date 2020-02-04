@@ -52,12 +52,13 @@ export class MainComponent implements OnInit {
         if (incidentform.confirm) {
           this.dataService.updateIncident(incidentform.incidentId, incidentform.data).subscribe(() => {
             this.incidents.forEach(incident => {
-              if (user._id === userform.userId) {
-                user.surname = userform.data.surname;
-                user.name = userform.data.name;
-                user.middleName = userform.data.middleName;
-                user.birthday = userform.data.birthday;
-                user.coefficient = userform.data.coefficient;
+              if (incident._id === incidentform.incidentId) {
+                incident.name = incidentform.data.name;
+                incident.assignee = incidentform.data.assignee;
+                incident.area = incidentform.data.area;
+                incident.startDate = incidentform.data.startDate;
+                incident.dueDate = incidentform.data.dueDate;
+                incident.status = incidentform.data.status;
               }
             });
           });
