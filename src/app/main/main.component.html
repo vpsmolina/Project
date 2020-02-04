@@ -13,57 +13,22 @@
 <main>
   <div class="tab">
     <div class="tab__event">
-      <button class="tab__button" >Events</button>
+      <button class="tab__button" (click)="showevents()">Events</button>
     </div>
     <div class="tab__process">
       <button class="tab__button">Process</button>
     </div>
     <div class="tab__users">
-      <button class="tab__button">Users</button>
+      <button class="tab__button" (click)="showusers()">Users</button>
     </div>
   </div>
 </main>
-<div class="events__table">
-  <button class="events__table-button" (click)="addIncident()">Add</button>
-  <div class="events__table-header">
-    <div class="events__table-header-column"></div>
-    <div class="events__table-header-column">Name</div>
-    <div class="events__table-header-column">Assignee</div>
-    <div class="events__table-header-column">Area</div>
-    <div class="events__table-header-column">Start date</div>
-    <div class="events__table-header-column">Due date</div>
-    <div class="events__table-header-column">Status</div>
-  </div>
-  <div class="events__table-body">
-    <div *ngFor="let incident of incidents;"
-         class="events__table-body-row">
-      <div class="events__table-body-column">
-        <div class="events__table-readonly">{{incident.svg}}</div>
-      </div>
-      <div class="events__table-body-column">
-        <div class="events__table-readonly">{{incident.name}}</div>
-      </div>
-      <div class="events__table-body-column">
-        <div class="events__table-readonly">{{incident.assignee}}</div>
-      </div>
-      <div class="events__table-body-column">
-        <div class="events__table-readonly">{{incident.area}}</div>
-      </div>
-      <div class="events__table-body-column">
-        <div class="events__table-readonly">{{incident.startDate | date: 'dd-MM-yyyy'}}</div>
-      </div>
-      <div class="events__table-body-column">
-        <div class="events__table-readonly">{{incident.dueDate | date: 'dd-MM-yyyy'}}</div>
-      </div>
-      <div class="events__table-body-column">
-        <div class="events__table-readonly">{{incident.status}}</div></div>
-    </div>
-  </div>
-</div>
+
 <!--<app-events></app-events>-->
 </body>
 </html>
-<router-outlet (deactivate)="actions($event)"></router-outlet>
+<router-outlet></router-outlet>
+<!--<router-outlet (deactivate)="actions($event)"></router-outlet>-->
 
 <!--<div>
   <div class="sphere red"></div>

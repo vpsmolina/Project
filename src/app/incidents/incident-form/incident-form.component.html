@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Project</title>
+</head>
+<body>
+<div class="incidents__form visible">
+  <div class="incidents__form-dialog">
+    <div class="incidents__form-content">
+      <div class="incidents__form-body">
+        <form *ngIf="action" noValidate [formGroup]="formIncident" class="edit-incident"
+              (ngSubmit)="onSubmit()"
+        >
+          <div class="form-control">
+            <label>Name </label>
+            <input formControlName="name" type="string">
+            <div class="validtext"
+                 *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
+              Name must not exceed 9 symbol.
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label>Assignee </label>
+            <select multiple formControlName="assignee">
+              <option value="">Select User:</option>
+              <option *ngFor="let user of users" [value]="user.assignee">
+                {{ user.assignee}}
+              </option>
+            </select>
+            <div class="validtext"
+                 *ngIf="formIncident.controls['assignee'].invalid && formIncident.controls['assignee'].touched">
+              You must select an assignee.
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label>Area</label>
+            <select multiple formControlName="area">
+              <option value="">Select area:</option>
+              <option *ngFor="let field of fields" [value]="field.area">
+                {{ field.area}}
+              </option>
+            </select>
+            <div class="validtext"
+                 *ngIf="formIncident.controls['area'].invalid && formIncident.controls['area'].touched">
+              You must select an area.
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label>startDate</label>
+            <input formControlName="startDate" type="date">
+            <div class="validtext"
+                 *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
+            </div>
+          </div>
+          <div class="form-control">
+            <label>dueDate</label>
+            <input formControlName="dueDate" type="date">
+            <div class="validtext"
+                 *ngIf="formIncident.controls['dueDate'].invalid && formIncident.controls['dueDate'].touched">
+
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label>status </label>
+            <input formControlName="status" type="string">
+            <div class="validtext"
+                 *ngIf="formIncident.controls['status'].invalid && formIncident.controls['status'].touched">
+            </div>
+          </div>
+
+          <button class="transparent-button"
+                  routerLink="/events">Back</button>
+          <button class="transparent-button" *ngIf="action===1" type="submit">Add event</button>
+          <button class="transparent-button" *ngIf="action===2" type="submit">Edit event</button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
+<router-outlet></router-outlet>
