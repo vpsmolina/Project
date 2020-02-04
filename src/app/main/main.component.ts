@@ -1,12 +1,12 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { DataService } from "../services/data.service";
 import { Incident } from "../data/incident";
+import { Incidentslist } from "../data/incidentslist";
 import { IncidentData } from "../incidents/incident-data";
 import { IncidentEvents } from "../incidents/incidentevents";
-import { IncidentsService } from "../services/incidents.service";
-import { Incidentslist } from "../data/incidentslist";
 import { IncidentsComponent } from "../incidents/incidents.component";
+import { DataService } from "../services/data.service";
+import { IncidentsService } from "../services/incidents.service";
 
 @Component({
   selector: "app-main",

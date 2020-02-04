@@ -79,10 +79,7 @@ export class IncidentsComponent implements OnInit {
     this.incidentsService.debug() ? this.router.navigate([""], {queryParams: {debug: true}}) : this.router.navigate([""]);
     this.confirm = false;
   }
-  public confirmForm(): void {
-    this.confirm = !this.confirm;
-    this.incidentsService.debug() ? this.router.navigate([""], {queryParams: {debug: true}}) : this.router.navigate([""]);
-  }
+
   private _action(piece: string): void {
     switch (IncidentEvents[piece]) {
       case 1: {
@@ -94,15 +91,8 @@ export class IncidentsComponent implements OnInit {
 /*      case 2: {
         this.title = "Edit";
         this.action = 2;
-        this.activatedRoute.params.subscribe(param => this.userId = param.id);
-        this.initEditUserForm();
-        break;
-      }
-      case 0: {
-        this.title = "Confirmation";
-        this.action = 0;
-        this.activatedRoute.params.subscribe(param => this.userId = param.id);
-        this.initEditUserForm();
+        this.activatedRoute.params.subscribe(param => this.incidentId = param.id);
+        this.initEditIncident();
         break;
       }*/
       default: {
