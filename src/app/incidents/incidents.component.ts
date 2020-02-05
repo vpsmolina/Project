@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Incident } from "../data/incident";
 import { IncidentsList } from "../data/incidents-list";
@@ -11,7 +11,8 @@ import { IncidentEvents } from "./incidentevents";
 @Component({
   selector: "app-incidents",
   templateUrl: "./incidents.component.html",
-  styleUrls: ["./incidents.component.less"]
+  styleUrls: ["./incidents.component.less"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IncidentsComponent implements OnInit {
   public incident: Incident;

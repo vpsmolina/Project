@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Incident } from "../data/incident";
 import { IncidentsList } from "../data/incidents-list";
@@ -12,7 +12,8 @@ import { IncidentsService } from "../services/incidents.service";
 @Component({
   selector: "app-main",
   templateUrl: "./main.component.html",
-  styleUrls: ["./main.component.less"]
+  styleUrls: ["./main.component.less"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent implements OnInit {
   constructor(@Inject(DataService) private dataService: IncidentData,

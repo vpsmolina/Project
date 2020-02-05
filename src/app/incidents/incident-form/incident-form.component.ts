@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Field } from "../../data/field";
@@ -14,7 +14,8 @@ import { IncidentEvents } from "../incidentevents";
 @Component({
   selector: "app-incident-form",
   templateUrl: "./incident-form.component.html",
-  styleUrls: ["./incident-form.component.less"]
+  styleUrls: ["./incident-form.component.less"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IncidentFormComponent implements OnInit {
   public formIncident: FormGroup;
