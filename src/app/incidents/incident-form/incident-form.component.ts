@@ -34,6 +34,14 @@ export class IncidentFormComponent implements OnInit {
   constructor(@Inject(DataService) private dataService: IncidentData,
               private router: Router, private activatedRoute: ActivatedRoute,
               private incidentsService: IncidentsService) {}
+
+    public convertDate(date: Date): string {
+    const cDate = new Date(date);
+    const month = cDate.getMonth() + 1;
+    const stMonth: string = (month < 10) ? "0" + month : month.toString();
+    const stDay: string = (cDate.getDate() < 10) ? "0"  + cDate.getDate() : cDate.getDate().toString();
+    return cDate.getFullYear() + "-" + stMonth + "-" + stDay;
+  }
   public initAddIncident(): void {
     this.formIncident = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.maxLength(9)]),
@@ -44,6 +52,31 @@ export class IncidentFormComponent implements OnInit {
       status: new FormControl(null, [Validators.required]),
     });
     this.dataService.getCountIncidents().subscribe(num => this.count = +num);
+  }
+/*Редактирование работает по всем полям, в тз по-другому, я это еще не доделала*/
+  public initEditIncident(): void {
+    this.formIncident = new FormGroup({
+      name: new FormControl(null, [Validators.required, Validators.maxLength(9)]),
+      area: new FormControl(null, [Validators.required]),
+      assignee: new FormControl(null, [Validators.required]),
+      startDate: new FormControl(null, [Validators.required]),
+      dueDate: new FormControl(null, [Validators.required]),
+      status: new FormControl(null, [Validators.required]),
+    });
+    this.dataService.getIncidentById(this.incidentId).subscribe((incident) => {
+      const editIncident = {
+        name: incident[0].name,
+        area: incident[0].area,
+        assignee: incident[0].assignee,
+        startDate: this.convertDate(new Date(incident[0].startDate)),
+        dueDate: this.convertDate(new Date(incident[0].dueDate)),
+        status: incident[0].name,
+      };
+      this.data.id = incident[0].id;
+      this.data._id = incident[0]._id;
+      this.formIncident.setValue(editIncident);
+    });
+
   }
   public onSubmit(): boolean {
     const controls = this.formIncident.controls;
@@ -87,13 +120,13 @@ export class IncidentFormComponent implements OnInit {
         this.initAddIncident();
         break;
       }
-      /*      case 2: {
+            case 2: {
               this.title = "Edit";
               this.action = 2;
               this.activatedRoute.params.subscribe(param => this.incidentId = param.id);
               this.initEditIncident();
               break;
-            }*/
+            }
       default: {
         break;
       }

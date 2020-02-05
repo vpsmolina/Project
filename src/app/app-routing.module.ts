@@ -8,6 +8,7 @@ import { UsersComponent } from "./users/users.component";
 
 const itemRoutes: Routes = [
   {path: "add", component: IncidentFormComponent},
+  {path: "edit/:id", component: IncidentFormComponent},
 ];
 const childRoutes: Routes = [
   {path: "events", component: IncidentsComponent, children: itemRoutes},

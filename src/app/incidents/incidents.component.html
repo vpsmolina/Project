@@ -10,7 +10,7 @@
     <div class="events__table-header-column">Status</div>
   </div>
   <div class="events__table-body">
-    <div *ngFor="let incident of incidents;"
+    <div *ngFor="let incident of incidents;" (click)="editIncident(incident._id)"
          class="events__table-body-row">
       <div class="events__table-body-column">
         <div class="events__table-readonly">{{incident.svg}}</div>

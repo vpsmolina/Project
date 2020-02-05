@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
+import { toArray } from "rxjs/operators";
 import { Incident } from "../data/incident";
 import { IncidentsList } from "../data/incidents-list";
 import { IncidentData } from "../incidents/incident-data";
@@ -11,15 +12,35 @@ import { DataService } from "./data.service";
 export class IncidentTable implements IncidentData {
   private _incidents: Incident[] = IncidentsList;
   private _incident: Incident;
-  getIncidents(): Observable<Incident[]> {
+
+  public getIncidents(): Observable<Incident[]> {
     return of(this._incidents);
   }
 
-  createIncident(data: Incident): Observable<Incident> {
+  public createIncident(data: Incident): Observable<Incident> {
     return of(data);
   }
 
-  getCountIncidents(): Observable<Number> {
+  public getCountIncidents(): Observable<Number> {
     return of(this._incidents.length);
+  }
+
+  public getIncidentById(_id: string): Observable<Incident[]> {
+    this._incident = this._incidents.find(incident => incident._id === _id);
+    return of(this._incident).pipe(toArray());
+  }
+
+  public updateIncident(_id: string, data: Incident): Observable<Incident> {
+    this._incidents.forEach(incident => {
+      if (incident._id === _id) {
+        incident.name = data.name;
+        incident.area = data.area;
+        incident.assignee = data.assignee;
+        incident.startDate = data.startDate;
+        incident.dueDate = data.dueDate;
+        incident.status = data.status;
+      }
+    });
+    return of(this._incident);
   }
 }

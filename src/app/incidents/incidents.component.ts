@@ -37,7 +37,7 @@ export class IncidentsComponent implements OnInit {
     this.incidentsService.debug() ? this.router.navigate([`events/add`], {queryParams: {debug: true}}) : this.router.navigate([`events/add`]);
   }
   public editIncident(_id: string): void {
-    this.incidentsService.debug() ? this.router.navigate([`edit/${_id}`], {queryParams: {debug: true}}) : this.router.navigate([`edit/${_id}`]);
+    this.incidentsService.debug() ? this.router.navigate([`events/edit/${_id}`], {queryParams: {debug: true}}) : this.router.navigate([`events/edit/${_id}`]);
   }
 
   public actions(incidentform: IncidentFormComponent): void {
@@ -50,7 +50,7 @@ export class IncidentsComponent implements OnInit {
         }
         break;
       }
-      /*      case 2: {
+            case 2: {
               if (incidentform.confirm) {
                 this.dataService.updateIncident(incidentform.incidentId, incidentform.data).subscribe(() => {
                   this.incidents.forEach(incident => {
@@ -66,7 +66,7 @@ export class IncidentsComponent implements OnInit {
                 });
               }
               break;
-            }*/
+            }
       default: {
         break;
       }
