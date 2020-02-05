@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
     this.incidentsService.debug() ? this.router.navigate([`users`], {queryParams: {debug: true}}) : this.router.navigate([`users`]);
   }
   public showevents(): void {
-    this.router.navigate([`events`]);
+    this.incidentsService.debug() ? this.router.navigate([`events`], {queryParams: {debug: true}}) : this.router.navigate([`events`]);
   }
   ngOnInit(): void {
   }
