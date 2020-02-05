@@ -1,0 +1,21 @@
+<div class="users__table">
+  <div class="users__table-header">
+    <div class="users__table-header-column">Position</div>
+    <div class="users__table-header-column">User</div>
+    <div class="users__table-header-column">Birthday</div>
+  </div>
+  <div class="users__table-body">
+    <div *ngFor="let user of users;" class="users__table-body-row">
+      <div class="users__table-body-column">
+        <div class="users__table-readonly">{{user.position}}</div>
+      </div>
+      <div class="users__table-body-column">
+        <div class="users__table-readonly">{{user.assignee}}</div>
+      </div>
+      <div class="users__table-body-column">
+        <div class="users__table-readonly">{{user.birthday | date: 'dd-MM-yyyy'}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
