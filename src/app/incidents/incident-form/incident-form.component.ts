@@ -53,7 +53,7 @@ export class IncidentFormComponent implements OnInit {
     });
     this.dataService.getCountIncidents().subscribe(num => this.count = +num);
   }
-/*Редактирование работает по всем полям, в тз по-другому, я это еще не доделала*/
+
   public initEditIncident(): void {
     this.formIncident = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.maxLength(9)]),

@@ -13,16 +13,19 @@
               (ngSubmit)="onSubmit()"
         >
           <div class="form-control">
-            <label>Name </label>
-            <input formControlName="name" type="string">
-            <div class="validtext"
-                 *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
-              Name must not exceed 9 symbol.
-            </div>
+            <label>Name:</label>
+              <div class="form-control" *ngIf="action === 1">
+                <input formControlName="name" type="string">
+                <div class="validtext"
+                     *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
+                  Name must not exceed 9 symbol.
+                </div>
+              </div>
+              <div class="form-control" *ngIf="action === 2">{{formIncident.value.name}}</div>
           </div>
 
           <div class="form-control">
-            <label>Assignee </label>
+            <label>Assignee:</label>
             <select multiple formControlName="assignee">
               <option value="">Select User:</option>
               <option *ngFor="let user of users" [value]="user.assignee">
@@ -36,28 +39,35 @@
           </div>
 
           <div class="form-control">
-            <label>Area</label>
-            <select multiple formControlName="area">
-              <option value="">Select area:</option>
-              <option *ngFor="let field of fields" [value]="field.area">
-                {{ field.area}}
-              </option>
-            </select>
-            <div class="validtext"
-                 *ngIf="formIncident.controls['area'].invalid && formIncident.controls['area'].touched">
-              You must select an area.
-            </div>
+            <label>Area:</label>
+              <div class="form-control" *ngIf="action === 1">
+                <select multiple formControlName="area">
+                  <option value="">Select area:</option>
+                  <option *ngFor="let field of fields" [value]="field.area">
+                    {{ field.area}}
+                  </option>
+                </select>
+                <div class="validtext"
+                     *ngIf="formIncident.controls['area'].invalid && formIncident.controls['area'].touched">
+                  You must select an area.
+                </div>
+              </div>
+              <div class="form-control" *ngIf="action === 2">{{formIncident.value.area}}</div>
           </div>
 
           <div class="form-control">
-            <label>startDate</label>
-            <input formControlName="startDate" type="date">
-            <div class="validtext"
-                 *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
-            </div>
+            <label>Start date:</label>
+              <div class="form-control" *ngIf="action === 1">
+                <input formControlName="startDate" type="date">
+                  <div class="validtext"
+                       *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
+                </div>
+              </div>
+              <div class="form-control" *ngIf="action === 2">{{formIncident.value.startDate}}</div>
           </div>
+
           <div class="form-control">
-            <label>dueDate</label>
+            <label>Due date:</label>
             <input formControlName="dueDate" type="date">
             <div class="validtext"
                  *ngIf="formIncident.controls['dueDate'].invalid && formIncident.controls['dueDate'].touched">
@@ -66,7 +76,7 @@
           </div>
 
           <div class="form-control">
-            <label>status </label>
+            <label>Status:</label>
             <input formControlName="status" type="string">
             <div class="validtext"
                  *ngIf="formIncident.controls['status'].invalid && formIncident.controls['status'].touched">
