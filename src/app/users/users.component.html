@@ -1,4 +1,5 @@
 <div class="users__table">
+  <button class="users__table-button" (click)="addUser()">Add</button>
   <div class="users__table-header">
     <div class="users__table-header-column">Position</div>
     <div class="users__table-header-column">User</div>
@@ -18,4 +19,4 @@
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>
+<router-outlet (deactivate)="actions($event)"></router-outlet>

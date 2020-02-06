@@ -3,6 +3,8 @@ import { Observable, of } from "rxjs";
 import { toArray } from "rxjs/operators";
 import { Incident } from "../data/incident";
 import { IncidentsList } from "../data/incidents-list";
+import { User } from "../data/user";
+import { UsersList } from "../data/users-list";
 import { IncidentData } from "../incidents/incident-data";
 import { DataService } from "./data.service";
 
@@ -12,6 +14,7 @@ import { DataService } from "./data.service";
 export class IncidentTable implements IncidentData {
   private _incidents: Incident[] = IncidentsList;
   private _incident: Incident;
+  private _users: User[] = UsersList;
 
   public getIncidents(): Observable<Incident[]> {
     return of(this._incidents);
@@ -42,5 +45,15 @@ export class IncidentTable implements IncidentData {
       }
     });
     return of(this._incident);
+  }
+  public getUsers(): Observable<User[]> {
+    return of(this._users);
+  }
+  public createUser(data: User): Observable<User> {
+    return of(data);
+  }
+
+  public getCountUsers(): Observable<Number> {
+    return of(this._users.length);
   }
 }

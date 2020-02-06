@@ -50,36 +50,36 @@ export class IncidentsComponent implements OnInit {
         }
         break;
       }
-            case 2: {
-              if (incidentform.confirm) {
-                this.dataService.updateIncident(incidentform.incidentId, incidentform.data).subscribe(() => {
-                  this.incidents.forEach(incident => {
-                    if (incident._id === incidentform.incidentId) {
-                      incident.name = incidentform.data.name;
-                      incident.assignee = incidentform.data.assignee;
-                      incident.area = incidentform.data.area;
-                      incident.startDate = incidentform.data.startDate;
-                      incident.dueDate = incidentform.data.dueDate;
-                      incident.description = incidentform.data.description;
-                      incident.status = incidentform.data.status;
-                    }
-                  });
-                });
+      case 2: {
+        if (incidentform.confirm) {
+          this.dataService.updateIncident(incidentform.incidentId, incidentform.data).subscribe(() => {
+            this.incidents.forEach(incident => {
+              if (incident._id === incidentform.incidentId) {
+                incident.name = incidentform.data.name;
+                incident.assignee = incidentform.data.assignee;
+                incident.area = incidentform.data.area;
+                incident.startDate = incidentform.data.startDate;
+                incident.dueDate = incidentform.data.dueDate;
+                incident.description = incidentform.data.description;
+                incident.status = incidentform.data.status;
               }
-              break;
-            }
+            });
+          });
+        }
+        break;
+      }
       default: {
         break;
       }
     }
   }
-  private _reloadUsers(): void {
+  private _reloadIncidents(): void {
     this.dataService.getIncidents().subscribe(data => {
       this.incidents = data;
     });
   }
   ngOnInit(): void {
-    this._reloadUsers();
+    this._reloadIncidents();
   }
 
 }

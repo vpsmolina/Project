@@ -129,13 +129,13 @@ export class IncidentFormComponent implements OnInit {
         this.initAddIncident();
         break;
       }
-            case 2: {
-              this.title = "Edit";
-              this.action = 2;
-              this.activatedRoute.params.subscribe(param => this.incidentId = param.id);
-              this.initEditIncident();
-              break;
-            }
+      case 2: {
+        this.title = "Edit";
+        this.action = 2;
+        this.activatedRoute.params.subscribe(param => this.incidentId = param.id);
+        this.initEditIncident();
+        break;
+      }
       default: {
         break;
       }
