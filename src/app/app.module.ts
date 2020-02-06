@@ -15,6 +15,7 @@ import { IncidentTable } from "./services/incident-table.service";
 import { IncidentsService } from "./services/incidents.service";
 import { UsersComponent } from "./users/users.component";
 import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
+import { UsersFormComponent } from './users/users-form/users-form.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { IncidentFormComponent } from "./incidents/incident-form/incident-form.c
     UsersComponent,
     IncidentFormComponent,
     HoverDirective,
+    UsersFormComponent,
   ],
   imports: [
     BrowserModule,
