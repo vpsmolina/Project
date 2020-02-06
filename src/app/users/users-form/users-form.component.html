@@ -41,6 +41,7 @@
             <input class="form-control-action" formControlName="assignee" type="string">
             <div class="validtext"
                  *ngIf="formUser.controls['assignee'].invalid && formUser.controls['assignee'].touched">
+                  Name must not contain numbers.
             </div>
           </div>
 

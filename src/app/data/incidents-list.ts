@@ -8,7 +8,9 @@ export const IncidentsList: Incident[] = [
     startDate: new Date("2020/1/31"),
     dueDate: new Date("2020/3/2"),
     description: "Complete the technical task within a month.",
-    status: "Open" },
+    status: "Open",
+    priority: "Normal"
+  },
   {"_id": "id000002", id: 2,
     name: "Technical task",
     assignee: "Sazonov",
@@ -16,7 +18,9 @@ export const IncidentsList: Incident[] = [
     startDate: new Date("2019/1/30"),
     dueDate: new Date("2020/2/7"),
     description: "Write a technical task.",
-    status: "Close" },
+    status: "Close",
+    priority: "Normal"
+  },
   {"_id": "id000003", id: 3,
     name: "Product description",
     assignee: "Turina",
@@ -24,7 +28,9 @@ export const IncidentsList: Incident[] = [
     startDate: new Date("2019/12/1"),
     dueDate: new Date("2020/2/1"),
     description: "Product description.",
-    status: "Work" },
+    status: "Work",
+    priority: "Minor"
+  },
   {"_id": "id000004", id: 4,
     name: "Product quality analysis",
     assignee: "Titova",
@@ -32,7 +38,9 @@ export const IncidentsList: Incident[] = [
     startDate: new Date("2020/1/3"),
     dueDate: new Date("2020/3/3"),
     description: "Preparation and setting of standards, selection of tools.",
-    status: "Open" },
+    status: "Open",
+    priority: "Major"
+  },
   {"_id": "id000005", id: 5,
     name: "Product testing",
     assignee: "Igoshin",
@@ -40,7 +48,9 @@ export const IncidentsList: Incident[] = [
     startDate: new Date("2020/1/27"),
     dueDate: new Date("2020/4/27"),
     description: "Error Prevention and Process Improvement.",
-    status: "Open" },
+    status: "Open",
+    priority: "Critical"
+  },
   {"_id": "id000006", id: 6,
     name: "Meeting",
     assignee: "Shipanova",
@@ -48,5 +58,7 @@ export const IncidentsList: Incident[] = [
     startDate: new Date("2020/2/12"),
     dueDate: new Date("2020/2/26"),
     description: "Approval of the project concept and decision to launch the project.",
-    status: "Open" },
+    status: "Open",
+    priority: "Critical"
+  },
 ];

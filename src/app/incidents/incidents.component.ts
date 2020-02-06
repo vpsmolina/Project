@@ -29,10 +29,10 @@ export class IncidentsComponent implements OnInit {
   public hideForm(displayed: boolean): void {
     this.isDisplayed = displayed;
   }
-  public addForm(displayed: boolean): void {
+/*  public addForm(displayed: boolean): void {
     this.isDisplayed = !displayed;
     this.action = IncidentEvents.add;
-  }
+  }*/
   public addIncident(): void {
     this.incidentsService.debug() ? this.router.navigate([`events/add`], {queryParams: {debug: true}}) : this.router.navigate([`events/add`]);
   }
@@ -62,6 +62,7 @@ export class IncidentsComponent implements OnInit {
                 incident.dueDate = incidentform.data.dueDate;
                 incident.description = incidentform.data.description;
                 incident.status = incidentform.data.status;
+                incident.priority = incidentform.data.priority;
               }
             });
           });

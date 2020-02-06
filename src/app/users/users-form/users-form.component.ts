@@ -31,7 +31,7 @@ export class UsersFormComponent implements OnInit {
       login: new FormControl(null, [Validators.required, Validators.maxLength(17)]),
       password: new FormControl(null, [Validators.required]),
       position: new FormControl(null, [Validators.required]),
-      assignee: new FormControl(null, [Validators.required]),
+      assignee: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Za-zА-Яа-яЁё ]*$/)]),
       birthday: new FormControl(null),
     });
     this.dataService.getCountUsers().subscribe(num => this.count = +num);

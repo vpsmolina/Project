@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Field } from "../../data/field";
 import { FieldsList } from "../../data/fields-list";
 import { Incident } from "../../data/incident";
+import { PrioritiesList } from "../../data/priorities-list";
+import { Priority } from "../../data/priority";
 import { User } from "../../data/user";
 import { UsersList } from "../../data/users-list";
 import { DataService } from "../../services/data.service";
@@ -34,8 +36,9 @@ export class IncidentFormComponent implements OnInit {
   public confirm: boolean = false;
   public users: User[] = UsersList;
   public fields: Field[] = FieldsList;
+  public priorities: Priority[] = PrioritiesList;
   public data: Incident = { name: "", area: "", assignee: "", id: 0,
-    startDate: undefined, dueDate: undefined, status: "", description: ""};
+         startDate: undefined, dueDate: undefined, status: "", description: "", priority: ""};
   public today: number = Date.now();
 
   public convertDate(date: Date | number): string {
@@ -54,9 +57,9 @@ export class IncidentFormComponent implements OnInit {
       dueDate: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
       status: new FormControl(null, [Validators.required]),
+      priority: new FormControl(null, [Validators.required]),
     });
     this.dataService.getCountIncidents().subscribe(num => this.count = +num);
-    /*startDate: this.convertDate(this.today);*/
   }
 
   public initEditIncident(): void {
@@ -68,6 +71,7 @@ export class IncidentFormComponent implements OnInit {
       dueDate: new FormControl(null, [Validators.required, this.IncidentValidators.dateValidator]),
       description: new FormControl(null),
       status: new FormControl(null, [Validators.required]),
+      priority: new FormControl(null, [Validators.required]),
     });
     this.dataService.getIncidentById(this.incidentId).subscribe((incident) => {
       const editIncident = {
@@ -78,6 +82,7 @@ export class IncidentFormComponent implements OnInit {
         dueDate: this.convertDate(new Date(incident[0].dueDate)),
         description: incident[0].description,
         status: incident[0].status,
+        priority: incident[0].priority,
       };
       this.data.id = incident[0].id;
       this.data._id = incident[0]._id;
@@ -113,6 +118,7 @@ export class IncidentFormComponent implements OnInit {
     this.data.assignee = this.formIncident.value.assignee;
     this.data.description = this.formIncident.value.description;
     this.data.status = this.formIncident.value.status;
+    this.data.priority = this.formIncident.value.priority;
     this.hideForm();
     this.confirm = true;
   }

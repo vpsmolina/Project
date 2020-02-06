@@ -94,6 +94,21 @@
             </div>
           </div>
 
+          <div class="form-control">
+            <label class="form-control-label">Priority:</label>
+            <div class="form-control" *ngIf="action === 1">
+            <select class="form-control-action" formControlName="priority">
+              <option *ngFor="let priority of priorities" [value]="priority.priority">
+                {{ priority.priority}}
+              </option>
+            </select>
+              <div class="validtext"
+                   *ngIf="formIncident.controls['priority'].invalid && formIncident.controls['priority'].touched">
+              </div>
+            </div>
+            <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.priority}}</div>
+          </div>
+
           <button class="transparent-button"
                   routerLink="/events">Back</button>
           <button class="transparent-button" *ngIf="action===1" type="submit">Add event</button>
