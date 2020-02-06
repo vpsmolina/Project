@@ -58,12 +58,27 @@
 .form-control {
   display: flex;
   flex-direction: column;
+
+
+  &-label {
+    font-weight: bold;
+  }
+  &-date {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+  }
+  &-action{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+  }
+
 }
-.form-control input {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 5px;
-}
+
 .edit-incident {
   display: flex;
   flex-direction: column;

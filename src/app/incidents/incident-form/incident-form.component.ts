@@ -8,6 +8,7 @@ import { User } from "../../data/user";
 import { UsersList } from "../../data/users-list";
 import { DataService } from "../../services/data.service";
 import { IncidentsService } from "../../services/incidents.service";
+import { ValidatorsService } from "../../services/validators.service";
 import { IncidentData } from "../incident-data";
 import { IncidentEvents } from "../incidentevents";
 
@@ -19,7 +20,8 @@ import { IncidentEvents } from "../incidentevents";
 })
 export class IncidentFormComponent implements OnInit {
 
-  constructor(@Inject(DataService) private dataService: IncidentData,
+  constructor(private IncidentValidators: ValidatorsService,
+              @Inject(DataService) private dataService: IncidentData,
               private router: Router, private activatedRoute: ActivatedRoute,
               private incidentsService: IncidentsService) {}
   public formIncident: FormGroup;
@@ -47,7 +49,7 @@ export class IncidentFormComponent implements OnInit {
     this.formIncident = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.maxLength(17)]),
       area: new FormControl(null, [Validators.required]),
-      assignee: new FormControl(null, [Validators.required]),
+      assignee: new FormControl(null),
       startDate: new FormControl(this.convertDate(this.today), [Validators.required]),
       dueDate: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
@@ -61,9 +63,9 @@ export class IncidentFormComponent implements OnInit {
     this.formIncident = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.maxLength(9)]),
       area: new FormControl(null, [Validators.required]),
-      assignee: new FormControl(null, [Validators.required]),
+      assignee: new FormControl(null),
       startDate: new FormControl(null, [Validators.required]),
-      dueDate: new FormControl(null, [Validators.required]),
+      dueDate: new FormControl(null, [Validators.required, this.IncidentValidators.dateValidator]),
       description: new FormControl(null, [Validators.required]),
       status: new FormControl(null, [Validators.required]),
     });

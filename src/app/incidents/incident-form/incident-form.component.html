@@ -11,35 +11,36 @@
       <div class="incidents__form-body">
         <form *ngIf="action" noValidate [formGroup]="formIncident" class="edit-incident"
               (ngSubmit)="onSubmit()">
+
           <div class="form-control">
-            <label>Name:</label>
+            <label class="form-control-label">Name:</label>
               <div class="form-control" *ngIf="action === 1">
-                <input formControlName="name" type="string">
+                <input class="form-control-action" formControlName="name" type="string">
                 <div class="validtext"
                      *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
                   Name must not exceed 9 symbol.
                 </div>
               </div>
-              <div class="form-control" *ngIf="action === 2">{{formIncident.value.name}}</div>
+              <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.name}}</div>
           </div>
 
           <div class="form-control">
-            <label>Assignee:</label>
-            <select formControlName="assignee">
+            <label class="form-control-label">Assignee:</label>
+            <select class="form-control-action" formControlName="assignee">
               <option *ngFor="let user of users" [value]="user.assignee">
                 {{ user.assignee}}
               </option>
             </select>
-            <div class="validtext"
+<!--            <div class="validtext"
                  *ngIf="formIncident.controls['assignee'].invalid && formIncident.controls['assignee'].touched">
               You must select an assignee.
-            </div>
+            </div>-->
           </div>
 
           <div class="form-control">
-            <label>Area:</label>
+            <label class="form-control-label">Area:</label>
               <div class="form-control" *ngIf="action === 1">
-                <select formControlName="area">
+                <select class="form-control-action" formControlName="area">
                   <!--<option value="">Select area:</option>-->
                   <option *ngFor="let field of fields" [value]="field.area">
                     {{ field.area}}
@@ -50,42 +51,44 @@
                   You must select an area.
                 </div>
               </div>
-              <div class="form-control" *ngIf="action === 2">{{formIncident.value.area}}</div>
+              <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.area}}</div>
           </div>
 
           <div class="form-control">
-            <label>Start date:</label>
+            <label class="form-control-label">Start date:</label>
               <div class="form-control" *ngIf="action === 1">
-                <input formControlName="startDate" type="date">
+                <input class="form-control-date" formControlName="startDate" type="date">
                   <div class="validtext"
                        *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
                   </div>
               </div>
-              <div class="form-control" *ngIf="action === 2">{{formIncident.value.startDate}}</div>
+              <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.startDate}}</div>
           </div>
 
           <div class="form-control">
-            <label>Due date:</label>
-            <input formControlName="dueDate" type="date">
+            <label class="form-control-label">Due date:</label>
+            <input class="form-control-date" formControlName="dueDate" type="date">
             <div class="validtext"
                  *ngIf="formIncident.controls['dueDate'].invalid && formIncident.controls['dueDate'].touched">
+              <div *ngIf="action === 2">
+                Date must not be less than the current due date.</div>
             </div>
           </div>
 
           <div class="form-control">
-            <label>Description:</label>
+            <label class="form-control-label">Description:</label>
             <div class="form-control" *ngIf="action === 1">
-              <input formControlName="description" type="string">
+              <input class="form-control-action" formControlName="description" type="string">
               <div class="validtext"
                    *ngIf="formIncident.controls['description'].invalid && formIncident.controls['description'].touched">
               </div>
             </div>
-            <div class="form-control" *ngIf="action === 2">{{formIncident.value.description}}</div>
+            <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.description}}</div>
           </div>
 
           <div class="form-control">
-            <label>Status:</label>
-            <input formControlName="status" type="string">
+            <label class="form-control-label">Status:</label>
+            <input class="form-control-action" formControlName="status" type="string">
             <div class="validtext"
                  *ngIf="formIncident.controls['status'].invalid && formIncident.controls['status'].touched">
             </div>
