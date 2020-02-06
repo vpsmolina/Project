@@ -24,6 +24,7 @@
     color: black;
     border: solid white;
     background: white;
+    margin: 0;
     display: inline-block;
     background: rgba(255, 255, 255, 0.2);
     text-align: center;
@@ -32,6 +33,11 @@
     transition: all 0.3s ease-out;
   }
   &__button:hover {
-    color: #ed2328;
+       color: #ed2328;
+     }
+  &__button:active {
+    border: solid #ed2328;
+    background: #ed2328;
+    color: white;
   }
 }

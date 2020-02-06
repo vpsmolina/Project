@@ -19,10 +19,10 @@ export class MainComponent implements OnInit {
   constructor(@Inject(DataService) private dataService: IncidentData,
               private router: Router,
               private incidentsService: IncidentsService) {}
-  public showusers(): void {
+  public showUsers(): void {
     this.incidentsService.debug() ? this.router.navigate([`users`], {queryParams: {debug: true}}) : this.router.navigate([`users`]);
   }
-  public showevents(): void {
+  public showEvents(): void {
     this.incidentsService.debug() ? this.router.navigate([`events`], {queryParams: {debug: true}}) : this.router.navigate([`events`]);
   }
   ngOnInit(): void {

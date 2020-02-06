@@ -10,8 +10,7 @@
     <div class="incidents__form-content">
       <div class="incidents__form-body">
         <form *ngIf="action" noValidate [formGroup]="formIncident" class="edit-incident"
-              (ngSubmit)="onSubmit()"
-        >
+              (ngSubmit)="onSubmit()">
           <div class="form-control">
             <label>Name:</label>
               <div class="form-control" *ngIf="action === 1">
