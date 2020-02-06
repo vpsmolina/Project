@@ -61,12 +61,12 @@ export class IncidentFormComponent implements OnInit {
 
   public initEditIncident(): void {
     this.formIncident = new FormGroup({
-      name: new FormControl(null, [Validators.required, Validators.maxLength(9)]),
-      area: new FormControl(null, [Validators.required]),
+      name: new FormControl(null),
+      area: new FormControl(null),
       assignee: new FormControl(null),
-      startDate: new FormControl(null, [Validators.required]),
+      startDate: new FormControl(null),
       dueDate: new FormControl(null, [Validators.required, this.IncidentValidators.dateValidator]),
-      description: new FormControl(null, [Validators.required]),
+      description: new FormControl(null),
       status: new FormControl(null, [Validators.required]),
     });
     this.dataService.getIncidentById(this.incidentId).subscribe((incident) => {
