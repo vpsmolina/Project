@@ -71,8 +71,18 @@
             <input formControlName="dueDate" type="date">
             <div class="validtext"
                  *ngIf="formIncident.controls['dueDate'].invalid && formIncident.controls['dueDate'].touched">
-
             </div>
+          </div>
+
+          <div class="form-control">
+            <label>Description:</label>
+            <div class="form-control" *ngIf="action === 1">
+              <input formControlName="description" type="string">
+              <div class="validtext"
+                   *ngIf="formIncident.controls['description'].invalid && formIncident.controls['description'].touched">
+              </div>
+            </div>
+            <div class="form-control" *ngIf="action === 2">{{formIncident.value.description}}</div>
           </div>
 
           <div class="form-control">

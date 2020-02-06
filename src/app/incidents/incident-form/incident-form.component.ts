@@ -29,7 +29,7 @@ export class IncidentFormComponent implements OnInit {
   public users: User[] = UsersList;
   public fields: Field[] = FieldsList;
   public data: Incident = { name: "", area: "", assignee: "", id: 0,
-    startDate: undefined, dueDate: undefined, status: ""};
+    startDate: undefined, dueDate: undefined, status: "", description: ""};
 
   constructor(@Inject(DataService) private dataService: IncidentData,
               private router: Router, private activatedRoute: ActivatedRoute,
@@ -49,6 +49,7 @@ export class IncidentFormComponent implements OnInit {
       assignee: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
       dueDate: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required]),
       status: new FormControl(null, [Validators.required]),
     });
     this.dataService.getCountIncidents().subscribe(num => this.count = +num);
@@ -61,6 +62,7 @@ export class IncidentFormComponent implements OnInit {
       assignee: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
       dueDate: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required]),
       status: new FormControl(null, [Validators.required]),
     });
     this.dataService.getIncidentById(this.incidentId).subscribe((incident) => {
@@ -70,6 +72,7 @@ export class IncidentFormComponent implements OnInit {
         assignee: incident[0].assignee,
         startDate: this.convertDate(new Date(incident[0].startDate)),
         dueDate: this.convertDate(new Date(incident[0].dueDate)),
+        description: incident[0].description,
         status: incident[0].name,
       };
       this.data.id = incident[0].id;
@@ -94,6 +97,7 @@ export class IncidentFormComponent implements OnInit {
       this.data.area = this.formIncident.value.area;
       this.data.name = this.formIncident.value.name;
       this.data.assignee = this.formIncident.value.assignee;
+      this.data.description = this.formIncident.value.description;
       this.data.status = this.formIncident.value.status;
       this.hideForm();
       this.confirm = true;
@@ -103,6 +107,7 @@ export class IncidentFormComponent implements OnInit {
     this.data.area = this.formIncident.value.area;
     this.data.name = this.formIncident.value.name;
     this.data.assignee = this.formIncident.value.assignee;
+    this.data.description = this.formIncident.value.description;
     this.data.status = this.formIncident.value.status;
     this.hideForm();
     this.confirm = true;

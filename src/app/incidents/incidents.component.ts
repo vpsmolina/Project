@@ -60,6 +60,7 @@ export class IncidentsComponent implements OnInit {
                       incident.area = incidentform.data.area;
                       incident.startDate = incidentform.data.startDate;
                       incident.dueDate = incidentform.data.dueDate;
+                      incident.description = incidentform.data.description;
                       incident.status = incidentform.data.status;
                     }
                   });

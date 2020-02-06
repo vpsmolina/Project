@@ -7,7 +7,7 @@ export interface Incident {
   area: string;
   startDate: Date;
   dueDate: Date;
-  Description?: string;
+  description?: string;
   priority?: string;
   status: string;
 }
