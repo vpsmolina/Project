@@ -5,7 +5,7 @@ export interface Incident {
   name: string;
   assignee: string;
   area: string;
-  startDate: Date;
+  startDate: Date | number;
   dueDate: Date;
   description?: string;
   priority?: string;

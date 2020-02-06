@@ -26,8 +26,7 @@
 
           <div class="form-control">
             <label>Assignee:</label>
-            <select multiple formControlName="assignee">
-              <option value="">Select User:</option>
+            <select formControlName="assignee">
               <option *ngFor="let user of users" [value]="user.assignee">
                 {{ user.assignee}}
               </option>
@@ -41,8 +40,8 @@
           <div class="form-control">
             <label>Area:</label>
               <div class="form-control" *ngIf="action === 1">
-                <select multiple formControlName="area">
-                  <option value="">Select area:</option>
+                <select formControlName="area">
+                  <!--<option value="">Select area:</option>-->
                   <option *ngFor="let field of fields" [value]="field.area">
                     {{ field.area}}
                   </option>
@@ -61,7 +60,7 @@
                 <input formControlName="startDate" type="date">
                   <div class="validtext"
                        *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
-                </div>
+                  </div>
               </div>
               <div class="form-control" *ngIf="action === 2">{{formIncident.value.startDate}}</div>
           </div>

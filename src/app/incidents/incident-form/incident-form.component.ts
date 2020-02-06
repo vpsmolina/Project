@@ -18,6 +18,10 @@ import { IncidentEvents } from "../incidentevents";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IncidentFormComponent implements OnInit {
+
+  constructor(@Inject(DataService) private dataService: IncidentData,
+              private router: Router, private activatedRoute: ActivatedRoute,
+              private incidentsService: IncidentsService) {}
   public formIncident: FormGroup;
   public title: string;
   public incidentId: string;
@@ -30,12 +34,9 @@ export class IncidentFormComponent implements OnInit {
   public fields: Field[] = FieldsList;
   public data: Incident = { name: "", area: "", assignee: "", id: 0,
     startDate: undefined, dueDate: undefined, status: "", description: ""};
+  public today: number = Date.now();
 
-  constructor(@Inject(DataService) private dataService: IncidentData,
-              private router: Router, private activatedRoute: ActivatedRoute,
-              private incidentsService: IncidentsService) {}
-
-    public convertDate(date: Date): string {
+  public convertDate(date: Date | number): string {
     const cDate = new Date(date);
     const month = cDate.getMonth() + 1;
     const stMonth: string = (month < 10) ? "0" + month : month.toString();
@@ -44,15 +45,16 @@ export class IncidentFormComponent implements OnInit {
   }
   public initAddIncident(): void {
     this.formIncident = new FormGroup({
-      name: new FormControl(null, [Validators.required, Validators.maxLength(9)]),
+      name: new FormControl(null, [Validators.required, Validators.maxLength(17)]),
       area: new FormControl(null, [Validators.required]),
       assignee: new FormControl(null, [Validators.required]),
-      startDate: new FormControl(null, [Validators.required]),
+      startDate: new FormControl(this.convertDate(this.today), [Validators.required]),
       dueDate: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
       status: new FormControl(null, [Validators.required]),
     });
     this.dataService.getCountIncidents().subscribe(num => this.count = +num);
+    /*startDate: this.convertDate(this.today);*/
   }
 
   public initEditIncident(): void {
@@ -73,7 +75,7 @@ export class IncidentFormComponent implements OnInit {
         startDate: this.convertDate(new Date(incident[0].startDate)),
         dueDate: this.convertDate(new Date(incident[0].dueDate)),
         description: incident[0].description,
-        status: incident[0].name,
+        status: incident[0].status,
       };
       this.data.id = incident[0].id;
       this.data._id = incident[0]._id;
