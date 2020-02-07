@@ -2,8 +2,10 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/cor
 import { Router } from "@angular/router";
 import { Incident } from "../data/incident";
 import { IncidentsList } from "../data/incidents-list";
+import { ProcessComponent } from "../process/process.component";
 import { DataService } from "../services/data.service";
 import { IncidentsService } from "../services/incidents.service";
+import { UsersFormComponent } from "../users/users-form/users-form.component";
 import { IncidentData } from "./incident-data";
 import { IncidentFormComponent } from "./incident-form/incident-form.component";
 import { IncidentEvents } from "./incidentevents";
@@ -74,6 +76,7 @@ export class IncidentsComponent implements OnInit {
       }
     }
   }
+
   private _reloadIncidents(): void {
     this.dataService.getIncidents().subscribe(data => {
       this.incidents = data;

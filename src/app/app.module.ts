@@ -8,14 +8,15 @@ import { AppRoutingModule, routing } from "./app-routing.module";
 
 import { AppComponent } from "./app.component";
 import { HoverDirective } from "./incidents/hover.directive";
+import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
 import { IncidentsComponent } from "./incidents/incidents.component";
 import { MainComponent } from "./main/main.component";
 import { DataService } from "./services/data.service";
 import { IncidentTable } from "./services/incident-table.service";
 import { IncidentsService } from "./services/incidents.service";
+import { UsersFormComponent } from "./users/users-form/users-form.component";
 import { UsersComponent } from "./users/users.component";
-import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
-import { UsersFormComponent } from './users/users-form/users-form.component';
+import { ProcessComponent } from './process/process.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { UsersFormComponent } from './users/users-form/users-form.component';
     IncidentFormComponent,
     HoverDirective,
     UsersFormComponent,
+    ProcessComponent,
   ],
   imports: [
     BrowserModule,

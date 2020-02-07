@@ -4,6 +4,7 @@ import { IncidentFormComponent } from "./incidents/incident-form/incident-form.c
 
 import { IncidentsComponent } from "./incidents/incidents.component";
 import { MainComponent } from "./main/main.component";
+import { ProcessComponent } from "./process/process.component";
 import { UsersFormComponent } from "./users/users-form/users-form.component";
 import { UsersComponent } from "./users/users.component";
 
@@ -17,7 +18,7 @@ const itRoutes: Routes = [
 ];
 const childRoutes: Routes = [
   {path: "events", component: IncidentsComponent, children: itemRoutes},
-  /*{path: "add", component: IncidentFormComponent},*/
+  {path: "process", component: ProcessComponent},
   {path: "users", component: UsersComponent, children: itRoutes},
 ];
 const routes: Routes = [

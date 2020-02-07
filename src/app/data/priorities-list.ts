@@ -6,4 +6,4 @@ export const PrioritiesList: Priority[] = [
   {priority: "Major"},
   {priority: "Normal"},
   {priority: "Minor"},
-]
+];

@@ -1,11 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Incident } from "../data/incident";
-import { IncidentsList } from "../data/incidents-list";
 import { IncidentData } from "../incidents/incident-data";
-import { IncidentFormComponent } from "../incidents/incident-form/incident-form.component";
-import { IncidentEvents } from "../incidents/incidentevents";
-import { IncidentsComponent } from "../incidents/incidents.component";
 import { DataService } from "../services/data.service";
 import { IncidentsService } from "../services/incidents.service";
 
@@ -24,6 +19,9 @@ export class MainComponent implements OnInit {
   }
   public showEvents(): void {
     this.incidentsService.debug() ? this.router.navigate([`events`], {queryParams: {debug: true}}) : this.router.navigate([`events`]);
+  }
+  public showProcess(): void {
+    this.incidentsService.debug() ? this.router.navigate([`process`], {queryParams: {debug: true}}) : this.router.navigate([`process`]);
   }
   ngOnInit(): void {
   }
