@@ -37,7 +37,6 @@
             <label class="form-control-label">Area:</label>
               <div class="form-control" *ngIf="action === 1">
                 <select class="form-control-action" formControlName="area">
-                  <!--<option value="">Select area:</option>-->
                   <option *ngFor="let field of fields" [value]="field.area">
                     {{ field.area}}
                   </option>
@@ -84,10 +83,11 @@
 
           <div class="form-control">
             <label class="form-control-label">Status:</label>
-            <input class="form-control-action" formControlName="status" type="string">
-            <div class="validtext"
-                 *ngIf="formIncident.controls['status'].invalid && formIncident.controls['status'].touched">
-            </div>
+            <select class="form-control-action" formControlName="status">
+              <option *ngFor="let status of statuses" [value]="status.status">
+                {{ status.status}}
+              </option>
+            </select>
           </div>
 
           <div class="form-control">

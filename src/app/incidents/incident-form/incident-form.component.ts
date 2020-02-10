@@ -6,6 +6,8 @@ import { FieldsList } from "../../data/fields-list";
 import { Incident } from "../../data/incident";
 import { PrioritiesList } from "../../data/priorities-list";
 import { Priority } from "../../data/priority";
+import { Status } from "../../data/status";
+import { StatusesList } from "../../data/statuses";
 import { User } from "../../data/user";
 import { UsersList } from "../../data/users-list";
 import { DataService } from "../../services/data.service";
@@ -37,6 +39,7 @@ export class IncidentFormComponent implements OnInit {
   public users: User[] = UsersList;
   public fields: Field[] = FieldsList;
   public priorities: Priority[] = PrioritiesList;
+  public statuses: Status[] = StatusesList;
   public data: Incident = { name: "", area: "", assignee: "", id: 0,
          startDate: undefined, dueDate: undefined, status: "", description: "", priority: ""};
   public today: number = Date.now();
