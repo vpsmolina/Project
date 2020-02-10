@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
-import { FilterPipe } from "./incidents/filter.pipe";
-import { HoverDirective } from "./incidents/hover.directive";
+import { FilterPipe } from "./filter.pipe";
+import { HoverDirective } from "./hover.directive";
 
 
 
@@ -13,9 +13,5 @@ import { HoverDirective } from "./incidents/hover.directive";
     HoverDirective,
     FilterPipe,
   ],
-  imports: [
-
-  ],
-  providers: [],
 })
 export class CommonModule { }

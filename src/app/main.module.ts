@@ -5,7 +5,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule, routing } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { CommonModule } from "./common.module";
+import { CommonModule } from "./common/common.module";
 import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
 import { IncidentsComponent } from "./incidents/incidents.component";
 import { ProcessComponent } from "./process/process.component";
