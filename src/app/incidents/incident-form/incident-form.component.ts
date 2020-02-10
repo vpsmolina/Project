@@ -43,6 +43,7 @@ export class IncidentFormComponent implements OnInit {
   public data: Incident = { name: "", area: "", assignee: "", id: 0,
          startDate: undefined, dueDate: undefined, status: "", description: "", priority: ""};
   public today: number = Date.now();
+  public statusStart: string = "Open";
 
   public convertDate(date: Date | number): string {
     const cDate = new Date(date);
@@ -59,7 +60,7 @@ export class IncidentFormComponent implements OnInit {
       startDate: new FormControl(this.convertDate(this.today), [Validators.required]),
       dueDate: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
-      status: new FormControl(null, [Validators.required]),
+      status: new FormControl(this.statusStart, [Validators.required]),
       priority: new FormControl(null, [Validators.required]),
     });
     this.dataService.getCountIncidents().subscribe(num => this.count = +num);

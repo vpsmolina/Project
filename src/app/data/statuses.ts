@@ -6,5 +6,6 @@ export const StatusesList: Status[] = [
   {status: "Fixed"},
   {status: "Checked"},
   {status: "Closed"},
+  {status: "Re-start"},
   {status: "Marriage"},
 ];
