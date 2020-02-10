@@ -86,9 +86,9 @@
             <div class="form-control-action" *ngIf="action === 1">{{formIncident.value.status}}
             </div>
             <div class="form-control-action-two" *ngIf="action === 2">
-            <select class="form-control-action" formControlName="status">
-              <option *ngFor="let status of statuses" [value]="status.status">
-                {{ status.status}}
+            <select class="form-control-action"  formControlName="status" >
+              <option *ngFor="let status of statuses | statusFilter: formIncident.value.status" [value]="status.status">
+                {{ status.status }}
               </option>
             </select>
             </div>

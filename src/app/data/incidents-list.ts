@@ -18,7 +18,7 @@ export const IncidentsList: Incident[] = [
     startDate: new Date("2019/1/30"),
     dueDate: new Date("2020/2/7"),
     description: "Write a technical task.",
-    status: "Close",
+    status: "Closed",
     priority: "Normal"
   },
   {"_id": "id000003", id: 3,
