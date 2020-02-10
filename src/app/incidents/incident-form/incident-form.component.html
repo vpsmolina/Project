@@ -21,7 +21,7 @@
                   Name must not exceed 9 symbol.
                 </div>
               </div>
-              <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.name}}</div>
+              <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.name}}</div>
           </div>
 
           <div class="form-control">
@@ -47,7 +47,7 @@
                   You must select an area.
                 </div>
               </div>
-              <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.area}}</div>
+              <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.area}}</div>
           </div>
 
           <div class="form-control">
@@ -58,7 +58,7 @@
                        *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
                   </div>
               </div>
-              <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.startDate}}</div>
+              <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.startDate}}</div>
           </div>
 
           <div class="form-control">
@@ -79,7 +79,7 @@
                    *ngIf="formIncident.controls['description'].invalid && formIncident.controls['description'].touched">
               </div>
             </div>
-            <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.description}}</div>
+            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.description}}</div>
           </div>
 
           <div class="form-control">
@@ -102,11 +102,10 @@
                    *ngIf="formIncident.controls['priority'].invalid && formIncident.controls['priority'].touched">
               </div>
             </div>
-            <div class="form-control-action" *ngIf="action === 2">{{formIncident.value.priority}}</div>
+            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.priority}}</div>
           </div>
 
-          <button class="transparent-button"
-                  routerLink="/events">Back</button>
+          <button class="transparent-button" routerLink="/events">Back</button>
           <button class="transparent-button" *ngIf="action===1" type="submit">Add event</button>
           <button class="transparent-button" *ngIf="action===2" type="submit">Edit event</button>
         </form>

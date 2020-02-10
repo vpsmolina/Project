@@ -13,7 +13,12 @@
     <div *ngFor="let incident of incidents;" (click)="editIncident(incident._id)"
          class="events__table-body-row" appHover>
       <div class="events__table-body-column">
-        <div class="events__table-readonly" >{{incident.svg}} </div>
+        <div class="events__table-readonly" >{{incident.svg}}
+          <svg width="22" height="22">
+            <circle r="8" cx="11" cy="12"
+                    fill="orangered" stroke="crimson" stroke-width="3" />
+          </svg>
+        </div>
       </div>
       <div class="events__table-body-column">
         <div class="events__table-readonly">{{incident.name}}</div>
@@ -36,3 +41,5 @@
   </div>
 </div>
 <router-outlet (deactivate)="actions($event)"></router-outlet>
+
+

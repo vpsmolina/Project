@@ -15,7 +15,7 @@
       transition: all 0.3s ease-out;
     }
     &-button:hover {
-      color: #ed2328;
+      color: slategray;
     }
     &-header {
       display: flex;
@@ -57,43 +57,9 @@
 }
 .hovered {
   transform: scale(1.01);
-  box-shadow: 0 0 4px rgba(0, 0, 0, .4);
+ /* box-shadow: 0 0 4px rgba(0, 0, 0, .4);*/
   /*transition: .2s all;*/
   z-index: 10;
+  background-color: gainsboro;
 }
 
-.red {
-  background-color: red;
-}
-.green {
-  background-color: green;
-}
-.orange {
-  background-color: orange;
-}
-.yellow {
-  background-color: yellow;
-}
-.sphere {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 500%;
-  position: relative;
-  box-shadow: inset -1px -1px 10px #000, 1px 1px 2px black, inset 0px 0px 1px black;
-  display: inline-block;
-  margin: 5%;
-}
-.sphere::after {
-  background-color: rgba(255, 255, 255, 0.3);
-  content: '';
-  height: 45%;
-  width: 12%;
-  position: absolute;
-  top: 4%;
-  left: 15%;
-  border-radius: 50%;
-  transform: rotate(40deg);
-}
