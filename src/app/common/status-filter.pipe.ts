@@ -23,7 +23,7 @@ export class StatusFilterPipe implements PipeTransform {
       return statuses = statuses.filter(status => status.status === "Additional information received" || status.status === "Closed" || status.status === "Additional information");
     }
     if (value === "Additional information received") {
-      return statuses = statuses.filter(status => status.status === "Additional information received" || status.status === "Closed" || status.status === "Re-start");
+      return statuses = statuses.filter(status => status.status === "Additional information received" || status.status === "Closed" || status.status === "Re-start" || status.status === "Checked");
     }
     if (value === "Checked") {
       return statuses = statuses.filter(status => status.status === "Checked" || status.status === "Closed" || status.status === "Resolved");

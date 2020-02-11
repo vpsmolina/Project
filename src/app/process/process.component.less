@@ -1,14 +1,23 @@
 .process {
+
   &__table {
     width: 70%;
     margin: auto;
 
-    &-box {
-      width: 100px;
-      padding: 10px;
-      margin: 10px;
-      border: 2px solid black;
+
+    &-header {
+      display: flex;
+      flex-wrap: nowrap;
+
+      &-column {
+        flex: 0 1 calc((100vw - 40px) / 4);
+        padding: 6px;
+
+        &:first-child {
+          flex: 40px;
+        }
+
+      }
     }
   }
-
 }

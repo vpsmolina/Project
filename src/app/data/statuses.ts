@@ -1,13 +1,13 @@
 import { Status } from "./status";
 
 export const StatusesList: Status[] = [
-  {status: "Open"}, /*grey*/
-  {status: "In operation"}, /*green*/
-  {status: "Additional information"}, /*Yellow*/
-  {status: "Additional information received"}, /*Yellow*/
-  {status: "Resolved"}, /*green*/
-  {status: "Checked"}, /*green*/
-  {status: "Closed"}, /*Red*/
-  {status: "Re-start"}, /*Grey*/
-  {status: "Marriage"}, /*Red*/
+  {status: "Open", description: ""}, /*grey*/
+  {status: "In operation", description: " "}, /*green*/
+  {status: "Additional information", description: ""}, /*Yellow*/
+  {status: "Additional information received", description: ""}, /*Yellow*/
+  {status: "Resolved", description: ""}, /*green*/
+  {status: "Checked", description: ""}, /*green*/
+  {status: "Closed", description: ""}, /*Red*/
+  {status: "Re-start", description: ""}, /*Grey*/
+  {status: "Marriage", description: ""}, /*Red*/
 ];

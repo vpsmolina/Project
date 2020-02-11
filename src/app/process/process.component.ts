@@ -1,11 +1,6 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Incident } from "../data/incident";
-import { IncidentsList } from "../data/incidents-list";
 import { IncidentData } from "../incidents/incident-data";
-import { IncidentFormComponent } from "../incidents/incident-form/incident-form.component";
-import { IncidentEvents } from "../incidents/incidentevents";
 import { DataService } from "../services/data.service";
 import { IncidentsService } from "../services/incidents.service";
 
