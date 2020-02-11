@@ -2,10 +2,8 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/cor
 import { Router } from "@angular/router";
 import { Incident } from "../data/incident";
 import { IncidentsList } from "../data/incidents-list";
-import { ProcessComponent } from "../process/process.component";
 import { DataService } from "../services/data.service";
 import { IncidentsService } from "../services/incidents.service";
-import { UsersFormComponent } from "../users/users-form/users-form.component";
 import { IncidentData } from "./incident-data";
 import { IncidentFormComponent } from "./incident-form/incident-form.component";
 import { IncidentEvents } from "./incidentevents";
@@ -31,10 +29,7 @@ export class IncidentsComponent implements OnInit {
   public hideForm(displayed: boolean): void {
     this.isDisplayed = displayed;
   }
-/*  public addForm(displayed: boolean): void {
-    this.isDisplayed = !displayed;
-    this.action = IncidentEvents.add;
-  }*/
+
   public addIncident(): void {
     this.incidentsService.debug() ? this.router.navigate([`events/add`], {queryParams: {debug: true}}) : this.router.navigate([`events/add`]);
   }

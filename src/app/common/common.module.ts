@@ -1,17 +1,20 @@
 import { NgModule } from "@angular/core";
-import { FilterPipe } from "./filter.pipe";
+import { ColorsvgDirective } from "./colorsvg.directive";
 import { HoverDirective } from "./hover.directive";
+import { StatusFilterPipe } from "./status-filter.pipe";
 
 
 
 @NgModule({
   declarations: [
     HoverDirective,
-    FilterPipe,
+    StatusFilterPipe,
+    ColorsvgDirective,
   ],
   exports: [
     HoverDirective,
-    FilterPipe,
+    StatusFilterPipe,
+    ColorsvgDirective,
   ],
 })
 export class CommonModule { }

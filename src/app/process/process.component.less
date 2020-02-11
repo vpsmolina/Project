@@ -1,63 +1,14 @@
 .process {
-
   &__table {
     width: 70%;
     margin: auto;
 
-    &-button {
-      color: black;
-      border: solid white;
-      background: white;
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      text-align: center;
-      text-decoration: none;
-      letter-spacing: 1px;
-      transition: all 0.3s ease-out;
+    &-box {
+      width: 100px;
+      padding: 10px;
+      margin: 10px;
+      border: 2px solid black;
     }
-
-    &-button:hover {
-      color: #ed2328;
-    }
-
-    &-header {
-      display: flex;
-      flex-wrap: nowrap;
-
-      &-status{}
-
-      &-column {
-        flex: 0 1 calc((100vw - 40px) / 7);
-        padding: 6px;
-
-        &:first-child {
-          flex: 40px;
-        }
-
-      }
-    }
-  }
-}
-.form-control {
-  display: flex;
-  flex-direction: column;
-
-
-  &-label {
-    font-weight: bold;
-  }
-  &-date {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-  }
-  &-action{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-    border-bottom: 1px solid lightgray;
   }
 
 }
