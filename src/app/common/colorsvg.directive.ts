@@ -7,6 +7,7 @@ import { StatusesList } from "../data/statuses";
 })
 export class ColorsvgDirective {
 
-  constructor(statuses: Status[] = StatusesList) {
+  constructor(statuses: Status[] = StatusesList, value: string, circleElement: SVGCircleElement) {
+
   }
 }

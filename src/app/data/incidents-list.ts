@@ -38,7 +38,7 @@ export const IncidentsList: Incident[] = [
     startDate: new Date("2020/1/3"),
     dueDate: new Date("2020/3/3"),
     description: "Preparation and setting of standards, selection of tools.",
-    status: "Open",
+    status: "Additional information received",
     priority: "Major"
   },
   {"_id": "id000005", id: 5,
@@ -48,7 +48,7 @@ export const IncidentsList: Incident[] = [
     startDate: new Date("2020/1/27"),
     dueDate: new Date("2020/4/27"),
     description: "Error Prevention and Process Improvement.",
-    status: "Open",
+    status: "Marriage",
     priority: "Critical"
   },
   {"_id": "id000006", id: 6,
