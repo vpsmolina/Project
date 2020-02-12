@@ -15,25 +15,25 @@
       <div class="events__table-body-column">
         <div class="events__table-readonly" *ngIf="incident.status === 'Closed' || incident.status === 'Marriage' ">
         <svg width="22" height="22">
-          <circle r="10" cx="11" cy="12"
+          <circle r="9" cx="11" cy="12"
                   fill="#ff2400"  />
         </svg>
       </div>
         <div class="events__table-readonly" *ngIf="incident.status === 'Additional information' || incident.status === 'Additional information received'">
           <svg width="22" height="22">
-            <circle r="10" cx="11" cy="12"
+            <circle r="9" cx="11" cy="12"
                     fill="#ffff00" />
           </svg>
         </div>
         <div class="events__table-readonly" *ngIf="incident.status === 'Checked' || incident.status === 'Resolved'|| incident.status === 'In operation'">
           <svg width="22" height="22">
-            <circle r="10" cx="11" cy="12"
+            <circle r="9" cx="11" cy="12"
                     fill="#32cd32"/>
           </svg>
         </div>
         <div class="events__table-readonly" *ngIf="incident.status === 'Open' || incident.status === 'Re-start'">
           <svg width="22" height="22">
-            <circle r="10" cx="11" cy="12"
+            <circle r="9" cx="11" cy="12"
                     fill="#808080"  />
           </svg>
         </div>
