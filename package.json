@@ -1,5 +1,5 @@
 {
-  "name": "work",
+  "name": "Project",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@ng-select/ng-select": "^3.7.2",
+    "@ngrx/store": "^8.6.0",
     "gulp": "latest",
     "gulp-typescript": "latest",
     "moment": "^2.24.0",

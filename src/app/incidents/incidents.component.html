@@ -1,5 +1,6 @@
+
 <div class="events__table">
-  <button class="events__table-button" (click)="addIncident()">Add</button>
+  <button class="events__table-button" (click)="addIncident()">Add event</button>
   <div class="events__table-header">
     <div class="events__table-header-column"></div>
     <div class="events__table-header-column">Name</div>
@@ -15,26 +16,26 @@
       <div class="events__table-body-column">
         <div class="events__table-readonly" *ngIf="incident.status === 'Closed' || incident.status === 'Marriage' ">
         <svg width="22" height="22">
-          <circle r="9" cx="11" cy="12"
-                  fill="#ff2400"  />
+          <circle r="8" cx="11" cy="12"
+                  fill="#ff2400" stroke="#f5f5dc" stroke-width="3"/>
         </svg>
       </div>
         <div class="events__table-readonly" *ngIf="incident.status === 'Additional information' || incident.status === 'Additional information received'">
           <svg width="22" height="22">
-            <circle r="9" cx="11" cy="12"
-                    fill="#ffff00" />
+            <circle r="8" cx="11" cy="12"
+                    fill="#ffff00" stroke="#f5f5dc" stroke-width="3" />
           </svg>
         </div>
         <div class="events__table-readonly" *ngIf="incident.status === 'Checked' || incident.status === 'Resolved'|| incident.status === 'In operation'">
           <svg width="22" height="22">
-            <circle r="9" cx="11" cy="12"
-                    fill="#32cd32"/>
+            <circle r="8" cx="11" cy="12"
+                    fill="#32cd32" stroke="#f5f5dc" stroke-width="3"/>
           </svg>
         </div>
         <div class="events__table-readonly" *ngIf="incident.status === 'Open' || incident.status === 'Re-start'">
           <svg width="22" height="22">
-            <circle r="9" cx="11" cy="12"
-                    fill="#808080"  />
+            <circle r="8" cx="11" cy="12"
+                    fill="#808080" stroke="#f5f5dc" stroke-width="3"/>
           </svg>
         </div>
       </div>
