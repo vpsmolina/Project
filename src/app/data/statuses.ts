@@ -1,4 +1,4 @@
-import { Status } from "./status";
+import { Status } from "../models/status";
 
 export const StatusesList: Status[] = [
   {status: "Open", description: ""}, /*grey*/

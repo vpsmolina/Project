@@ -1,11 +1,15 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { User } from "../../data/user";
+import { select, Store } from "@ngrx/store";
 import { IncidentData } from "../../incidents/incident-data";
+import { User } from "../../models/user";
 import { DataService } from "../../services/data.service";
 import { IncidentsService } from "../../services/incidents.service";
-
+import { CreateUser, GetUsers } from "../../store/actions/user.actions";
+import { getCountUser, selectUserList } from "../../store/selectors/user.selectors";
+class IAppState {
+}
 
 @Component({
   selector: "app-users-form",
@@ -17,6 +21,7 @@ export class UsersFormComponent implements OnInit {
 
   constructor(@Inject(DataService) private dataService: IncidentData,
               private router: Router, private activatedRoute: ActivatedRoute,
+              private _store: Store<IAppState>,
               private incidentsService: IncidentsService) { }
   public formUser: FormGroup;
   public count: number;
@@ -24,7 +29,7 @@ export class UsersFormComponent implements OnInit {
   public action: Number;
   public piece: string;
   public confirm: boolean = false;
-  public data: User = {login: "", password: "", position: "", birthday: undefined, assignee: ""};
+  public data: User = {id: 0, login: "", password: "", position: "", birthday: undefined, assignee: ""};
 
   public initAddUser(): void {
     this.formUser = new FormGroup({
@@ -42,6 +47,7 @@ export class UsersFormComponent implements OnInit {
       Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched());
       return false;
     }
+    this.data.id = this.data.id + 1;
     this.data.birthday = new Date(this.formUser.value.birthday );
     this.data.login = this.formUser.value.login;
     this.data.password = this.formUser.value.password;

@@ -1,4 +1,4 @@
-import { Field } from "./field";
+import { Field } from "../models/field";
 
 export const FieldsList: Field[] = [
   {area: "IT"},

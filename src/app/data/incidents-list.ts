@@ -1,4 +1,4 @@
-import { Incident } from "./incident";
+import { Incident } from "../models/incident";
 
 export const IncidentsList: Incident[] = [
   {"_id": "id000001", id: 1,

@@ -1,4 +1,4 @@
-import { Priority } from "./priority";
+import { Priority } from "../models/priority";
 
 export const PrioritiesList: Priority[] = [
   {priority: "Blocker"},

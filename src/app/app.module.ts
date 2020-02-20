@@ -2,6 +2,11 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreRouterConnectingModule } from "@ngrx/router-store";
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../environments/environment";
 
 import { AppRoutingModule, routing } from "./app-routing.module";
 
@@ -11,6 +16,8 @@ import { MainComponent } from "./main/main.component";
 import { DataService } from "./services/data.service";
 import { IncidentTable } from "./services/incident-table.service";
 import { IncidentsService } from "./services/incidents.service";
+import { IncidentEffects } from "./store/effects/incident.effects";
+import { appReducers, metaReducers } from "./store/reducers/app.reducers";
 
 
 @NgModule({
@@ -25,6 +32,10 @@ import { IncidentsService } from "./services/incidents.service";
     RouterModule,
     routing,
     MainModule,
+    StoreModule.forRoot(appReducers, {metaReducers}),
+    EffectsModule.forRoot([IncidentEffects]),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreRouterConnectingModule.forRoot({stateKey: "router"}),
   ],
 
   providers: [IncidentsService, {

@@ -1,9 +1,15 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Incident } from "../data/incident";
+import { select, Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 import { IncidentsList } from "../data/incidents-list";
+import { Incident } from "../models/incident";
+import { User } from "../models/user";
 import { DataService } from "../services/data.service";
 import { IncidentsService } from "../services/incidents.service";
+import { selectIncidentList } from "../store/selectors/incidents.selectors";
+import { selectUserList } from "../store/selectors/user.selectors";
+import { AppState } from "../store/state/app.state";
 import { IncidentData } from "./incident-data";
 import { IncidentFormComponent } from "./incident-form/incident-form.component";
 import { IncidentEvents } from "./incidentevents";
@@ -17,33 +23,38 @@ import { IncidentEvents } from "./incidentevents";
 export class IncidentsComponent implements OnInit {
   public incident: Incident;
   public incidents: Incident[] = IncidentsList;
+  public incidents$: Observable<Incident[]> = this._store.pipe(select(selectIncidentList));
   public isDisplayed: boolean;
   public action: IncidentEvents;
   public type = true;
   public index: number;
   public target: string;
 
+
   constructor(@Inject(DataService) private dataService: IncidentData,
-              private router: Router,
-              private incidentsService: IncidentsService) {}
+              private incidentsService: IncidentsService,
+              private _router: Router,
+              private _store: Store<AppState>) {
+}
   public hideForm(displayed: boolean): void {
     this.isDisplayed = displayed;
   }
 
   public addIncident(): void {
-    this.incidentsService.debug() ? this.router.navigate([`events/add`], {queryParams: {debug: true}}) : this.router.navigate([`events/add`]);
+    this.incidentsService.debug() ? this._router.navigate([`events/add`], {queryParams: {debug: true}}) : this._router.navigate([`events/add`]);
   }
   public editIncident(_id: string): void {
-    this.incidentsService.debug() ? this.router.navigate([`events/edit/${_id}`], {queryParams: {debug: true}}) : this.router.navigate([`events/edit/${_id}`]);
+    this.incidentsService.debug() ? this._router.navigate([`events/edit/${_id}`], {queryParams: {debug: true}}) : this._router.navigate([`events/edit/${_id}`]);
   }
 
   public actions(incidentform: IncidentFormComponent): void {
     switch (IncidentEvents[incidentform.piece]) {
       case 1: {
         if (incidentform.confirm) {
-          this.dataService.createIncident(incidentform.data).subscribe(() => {
-            this.incidents.push(incidentform.data);
+         this.dataService.createIncident(incidentform.data).subscribe(() => {
+           this.incidents.push(incidentform.data);
           });
+
         }
         break;
       }

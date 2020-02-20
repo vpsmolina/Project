@@ -1,18 +1,22 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Field } from "../../data/field";
+import { select, Store } from "@ngrx/store";
 import { FieldsList } from "../../data/fields-list";
-import { Incident } from "../../data/incident";
 import { PrioritiesList } from "../../data/priorities-list";
-import { Priority } from "../../data/priority";
-import { Status } from "../../data/status";
 import { StatusesList } from "../../data/statuses";
-import { User } from "../../data/user";
 import { UsersList } from "../../data/users-list";
+import { Field } from "../../models/field";
+import { Incident } from "../../models/incident";
+import { Priority } from "../../models/priority";
+import { Status } from "../../models/status";
+import { User } from "../../models/user";
 import { DataService } from "../../services/data.service";
 import { IncidentsService } from "../../services/incidents.service";
 import { ValidatorsService } from "../../services/validators.service";
+import { CreateIncident, GetIncidents } from "../../store/actions/incident.actions";
+import { getCountIncident } from "../../store/selectors/incidents.selectors";
+import { AppState } from "../../store/state/app.state";
 import { IncidentData } from "../incident-data";
 import { IncidentEvents } from "../incidentevents";
 
@@ -22,12 +26,13 @@ import { IncidentEvents } from "../incidentevents";
   styleUrls: ["./incident-form.component.less"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IncidentFormComponent implements OnInit {
+export class IncidentFormComponent implements OnInit, OnDestroy {
 
   constructor(private IncidentValidators: ValidatorsService,
               @Inject(DataService) private dataService: IncidentData,
               private router: Router, private activatedRoute: ActivatedRoute,
-              private incidentsService: IncidentsService) {}
+              private incidentsService: IncidentsService,
+              private _store: Store<AppState>) {}
   public formIncident: FormGroup;
   public title: string;
   public incidentId: string;
@@ -35,6 +40,7 @@ export class IncidentFormComponent implements OnInit {
   public action: Number;
   public piece: string;
   public count: number;
+  public incident: Incident;
   public confirm: boolean = false;
   public users: User[] = UsersList;
   public fields: Field[] = FieldsList;
@@ -68,7 +74,7 @@ export class IncidentFormComponent implements OnInit {
 
   public initEditIncident(): void {
     this.formIncident = new FormGroup({
-      name: new FormControl(null),
+      name: new FormControl(),
       area: new FormControl(null),
       assignee: new FormControl(null),
       startDate: new FormControl(null),
@@ -156,5 +162,7 @@ export class IncidentFormComponent implements OnInit {
     this.piece = this.activatedRoute.snapshot.url[0].path;
     this._action(this.piece);
   }
-
+  ngOnDestroy(): void {
+    this._store.dispatch(new GetIncidents());
+  }
 }

@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
-import { Incident } from "../data/incident";
-import { User } from "../data/user";
+import { Incident } from "../models/incident";
+import { User } from "../models/user";
 
 export interface IncidentData {
   getIncidents(): Observable<Incident[]>;
@@ -11,4 +11,5 @@ export interface IncidentData {
   getUsers(): Observable<User[]>;
   createUser(data: User): Observable<User>;
   getCountUsers(): Observable<Number>;
+  deleteUser(_id: string): Observable<User>;
 }
