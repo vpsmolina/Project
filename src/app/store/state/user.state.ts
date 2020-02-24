@@ -7,7 +7,7 @@ export interface UserState {
   count: number;
 }
 export const initialUserState: UserState = {
-  users: UsersList,
+  users: null,
   selectedUser: null,
   count: null,
 };

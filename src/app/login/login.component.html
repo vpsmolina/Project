@@ -1,0 +1,19 @@
+<div class="welcome">
+  <h2>Welcome back</h2>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
+    <div class="form-input">
+      <label class="login-form-row">
+        <span class="placeholder">Your login</span>
+        <input class="login-form-row-action" type="text" formControlName="login" required>
+      </label>
+    </div>
+    <div class="form-input">
+      <label class="login-form-row">
+        <span class="placeholder">Your password</span>
+        <input class="login-form-row-action" type="password" formControlName="password" required>
+      </label>
+    </div>
+    <button class="transparent-button" type="submit"> LogIn </button>
+  </form>
+</div>
+

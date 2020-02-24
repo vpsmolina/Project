@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/cor
 import { Router } from "@angular/router";
 import { IncidentData } from "../incidents/incident-data";
 import { DataService } from "../services/data.service";
-import { IncidentsService } from "../services/incidents.service";
 
 @Component({
   selector: "app-main",
@@ -12,16 +11,15 @@ import { IncidentsService } from "../services/incidents.service";
 })
 export class MainComponent implements OnInit {
   constructor(@Inject(DataService) private dataService: IncidentData,
-              private router: Router,
-              private incidentsService: IncidentsService) {}
+              private router: Router) {}
   public showUsers(): void {
-    this.incidentsService.debug() ? this.router.navigate([`users`], {queryParams: {debug: true}}) : this.router.navigate([`users`]);
+    this.router.navigate([`main/users`]);
   }
   public showEvents(): void {
-    this.incidentsService.debug() ? this.router.navigate([`events`], {queryParams: {debug: true}}) : this.router.navigate([`events`]);
+    this.router.navigate([`main/events`]);
   }
   public showProcess(): void {
-    this.incidentsService.debug() ? this.router.navigate([`process`], {queryParams: {debug: true}}) : this.router.navigate([`process`]);
+    this.router.navigate([`main/process`]);
   }
   ngOnInit(): void {
   }

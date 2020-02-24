@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
 import { AppRoutingModule, routing } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { LoginComponent } from "./login/login.component";
 import { CommonModule } from "./common/common.module";
 import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
 import { IncidentsComponent } from "./incidents/incidents.component";
@@ -26,6 +27,7 @@ import { UsersComponent } from "./users/users.component";
     IncidentsComponent,
     IncidentFormComponent,
     UsersFormComponent,
+    LoginComponent,
   ],
   exports: [
   ],
@@ -38,10 +40,6 @@ import { UsersComponent } from "./users/users.component";
     RouterModule,
     routing,
     CommonModule,
-    StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([IncidentEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreRouterConnectingModule.forRoot({stateKey: "router"}),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,11 +4,11 @@ import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { IncidentsList } from "../data/incidents-list";
 import { Incident } from "../models/incident";
-import { User } from "../models/user";
 import { DataService } from "../services/data.service";
-import { IncidentsService } from "../services/incidents.service";
+import { TableService } from "../services/table.service";
+import { GetIncidents } from "../store/actions/incident.actions";
+import { GetUsers } from "../store/actions/user.actions";
 import { selectIncidentList } from "../store/selectors/incidents.selectors";
-import { selectUserList } from "../store/selectors/user.selectors";
 import { AppState } from "../store/state/app.state";
 import { IncidentData } from "./incident-data";
 import { IncidentFormComponent } from "./incident-form/incident-form.component";
@@ -31,8 +31,7 @@ export class IncidentsComponent implements OnInit {
   public target: string;
 
 
-  constructor(@Inject(DataService) private dataService: IncidentData,
-              private incidentsService: IncidentsService,
+  constructor(@Inject(TableService) private dataService: IncidentData,
               private _router: Router,
               private _store: Store<AppState>) {
 }
@@ -41,10 +40,10 @@ export class IncidentsComponent implements OnInit {
   }
 
   public addIncident(): void {
-    this.incidentsService.debug() ? this._router.navigate([`events/add`], {queryParams: {debug: true}}) : this._router.navigate([`events/add`]);
+    this._router.navigate([`main/events/add`]);
   }
   public editIncident(_id: string): void {
-    this.incidentsService.debug() ? this._router.navigate([`events/edit/${_id}`], {queryParams: {debug: true}}) : this._router.navigate([`events/edit/${_id}`]);
+    this._router.navigate([`main/events/edit/${_id}`]);
   }
 
   public actions(incidentform: IncidentFormComponent): void {
@@ -89,7 +88,8 @@ export class IncidentsComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this._reloadIncidents();
+    /*this._reloadIncidents();*/
+    this._store.dispatch(new GetIncidents());
   }
 
 }

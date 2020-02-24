@@ -1,4 +1,3 @@
-import { IncidentsList } from "../../data/incidents-list";
 import { Incident } from "../../models/incident";
 
 export interface IncidentState {
@@ -8,7 +7,7 @@ export interface IncidentState {
 }
 
 export const initialIncidentState: IncidentState = {
-  incidents: IncidentsList,
+  incidents: null,
   selectedIncident: null,
   count: null,
 };

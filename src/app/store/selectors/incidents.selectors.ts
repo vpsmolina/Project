@@ -7,10 +7,6 @@ export const selectIncidentList = createSelector(
   selectIncidents,
   (state: IncidentState) => state.incidents,
 );
-export const selectSelectedIncident = createSelector(
-  selectIncidents,
-  (state: IncidentState) => state.selectedIncident,
-);
 export const getCountIncident = createSelector(
   selectIncidents,
   (state: IncidentState) => state.count,

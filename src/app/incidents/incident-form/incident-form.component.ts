@@ -12,7 +12,7 @@ import { Priority } from "../../models/priority";
 import { Status } from "../../models/status";
 import { User } from "../../models/user";
 import { DataService } from "../../services/data.service";
-import { IncidentsService } from "../../services/incidents.service";
+import { TableService } from "../../services/table.service";
 import { ValidatorsService } from "../../services/validators.service";
 import { CreateIncident, GetIncidents } from "../../store/actions/incident.actions";
 import { getCountIncident } from "../../store/selectors/incidents.selectors";
@@ -29,9 +29,8 @@ import { IncidentEvents } from "../incidentevents";
 export class IncidentFormComponent implements OnInit, OnDestroy {
 
   constructor(private IncidentValidators: ValidatorsService,
-              @Inject(DataService) private dataService: IncidentData,
+              @Inject(TableService) private dataService: IncidentData,
               private router: Router, private activatedRoute: ActivatedRoute,
-              private incidentsService: IncidentsService,
               private _store: Store<AppState>) {}
   public formIncident: FormGroup;
   public title: string;
@@ -107,9 +106,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
       return false;
     }
     if (this.action === 1) {
-      if (this.incidentsService.debug()) {
-        this.data._id = "id00000" + this.count;
-      }
+      this.data._id = "id00000" + this.count;
       this.data.id = this.count + 1;
       this.data.startDate = new Date(this.formIncident.value.startDate);
       this.data.dueDate = new Date(this.formIncident.value.dueDate);
@@ -133,7 +130,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
     this.confirm = true;
   }
   public hideForm(): void {
-    this.incidentsService.debug() ? this.router.navigate(["events"], {queryParams: {debug: true}}) : this.router.navigate(["events"]);
+    this.router.navigate(["main/events"]);
     this.confirm = false;
   }
 

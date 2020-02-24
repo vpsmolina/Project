@@ -9,8 +9,8 @@
   <div class="users__form-dialog">
     <div class="users__form-content">
       <div class="users__form-body">
-        <form *ngIf="action" noValidate [formGroup]="formUser" class="edit-incident"
-              (ngSubmit)="onSubmit()">
+        <form  *ngIf="!confirm; else confirmTemplate"noValidate [formGroup]="formUser" class="edit-incident"
+              (ngSubmit)="submitForm()">
 
           <div class="form-control">
             <label class="form-control-label">Login:</label>
@@ -38,9 +38,9 @@
 
           <div class="form-control">
             <label class="form-control-label">User:</label>
-            <input class="form-control-action" formControlName="assignee" type="string">
+            <input class="form-control-action" formControlName="surname" type="string">
             <div class="validtext"
-                 *ngIf="formUser.controls['assignee'].invalid && formUser.controls['assignee'].touched">
+                 *ngIf="formUser.controls['surname'].invalid && formUser.controls['surname'].touched">
                   Name must not contain numbers.
             </div>
           </div>
@@ -53,11 +53,14 @@
             </div>
           </div>
           <button class="transparent-button"
-                  routerLink="/users">Back</button>
-          <button class="transparent-button" *ngIf="action===1" type="submit">Add user</button>
+                  routerLink="/main/users">Back</button>
+          <button class="transparent-button" type="submit">Add user</button>
 
         </form>
-
+        <ng-template #confirmTemplate>
+          <p>Do you want to delete user?</p>
+          <button class="transparent-button" (click)="delete()">Delete</button><button class="transparent-button" routerLink="/main/users">Cancel</button>
+        </ng-template>
       </div>
     </div>
 
@@ -66,4 +69,4 @@
 
 </body>
 </html>
-<router-outlet></router-outlet>
+

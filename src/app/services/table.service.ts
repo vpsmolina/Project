@@ -1,18 +1,20 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { toArray } from "rxjs/operators";
 import { IncidentsList } from "../data/incidents-list";
 import { UsersList } from "../data/users-list";
 import { IncidentData } from "../incidents/incident-data";
+import { Auth } from "../models/auth";
 import { Incident } from "../models/incident";
-import { User } from "../models/user";
+import { User, UserAuth } from "../models/user";
 import { DataService } from "./data.service";
 
 @Injectable({
   // providedIn: DataService
    providedIn: "root"})
 
-export class IncidentTable implements IncidentData {
+export class TableService implements IncidentData {
   private _incidents: Incident[] = IncidentsList;
   private _incident: Incident;
   private _users: User[] = UsersList;

@@ -13,11 +13,10 @@ import { AppRoutingModule, routing } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MainModule } from "./main.module";
 import { MainComponent } from "./main/main.component";
-import { DataService } from "./services/data.service";
-import { IncidentTable } from "./services/incident-table.service";
-import { IncidentsService } from "./services/incidents.service";
+import { AuthEffects } from "./store/effects/auth.effects";
 import { IncidentEffects } from "./store/effects/incident.effects";
-import { appReducers, metaReducers } from "./store/reducers/app.reducers";
+import { UserEffects } from "./store/effects/user.effects";
+import { appReducers } from "./store/reducers/app.reducers";
 
 
 @NgModule({
@@ -32,20 +31,21 @@ import { appReducers, metaReducers } from "./store/reducers/app.reducers";
     RouterModule,
     routing,
     MainModule,
-    StoreModule.forRoot(appReducers, {metaReducers}),
-    EffectsModule.forRoot([IncidentEffects]),
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([IncidentEffects, UserEffects, AuthEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({stateKey: "router"}),
   ],
 
-  providers: [IncidentsService, {
+/*  providers: [IncidentsService, {
     provide: DataService, deps: [IncidentsService, HttpClient],
     useFactory: (incidentsService) => {
       if (incidentsService.debug()) {
         return new IncidentTable();
       }
     }
-  }],
+  }],*/
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@ import { select, Store } from "@ngrx/store";
 import { of } from "rxjs";
 import { map, switchMap, withLatestFrom } from "rxjs/operators";
 import { User } from "../../models/user";
-import { IncidentTable } from "../../services/incident-table.service";
+import { TableService } from "../../services/table.service";
 import { CreateUser, CreateUserSuccess, DeleteUser, DeleteUserSuccess, EUserActions, GetUser, GetUsers, GetUsersSuccess, GetUserSuccess } from "../actions/user.actions";
 import { selectUserList } from "../selectors/user.selectors";
 import { AppState } from "../state/app.state";
@@ -45,7 +45,7 @@ export class UserEffects {
       switchMap(() => of(new DeleteUserSuccess(id))),
     )),
   );
-  constructor(private _usersService: IncidentTable,
+  constructor(private _usersService: TableService,
               private _actions$: Actions,
               private _store: Store<AppState>) {
   }

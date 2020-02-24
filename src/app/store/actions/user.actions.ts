@@ -11,6 +11,7 @@ export enum EUserActions {
   GetCountUsers = "[Users] Get count users",
   DeleteUser = "[Users List] Delete user",
   DeleteUserSuccess = "[Users List] Delete user success",
+  ResetDataUsers = "[User] Reset data user"
 }
 export class GetUsers implements Action {
   public readonly type = EUserActions.GetUsers;
@@ -43,8 +44,11 @@ export class DeleteUserSuccess implements Action {
   public readonly type = EUserActions.DeleteUserSuccess;
   constructor(public payload: string) {}
 }
+export class ResetDataUser implements Action {
+  public readonly type = EUserActions.ResetDataUsers;
+}
 export type UserActions =
   GetUser | GetUserSuccess |
   GetUsers | GetUsersSuccess |
   CreateUser | CreateUserSuccess |
-  DeleteUser | DeleteUserSuccess;
+  DeleteUser | DeleteUserSuccess | ResetDataUser;

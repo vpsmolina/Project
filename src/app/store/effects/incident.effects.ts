@@ -4,7 +4,7 @@ import { select, Store } from "@ngrx/store";
 import { of } from "rxjs";
 import { map, switchMap, withLatestFrom } from "rxjs/operators";
 import { Incident } from "../../models/incident";
-import { IncidentTable } from "../../services/incident-table.service";
+import { TableService } from "../../services/table.service";
 import { CreateIncident, CreateIncidentSuccess, EIncidentActions, GetIncident, GetIncidents, GetIncidentsSuccess, GetIncidentSuccess, UpdateIncident, UpdateIncidentSuccess } from "../actions/incident.actions";
 import { selectIncidentList } from "../selectors/incidents.selectors";
 import { AppState } from "../state/app.state";
@@ -45,7 +45,7 @@ export class IncidentEffects {
       switchMap(() => of(new UpdateIncidentSuccess(action))),
     )),
   );
-  constructor(private _incidentsService: IncidentTable,
+  constructor(private _incidentsService: TableService,
               private _actions$: Actions,
               private _store: Store<AppState>) {
   }

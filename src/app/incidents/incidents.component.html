@@ -11,7 +11,7 @@
     <div class="events__table-header-column">Status</div>
   </div>
   <div class="events__table-body">
-    <div *ngFor="let incident of incidents;" (click)="editIncident(incident._id)"
+    <div *ngFor="let incident of incidents$ | async;" (click)="editIncident(incident._id)"
          class="events__table-body-row" appHover>
       <div class="events__table-body-column">
         <div class="events__table-readonly" *ngIf="incident.status === 'Closed' || incident.status === 'Marriage' ">

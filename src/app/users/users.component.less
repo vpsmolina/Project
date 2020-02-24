@@ -24,10 +24,11 @@
       flex-wrap: nowrap;
 
       &-column {
-        flex: 0 1 calc((100vw - 40px) / 3);
+        flex: 0 1 calc((100vw - 40px) / 4);
         padding: 6px;
-
-
+        &:last-child {
+          flex: 40px;
+        }
       }
     }
 
@@ -44,10 +45,12 @@
 
       }
       &-column {
-        flex: 0 1 calc((100vw - 40px) / 3);
+        flex: 0 1 calc((100vw - 40px) / 4);
         padding: 8px;
         display: flex;
-
+        &:last-child {
+          flex: 40px;
+        }
       }
 
     }

@@ -3,7 +3,12 @@ export interface User {
   id?: number;
   login?: string;
   password?: string;
-  position: string;
-  assignee: string;
-  birthday: Date;
+  position?: string;
+  surname: string;
+  birthday?: Date;
+}
+export interface UserAuth {
+  login?: string;
+  password?: string;
+  token?: string;
 }
