@@ -8,7 +8,7 @@ import { Auth } from "../../models/auth";
 import { User, UserAuth } from "../../models/user";
 import { AuthService } from "../../services/auth.service";
 import { TableService } from "../../services/table.service";
-import { AuthUser, AuthUserSuccess, EAuthActions, GetDataUser, GetDataUserSuccess, LogInFail, UserLogOut } from "../actions/auth.actions";
+import { AuthUser, AuthUserSuccess, EAuthActions, LogInFail, UserLogOut } from "../actions/auth.actions";
 import { ResetDataUser } from "../actions/user.actions";
 import { getAuthData } from "../selectors/user.selectors";
 import { AppState } from "../state/app.state";
@@ -25,14 +25,7 @@ export class AuthEffects {
       tap(() => this.router.navigate(["/"])),
     )),
   );
-  @Effect()
-  getDataUser$ = this._actions$.pipe(
-    ofType<GetDataUser>(EAuthActions.GetDataUser),
-    switchMap(() => this._store.pipe(select(getAuthData))),
-    switchMap((action: AuthState) => this._userService.logIn(action.login, action.token).pipe(
-      switchMap((result: User) => of(new GetDataUserSuccess(result))),
-    )),
-  );
+
   @Effect()
   userLogOut$ = this._actions$.pipe(
     ofType<UserLogOut>(EAuthActions.UserLogOut),

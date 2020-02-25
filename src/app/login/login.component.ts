@@ -10,7 +10,7 @@ import { AppState } from "../store/state/app.state";
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.less"]
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   constructor(private fb: FormBuilder, private _store: Store<AppState>, private router: Router) { }
   public initAuthFrom(): void {
@@ -32,8 +32,5 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.initAuthFrom();
-  }
-  ngOnDestroy(): void {
-    /*this._store.dispatch(new GetDataUser());*/
   }
 }

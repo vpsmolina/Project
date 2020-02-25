@@ -82,11 +82,11 @@ export class IncidentsComponent implements OnInit {
     }
   }
 
-  private _reloadIncidents(): void {
+/*  private _reloadIncidents(): void {
     this.dataService.getIncidents().subscribe(data => {
       this.incidents = data;
     });
-  }
+  }*/
   ngOnInit(): void {
     /*this._reloadIncidents();*/
     this._store.dispatch(new GetIncidents());

@@ -1,4 +1,4 @@
 export interface Auth {
   expressIn?: number;
-  token?: string;
+  token: string;
 }

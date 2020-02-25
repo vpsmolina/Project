@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LoginComponent } from "./login/login.component";
-import { AuthGuard } from "./login/auth.guard";
 import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
+import { AuthGuard } from "./login/auth.guard";
+import { LoginComponent } from "./login/login.component";
 
 import { IncidentsComponent } from "./incidents/incidents.component";
 import { MainComponent } from "./main/main.component";

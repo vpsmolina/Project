@@ -11,15 +11,7 @@ export function authReducers (state: AuthState = initialAuthState, action: AuthA
         isLogged: true
       };
     }
-    case EAuthActions.GetDataUserSuccess: {
-      return {
-        ...state,
-        user: {
-          login: action.payload.login,
-          surname: action.payload.surname
-        }
-      };
-    }
+
     case EAuthActions.UserLogOut: {
       return {
         ...state,
