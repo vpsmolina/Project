@@ -11,13 +11,11 @@ import { Incident } from "../../models/incident";
 import { Priority } from "../../models/priority";
 import { Status } from "../../models/status";
 import { User } from "../../models/user";
-import { DataService } from "../../services/data.service";
 import { TableService } from "../../services/table.service";
 import { ValidatorsService } from "../../services/validators.service";
 import { CreateIncident, GetIncidents } from "../../store/actions/incident.actions";
-import { getCountIncident } from "../../store/selectors/incidents.selectors";
 import { AppState } from "../../store/state/app.state";
-import { IncidentData } from "../incident-data";
+import { IncidentData } from "../../models/incident-data";
 import { IncidentEvents } from "../incidentevents";
 
 @Component({

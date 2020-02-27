@@ -8,7 +8,6 @@ export enum EUserActions {
   GetUserSuccess = "[Users] Get user success",
   CreateUser = "[Create Users] Create users",
   CreateUserSuccess = "[Create Users] Create users success",
-  GetCountUsers = "[Users] Get count users",
   DeleteUser = "[Users List] Delete user",
   DeleteUserSuccess = "[Users List] Delete user success",
   ResetDataUsers = "[User] Reset data user"

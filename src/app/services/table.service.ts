@@ -1,17 +1,13 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { toArray } from "rxjs/operators";
 import { IncidentsList } from "../data/incidents-list";
 import { UsersList } from "../data/users-list";
-import { IncidentData } from "../incidents/incident-data";
-import { Auth } from "../models/auth";
+import { IncidentData } from "../models/incident-data";
 import { Incident } from "../models/incident";
-import { User, UserAuth } from "../models/user";
-import { DataService } from "./data.service";
+import { User } from "../models/user";
 
 @Injectable({
-  // providedIn: DataService
    providedIn: "root"})
 
 export class TableService implements IncidentData {
@@ -50,9 +46,11 @@ export class TableService implements IncidentData {
     });
     return of(this._incident);
   }
+
   public getUsers(): Observable<User[]> {
     return of(this._users);
   }
+
   public createUser(data: User): Observable<User> {
     return of(data);
   }
@@ -60,6 +58,7 @@ export class TableService implements IncidentData {
   public getCountUsers(): Observable<Number> {
     return of(this._users.length);
   }
+
   public deleteUser(_id: string): Observable<User> {
     this._users = this._users.filter(user => user._id !== _id ? this._user = user : this._user = null);
     return of(this._user);

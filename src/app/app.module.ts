@@ -37,15 +37,6 @@ import { appReducers } from "./store/reducers/app.reducers";
     StoreRouterConnectingModule.forRoot({stateKey: "router"}),
   ],
 
-/*  providers: [IncidentsService, {
-    provide: DataService, deps: [IncidentsService, HttpClient],
-    useFactory: (incidentsService) => {
-      if (incidentsService.debug()) {
-        return new IncidentTable();
-      }
-    }
-  }],*/
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }

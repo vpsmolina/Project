@@ -13,10 +13,7 @@ export const getCountUser = createSelector(
   selectUsers,
   (state: UserState) => state.count,
 );
-export const getAuthData = createSelector(
-  tokenUser,
-  (state: AuthState) => state,
-);
+
 export const getLoggedUser = createSelector(
   tokenUser,
   (state: AuthState) => state.isLogged,

@@ -4,13 +4,11 @@ import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { IncidentsList } from "../data/incidents-list";
 import { Incident } from "../models/incident";
-import { DataService } from "../services/data.service";
 import { TableService } from "../services/table.service";
 import { GetIncidents } from "../store/actions/incident.actions";
-import { GetUsers } from "../store/actions/user.actions";
 import { selectIncidentList } from "../store/selectors/incidents.selectors";
 import { AppState } from "../store/state/app.state";
-import { IncidentData } from "./incident-data";
+import { IncidentData } from "../models/incident-data";
 import { IncidentFormComponent } from "./incident-form/incident-form.component";
 import { IncidentEvents } from "./incidentevents";
 
@@ -35,9 +33,6 @@ export class IncidentsComponent implements OnInit {
               private _router: Router,
               private _store: Store<AppState>) {
 }
-  public hideForm(displayed: boolean): void {
-    this.isDisplayed = displayed;
-  }
 
   public addIncident(): void {
     this._router.navigate([`main/events/add`]);

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { IncidentData } from "../incidents/incident-data";
+import { IncidentData } from "../models/incident-data";
 import { DataService } from "../services/data.service";
 
 @Component({

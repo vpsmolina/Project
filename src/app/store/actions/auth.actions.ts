@@ -13,10 +13,8 @@ export class AuthUser implements Action {
 }
 export class AuthUserSuccess implements Action {
   public readonly type = EAuthActions.AuthUserSuccess;
-
   constructor(public payload: { login: string; token: string }) {}
 }
-
 export class LogInFail implements Action {
   public readonly type = EAuthActions.logInFail;
 }
@@ -27,4 +25,4 @@ export type AuthActions =
   AuthUser |
   AuthUserSuccess |
   LogInFail |
-  UserLogOut ;
+  UserLogOut;

@@ -10,7 +10,6 @@ export enum EIncidentActions {
   CreateIncidentsSuccess = "[Create/Edit Incident] Create incidents success",
   UpdateIncident = "[Create/Edit Incident] Update incidents",
   UpdateIncidentSuccess = "[Create/Edit Incident] Update incidents success",
-  GetCountIncidents = "[Incidents] Get count incidents",
 }
 export class GetIncidents implements Action {
   public readonly type = EIncidentActions.GetIncidents;

@@ -18,7 +18,7 @@
         <div class="users__table-readonly">{{user.birthday | date: 'dd-MM-yyyy'}}</div>
       </div>
       <div class="users__table-body-column">
-        <button class="users__table-readonly" (click)="delete(user._id)"></button>
+        <button class="users__table-readonly users__table-button-delete" (click)="delete(user._id)"></button>
       </div>
     </div>
 

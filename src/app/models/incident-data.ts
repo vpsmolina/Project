@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
-import { Incident } from "../models/incident";
-import { User } from "../models/user";
+import { Incident } from "./incident";
+import { User } from "./user";
 
 export interface IncidentData {
   getIncidents(): Observable<Incident[]>;

@@ -10,5 +10,5 @@ export interface User {
 export interface UserAuth {
   login?: string;
   password?: string;
-  token?: string;
+  token: string;
 }

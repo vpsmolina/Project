@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 import { ActivatedRoute, Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { UsersList } from "../../data/users-list";
-import { IncidentData } from "../../incidents/incident-data";
+import { IncidentData } from "../../models/incident-data";
 import { User } from "../../models/user";
 import { DataService } from "../../services/data.service";
 import { CreateUser, DeleteUser, GetUsers } from "../../store/actions/user.actions";
@@ -23,11 +23,8 @@ enum Action {
 })
 export class UsersFormComponent implements OnInit, OnDestroy {
   public formUser: FormGroup;
-  public title: string;
   public action: Number;
-  public piece: string;
   public confirm: boolean = false;
-  /*public users: User[] = UsersList;*/
   public id: number;
 
   constructor(@Inject(DataService) private dataService: IncidentData,
@@ -68,12 +65,10 @@ export class UsersFormComponent implements OnInit, OnDestroy {
     switch (event) {
       case Action.delete: {
         this.confirm = true;
-        this.title = "Deletion Confirmation";
         break;
       }
       case Action.add: {
         this.initAddUserForm();
-        this.title = "Add student";
         this._store.pipe(select(getCountUser)).subscribe(count => this.id = count).unsubscribe();
         break;
       }

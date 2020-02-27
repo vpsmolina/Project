@@ -1,18 +1,15 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Actions, Effect, ofType } from "@ngrx/effects";
-import { select, Store } from "@ngrx/store";
-import { Observable, of } from "rxjs";
+import { Store } from "@ngrx/store";
+import { of } from "rxjs";
 import { map, switchMap, tap } from "rxjs/operators";
 import { Auth } from "../../models/auth";
-import { User, UserAuth } from "../../models/user";
+import { UserAuth } from "../../models/user";
 import { AuthService } from "../../services/auth.service";
-import { TableService } from "../../services/table.service";
-import { AuthUser, AuthUserSuccess, EAuthActions, LogInFail, UserLogOut } from "../actions/auth.actions";
+import { AuthUser, AuthUserSuccess, EAuthActions,  UserLogOut } from "../actions/auth.actions";
 import { ResetDataUser } from "../actions/user.actions";
-import { getAuthData } from "../selectors/user.selectors";
 import { AppState } from "../state/app.state";
-import { AuthState } from "../state/auth.state";
 
 @Injectable()
 export class AuthEffects {

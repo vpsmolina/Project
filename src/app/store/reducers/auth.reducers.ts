@@ -6,12 +6,11 @@ export function authReducers (state: AuthState = initialAuthState, action: AuthA
     case EAuthActions.AuthUserSuccess: {
       return {
         ...state,
+        isLogged: true,
         token: action.payload.token,
         login: action.payload.login,
-        isLogged: true
       };
     }
-
     case EAuthActions.UserLogOut: {
       return {
         ...state,

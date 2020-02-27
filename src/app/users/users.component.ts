@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { UsersList } from "../data/users-list";
-import { IncidentData } from "../incidents/incident-data";
+import { IncidentData } from "../models/incident-data";
 import { User } from "../models/user";
 import { DataService } from "../services/data.service";
 import { GetUsers } from "../store/actions/user.actions";

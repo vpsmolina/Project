@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
       return false;
     }
     this._store.dispatch(new AuthUser(this.loginForm.value));
-    this.router.navigate(["main"]);
   }
   ngOnInit(): void {
     this.initAuthFrom();
