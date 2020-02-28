@@ -4,11 +4,11 @@ import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { IncidentsList } from "../data/incidents-list";
 import { Incident } from "../models/incident";
+import { IncidentData } from "../models/incident-data";
 import { TableService } from "../services/table.service";
 import { GetIncidents } from "../store/actions/incident.actions";
 import { selectIncidentList } from "../store/selectors/incidents.selectors";
 import { AppState } from "../store/state/app.state";
-import { IncidentData } from "../models/incident-data";
 import { IncidentFormComponent } from "./incident-form/incident-form.component";
 import { IncidentEvents } from "./incidentevents";
 

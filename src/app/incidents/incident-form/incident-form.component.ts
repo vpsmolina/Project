@@ -8,6 +8,7 @@ import { StatusesList } from "../../data/statuses";
 import { UsersList } from "../../data/users-list";
 import { Field } from "../../models/field";
 import { Incident } from "../../models/incident";
+import { IncidentData } from "../../models/incident-data";
 import { Priority } from "../../models/priority";
 import { Status } from "../../models/status";
 import { User } from "../../models/user";
@@ -15,7 +16,6 @@ import { TableService } from "../../services/table.service";
 import { ValidatorsService } from "../../services/validators.service";
 import { CreateIncident, GetIncidents } from "../../store/actions/incident.actions";
 import { AppState } from "../../store/state/app.state";
-import { IncidentData } from "../../models/incident-data";
 import { IncidentEvents } from "../incidentevents";
 
 @Component({

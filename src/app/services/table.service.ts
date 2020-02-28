@@ -3,8 +3,8 @@ import { Observable, of } from "rxjs";
 import { toArray } from "rxjs/operators";
 import { IncidentsList } from "../data/incidents-list";
 import { UsersList } from "../data/users-list";
-import { IncidentData } from "../models/incident-data";
 import { Incident } from "../models/incident";
+import { IncidentData } from "../models/incident-data";
 import { User } from "../models/user";
 
 @Injectable({
