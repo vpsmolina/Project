@@ -19,6 +19,15 @@ export function authReducers (state: AuthState = initialAuthState, action: AuthA
         token: null
       };
     }
+    case EAuthActions.GetDataUserSuccess: {
+      return {
+        ...state,
+        user: {
+          login: action.payload.login,
+          surname: action.payload.surname,
+        }
+      };
+    }
     default: {
       return state;
     }

@@ -9,6 +9,7 @@ export interface User {
 }
 export interface UserAuth {
   login?: string;
+  surname?: string;
   password?: string;
   token: string;
 }

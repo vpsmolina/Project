@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { getLoggedUser } from "../store/selectors/user.selectors";
-import { AppState } from "../store/state/app.state";
+import { getLoggedUser } from "../../store/selectors/user.selectors";
+import { AppState } from "../../store/state/app.state";
 
 @Injectable({
   providedIn: "root"
@@ -14,8 +14,7 @@ export class AuthGuard implements CanActivate {
   }
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | boolean {
-
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     this._store.pipe(select(getLoggedUser)).subscribe(logged => {
       this.isLogged = logged;
     });

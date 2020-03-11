@@ -3,15 +3,16 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
-import { AppRoutingModule, routing } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { CommonModule } from "./common/common.module";
-import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
-import { IncidentsComponent } from "./incidents/incidents.component";
+import { AppRoutingModule, routing } from "../app-routing.module";
+import { AppComponent } from "../app.component";
+import { CommonModule } from "../common/common.module";
+import { IncidentFormComponent } from "../incidents/incident-form/incident-form.component";
+import { IncidentsComponent } from "../incidents/incidents.component";
+import { ProcessComponent } from "../process/process.component";
+import { UsersFormComponent } from "../users/users-form/users-form.component";
+import { UsersComponent } from "../users/users.component";
 import { LoginComponent } from "./login/login.component";
-import { ProcessComponent } from "./process/process.component";
-import { UsersFormComponent } from "./users/users-form/users-form.component";
-import { UsersComponent } from "./users/users.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UsersComponent } from "./users/users.component";
     IncidentFormComponent,
     UsersFormComponent,
     LoginComponent,
+    NotFoundComponent,
   ],
   exports: [
   ],

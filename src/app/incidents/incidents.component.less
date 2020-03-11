@@ -1,6 +1,11 @@
 .events {
 
   &__table {
+    @media (max-width: 500px) {
+      width: 100%;
+      margin: auto;
+      font-size: 12px;
+    }
     width: 70%;
     margin: auto;
     background: white;
@@ -29,7 +34,15 @@
         &:first-child {
           flex: 40px;
         }
-
+        @media (max-width: 500px) {
+          flex: 0 1 calc((100vw - 40px) / 7);
+          padding: 2px;
+          display: flex;
+          word-wrap: break-word;
+          &:first-child {
+            flex: 15px;
+          }
+        }
       }
     }
 
@@ -46,14 +59,27 @@
 
       }
       &-column {
+
         flex: 0 1 calc((100vw - 40px) / 7);
         padding: 8px;
         display: flex;
         &:first-child {
           flex: 40px;
         }
+        @media (max-width: 500px) {
+          flex: 0 1 calc((100vw - 40px) / 7);
+          padding: 4px;
+          display: flex;
+          word-wrap: break-word;
+          &:first-child {
+            flex: 15px;
+          }
+        }
       }
 
+    }
+    &-readonly {
+      word-wrap: break-word;
     }
   }
 }
