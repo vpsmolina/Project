@@ -1,14 +1,14 @@
 .events {
 
   &__table {
-    @media (max-width: 500px) {
-      width: 100%;
-      margin: auto;
-      font-size: 12px;
-    }
     width: 70%;
     margin: auto;
     background: white;
+    @media (max-width: 575px) {
+      width: 100%;
+      margin: auto;
+      font-size: 14px;
+    }
     &-button {
       color: black;
       padding: 10px;
@@ -34,9 +34,9 @@
         &:first-child {
           flex: 40px;
         }
-        @media (max-width: 500px) {
-          flex: 0 1 calc((100vw - 40px) / 7);
-          padding: 2px;
+        @media (max-width: 575px) {
+          flex: 0 1 calc((100vw - 40px) / 2);
+          padding: 6px;
           display: flex;
           word-wrap: break-word;
           &:first-child {
@@ -66,8 +66,8 @@
         &:first-child {
           flex: 40px;
         }
-        @media (max-width: 500px) {
-          flex: 0 1 calc((100vw - 40px) / 7);
+        @media (max-width: 575px) {
+          flex: 0 1 calc((100vw - 40px) / 2);
           padding: 4px;
           display: flex;
           word-wrap: break-word;
@@ -81,6 +81,11 @@
     &-readonly {
       word-wrap: break-word;
     }
+  }
+}
+.hidden {
+  @media (max-width: 575px) {
+    display: none;
   }
 }
 .hovered {

@@ -1,8 +1,9 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
 import { AuthGuard } from "./component/login/auth.guard";
 import { LoginComponent } from "./component/login/login.component";
+import { NotFoundComponent } from "./component/not-found/not-found.component";
+import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
 
 import { IncidentsComponent } from "./incidents/incidents.component";
 import { MainComponent } from "./main/main.component";
@@ -27,6 +28,8 @@ const routes: Routes = [
   { path: "", redirectTo: "/main" , pathMatch: "full"},
   { path: "main", component: MainComponent, children: childRoutes, canActivate: [AuthGuard]},
   { path: "login", component: LoginComponent},
+  { path: "404", component: NotFoundComponent },
+  { path: "**", redirectTo: "/404"},
 ];
 
 export const routing = RouterModule.forRoot(routes);

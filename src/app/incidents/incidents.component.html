@@ -5,10 +5,10 @@
     <div class="events__table-header-column"></div>
     <div class="events__table-header-column">Name</div>
     <div class="events__table-header-column">Assignee</div>
-    <div class="events__table-header-column">Area</div>
-    <div class="events__table-header-column">Start date</div>
-    <div class="events__table-header-column">Due date</div>
-    <div class="events__table-header-column">Status</div>
+    <div class="events__table-header-column hidden">Area</div>
+    <div class="events__table-header-column hidden">Start date</div>
+    <div class="events__table-header-column hidden">Due date</div>
+    <div class="events__table-header-column hidden">Status</div>
   </div>
   <div class="events__table-body">
     <div *ngFor="let incident of incidents$ | async;" (click)="editIncident(incident._id)"
@@ -45,16 +45,16 @@
       <div class="events__table-body-column">
         <div class="events__table-readonly">{{incident.assignee}}</div>
       </div>
-      <div class="events__table-body-column">
+      <div class="events__table-body-column hidden">
         <div class="events__table-readonly">{{incident.area}}</div>
       </div>
-      <div class="events__table-body-column">
+      <div class="events__table-body-column hidden">
         <div class="events__table-readonly">{{incident.startDate | date: 'dd-MM-yyyy'}}</div>
       </div>
-      <div class="events__table-body-column">
+      <div class="events__table-body-column hidden ">
         <div class="events__table-readonly">{{incident.dueDate | date: 'dd-MM-yyyy'}}</div>
       </div>
-      <div class="events__table-body-column">
+      <div class="events__table-body-column hidden">
         <div class="events__table-readonly">{{incident.status}}  </div></div>
     </div>
   </div>
