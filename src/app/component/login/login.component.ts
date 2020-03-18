@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { AuthUser, GetDataUser } from "../../store/actions/auth.actions";
@@ -15,8 +15,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private fb: FormBuilder, private _store: Store<AppState>, private router: Router) { }
   public initAuthFrom(): void {
     this.loginForm = this.fb.group({
-      login: [""],
-      password: [""]
+      login: ["", [ Validators.required, Validators.pattern(/^[A-z0-9]*$/)]],
+      password: ["", [Validators.required, Validators.minLength(6)],
+      ]
     });
     this.loginForm.setValue({login: "vpsmolina", password: "123456789"});
   }

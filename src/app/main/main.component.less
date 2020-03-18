@@ -1,5 +1,6 @@
+@import "./../../styles/variables";
 .header {
-  background: white;
+  background: @white;
   height: 80px;
   position: relative;
   margin-bottom: 10px;
@@ -11,8 +12,8 @@
     width: 88px;
     margin: 20px 0 0 60px;
     /*margin-top: 37px;*/
-    background: black;
-    color: white;
+    background: @black;
+    color: @white;
     align-items: center;
     position: absolute;
     padding: 10px 0;
@@ -24,21 +25,21 @@
 }
 .tab {
   width: 70%;
-  background: white;
+  background: @white;
   margin: auto;
   padding: 10px 0 10px 0;
   display: flex;
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
+  border-top: 1px solid @lightgray;
+  border-bottom: 1px solid @lightgray;
   @media (max-width: 575px) {
     width: 100%;
     margin: auto;
   }
 
   &__button {
-    color: black;
-    border: solid white;
-    background: white;
+    color: @black;
+    border: solid @white;
+    background: @white;
     margin: 0;
     display: inline-block;
     background: rgba(255, 255, 255, 0.2);
@@ -48,11 +49,11 @@
     transition: all 0.3s ease-out;
   }
   &__button:hover {
-       color: slategray;
+       color: @slategray;
      }
   &__button:active {
-    border: solid slategray;
-    background: slategray;
-    color: white;
+    border: solid @slategray;
+    background: @slategray;
+    color: @white;
   }
 }

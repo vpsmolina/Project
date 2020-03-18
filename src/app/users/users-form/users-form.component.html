@@ -6,11 +6,10 @@
 </head>
 <body>
 <div class="users__form visible">
-  <div class="users__form-dialog">
     <div class="users__form-content">
       <div class="users__form-body">
         <form  *ngIf="!confirm; else confirmTemplate"noValidate [formGroup]="formUser" class="edit-incident"
-              (ngSubmit)="submitForm()">
+               (ngSubmit)="submitForm()">
 
           <div class="form-control">
             <label class="form-control-label">Login:</label>
@@ -41,13 +40,13 @@
             <input class="form-control-action" formControlName="surname" type="string">
             <div class="validtext"
                  *ngIf="formUser.controls['surname'].invalid && formUser.controls['surname'].touched">
-                  Name must not contain numbers.
+              Name must not contain numbers.
             </div>
           </div>
 
           <div class="form-control">
             <label class="form-control-label">Birthday:</label>
-            <input class="form-control-date" formControlName="birthday" type="date">
+            <input class="form-control-action" formControlName="birthday" type="date">
             <div class="validtext"
                  *ngIf="formUser.controls['birthday'].invalid && formUser.controls['birthday'].touched">
             </div>
@@ -64,7 +63,6 @@
       </div>
     </div>
 
-  </div>
 </div>
 
 </body>

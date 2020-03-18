@@ -14,14 +14,14 @@
 
           <div class="form-control">
             <label class="form-control-label">Name:</label>
-              <div class="form-control" *ngIf="action === 1">
-                <input class="form-control-action" formControlName="name" type="string">
-                <div class="validtext"
-                     *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
-                  Name must not exceed 9 symbol.
-                </div>
+            <div class="form-control" *ngIf="action === 1">
+              <input class="form-control-action" formControlName="name" type="string">
+              <div class="validtext"
+                   *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
+                Name must not exceed 9 symbol.
               </div>
-              <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.name}}</div>
+            </div>
+            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.name}}</div>
           </div>
 
           <div class="form-control">
@@ -35,29 +35,29 @@
 
           <div class="form-control">
             <label class="form-control-label">Area:</label>
-              <div class="form-control" *ngIf="action === 1">
-                <select class="form-control-action" formControlName="area">
-                  <option *ngFor="let field of fields" [value]="field.area">
-                    {{ field.area}}
-                  </option>
-                </select>
-                <div class="validtext"
-                     *ngIf="formIncident.controls['area'].invalid && formIncident.controls['area'].touched">
-                  You must select an area.
-                </div>
+            <div class="form-control" *ngIf="action === 1">
+              <select class="form-control-action" formControlName="area">
+                <option *ngFor="let field of fields" [value]="field.area">
+                  {{ field.area}}
+                </option>
+              </select>
+              <div class="validtext"
+                   *ngIf="formIncident.controls['area'].invalid && formIncident.controls['area'].touched">
+                You must select an area.
               </div>
-              <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.area}}</div>
+            </div>
+            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.area}}</div>
           </div>
 
           <div class="form-control">
             <label class="form-control-label">Start date:</label>
-              <div class="form-control" *ngIf="action === 1">
-                <input class="form-control-date" formControlName="startDate" type="date">
-                  <div class="validtext"
-                       *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
-                  </div>
+            <div class="form-control" *ngIf="action === 1">
+              <input class="form-control-date" formControlName="startDate" type="date">
+              <div class="validtext"
+                   *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
               </div>
-              <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.startDate |  date: 'dd-MM-yyyy'}}</div>
+            </div>
+            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.startDate |  date: 'dd-MM-yyyy'}}</div>
           </div>
 
           <div class="form-control">
@@ -86,22 +86,22 @@
             <div class="form-control-action" *ngIf="action === 1">{{formIncident.value.status}}
             </div>
             <div class="form-control-action-two" *ngIf="action === 2">
-            <select class="form-control-action"  formControlName="status" >
-              <option *ngFor="let status of statuses | statusFilter: formIncident.value.status" [value]="status.status">
-                {{ status.status }}
-              </option>
-            </select>
+              <select class="form-control-action"  formControlName="status" >
+                <option *ngFor="let status of statuses | statusFilter: formIncident.value.status" [value]="status.status">
+                  {{ status.status }}
+                </option>
+              </select>
             </div>
           </div>
 
           <div class="form-control">
             <label class="form-control-label">Priority:</label>
             <div class="form-control" *ngIf="action === 1">
-            <select class="form-control-action" formControlName="priority">
-              <option *ngFor="let priority of priorities" [value]="priority.priority">
-                {{ priority.priority}}
-              </option>
-            </select>
+              <select class="form-control-action" formControlName="priority">
+                <option *ngFor="let priority of priorities" [value]="priority.priority">
+                  {{ priority.priority}}
+                </option>
+              </select>
               <div class="validtext"
                    *ngIf="formIncident.controls['priority'].invalid && formIncident.controls['priority'].touched">
               </div>

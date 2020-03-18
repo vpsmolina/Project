@@ -1,19 +1,22 @@
+@import "./../../styles/variables";
 .events {
 
   &__table {
     width: 70%;
     margin: auto;
-    background: white;
+    background: @white;
+    list-style: none;
     @media (max-width: 575px) {
       width: 100%;
       margin: auto;
       font-size: 14px;
     }
+
     &-button {
-      color: black;
+      color: @black;
       padding: 10px;
-      border: solid white;
-      background: white;
+      border: solid @white;
+      background: @white;
       display: inline-block;
       background: rgba(255, 255, 255, 0.2);
       text-align: center;
@@ -22,18 +25,21 @@
       transition: all 0.3s ease-out;
     }
     &-button:hover {
-      color: slategray;
+      color: @slategray;
     }
     &-header {
       display: flex;
       flex-wrap: nowrap;
 
+
       &-column {
         flex: 0 1 calc((100vw - 40px) / 7);
         padding: 6px;
+        text-align: left;
         &:first-child {
-          flex: 40px;
+          flex: 50px;
         }
+
         @media (max-width: 575px) {
           flex: 0 1 calc((100vw - 40px) / 2);
           padding: 6px;
@@ -49,17 +55,16 @@
     &-body {
       &-row {
         display: flex;
-        border: 1px solid black;
+        border: 1px solid @black;
         border-bottom: none;
         flex-wrap: nowrap;
 
         &:last-child {
-          border: 1px solid black;
+          border: 1px solid @black;
         }
 
       }
       &-column {
-
         flex: 0 1 calc((100vw - 40px) / 7);
         padding: 8px;
         display: flex;
@@ -78,9 +83,6 @@
       }
 
     }
-    &-readonly {
-      word-wrap: break-word;
-    }
   }
 }
 .hidden {
@@ -90,9 +92,7 @@
 }
 .hovered {
   transform: scale(1.01);
- /* box-shadow: 0 0 4px rgba(0, 0, 0, .4);*/
-  /*transition: .2s all;*/
   z-index: 10;
-  background-color: gainsboro;
+  background-color: @gainsboro;
 }
 

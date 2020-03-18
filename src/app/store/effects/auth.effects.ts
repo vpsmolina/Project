@@ -29,6 +29,14 @@ export class AuthEffects {
     ofType<UserLogOut>(EAuthActions.UserLogOut),
     switchMap(() => of(new ResetDataUser())),
   );
+/*  @Effect()
+  getUserData$ = this._actions$.pipe(
+    ofType<GetDataUser>(EAuthActions.GetDataUser),
+    switchMap(() => this._store.pipe(select(getAuthData))),
+    switchMap((action: AuthState) => this._userService.getAuthUser(action., action.token).pipe(
+      switchMap((result: User) => of(new GetDataUserSuccess(result))),
+    )),
+  );*/
 
   constructor(
     private _userService: AuthService,

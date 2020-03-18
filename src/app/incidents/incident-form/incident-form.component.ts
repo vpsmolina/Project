@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { select, Store } from "@ngrx/store";
+import { Store } from "@ngrx/store";
 import { FieldsList } from "../../data/fields-list";
 import { PrioritiesList } from "../../data/priorities-list";
 import { StatusesList } from "../../data/statuses";
@@ -14,7 +14,7 @@ import { Status } from "../../models/status";
 import { User } from "../../models/user";
 import { TableService } from "../../services/table.service";
 import { ValidatorsService } from "../../services/validators.service";
-import { CreateIncident, GetIncidents } from "../../store/actions/incident.actions";
+import { GetIncidents } from "../../store/actions/incident.actions";
 import { AppState } from "../../store/state/app.state";
 import { IncidentEvents } from "../incidentevents";
 
@@ -44,7 +44,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
   public priorities: Priority[] = PrioritiesList;
   public statuses: Status[] = StatusesList;
   public data: Incident = { name: "", area: "", assignee: "", id: 0,
-         startDate: undefined, dueDate: undefined, status: "", description: "", priority: ""};
+    startDate: undefined, dueDate: undefined, status: "", description: "", priority: ""};
   public today: number = Date.now();
   public statusStart: string = "Open";
 

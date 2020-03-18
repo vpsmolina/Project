@@ -1,3 +1,4 @@
+@import "./../../../styles/variables";
 .users__form {
   position: fixed;
   top: 0;
@@ -11,43 +12,33 @@
   pointer-events: none;
   margin: 0;
   padding: 0;
-  &-dialog{
+
+  &-content{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: @white;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
     width: auto;
     margin: 10px;
     @media (min-width: 576px) {
       max-width: 500px;
       margin: 30px auto;
     }
-  }
-  &-content{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: .3rem;
-    outline: 0;
     @media (min-width: 768px) {
       box-shadow: 0 5px 15px rgba(0,0,0,.5);
     }
   }
   &-body{
     position: relative;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 15px;
     overflow: auto;
   }
-  .form-group{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-bottom: 10px;
-  }
+
 
 }
 .visible{
@@ -62,17 +53,11 @@
 
   &-label {
     font-weight: bold;
-  }
-  &-date {
-    margin-top: 5px;
-    margin-bottom: 5px;
     padding: 5px;
   }
+
   &-action{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px 0;
     padding: 5px;
   }
 
@@ -82,34 +67,13 @@
   display: flex;
   flex-direction: column;
 }
-.primary{
-  /*
-  border: 1px solid #6c757d;
-  color: #000;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  */
-  margin: 0 2px auto;
-  padding: 8px;
-  width: 80%;
-  max-width: 200px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  letter-spacing: 1px;
-  transition: all 0.3s ease-out;
-}
-.primary:hover{
-  background-color: slategray;
-  color: #fff;
-}
+
 
 .validtext {
   visibility: visible;
   width: 100%;
-  background-color: lightgray;
-  color: black;
+  background-color: @lightgray;
+  color: @black;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
@@ -118,10 +82,10 @@
   margin-bottom: 5px;
 }
 input.ng-touched.ng-invalid{
-  border:solid lightgray 2px;
+  border:solid @hex 2px;
 }
 input.ng-touched.ng-valid{
-  border:solid mediumseagreen 2px;
+  border:solid @lightgray 2px;
 }
 
 .transparent-button {
@@ -131,12 +95,12 @@ input.ng-touched.ng-valid{
   width: 100%;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
-  color: slategray;
+  color: @slategray;
   letter-spacing: 1px;
   transition: all 0.3s ease-out;
 }
 .transparent-button:hover{
-  background-color: slategray;
-  color: #fff;
+  background-color: @slategray;
+  color: @white;
 }
 

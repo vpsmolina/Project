@@ -4,7 +4,7 @@ export interface User {
   login?: string;
   password?: string;
   position?: string;
-  surname: string;
+  surname?: string;
   birthday?: Date;
 }
 export interface UserAuth {

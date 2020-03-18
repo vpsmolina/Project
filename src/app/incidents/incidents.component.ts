@@ -32,7 +32,7 @@ export class IncidentsComponent implements OnInit {
   constructor(@Inject(TableService) private dataService: IncidentData,
               private _router: Router,
               private _store: Store<AppState>) {
-}
+  }
 
   public addIncident(): void {
     this._router.navigate([`main/events/add`]);
@@ -45,8 +45,8 @@ export class IncidentsComponent implements OnInit {
     switch (IncidentEvents[incidentform.piece]) {
       case 1: {
         if (incidentform.confirm) {
-         this.dataService.createIncident(incidentform.data).subscribe(() => {
-           this.incidents.push(incidentform.data);
+          this.dataService.createIncident(incidentform.data).subscribe(() => {
+            this.incidents.push(incidentform.data);
           });
 
         }

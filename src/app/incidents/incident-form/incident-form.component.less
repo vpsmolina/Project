@@ -1,3 +1,4 @@
+@import "./../../../styles/variables";
 .incidents__form {
   position: fixed;
   top: 0;
@@ -24,7 +25,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: @white;
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: .3rem;
@@ -80,7 +81,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid @lightgray;
     }
   }
 
@@ -102,22 +103,22 @@
   max-width: 200px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
-  color: black;
+  color: @black;
   text-align: center;
   text-decoration: none;
   letter-spacing: 1px;
   transition: all 0.3s ease-out;
 }
 .primary:hover{
-  background-color: slategray;
-  color: #fff;
+  background-color: @slategray;
+  color: @white;
 }
 
 .validtext {
   visibility: visible;
   width: 100%;
-  background-color: lightgray;
-  color: black;
+  background-color: @lightgray;
+  color: @black;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
@@ -126,10 +127,10 @@
   margin-bottom: 5px;
 }
 input.ng-touched.ng-invalid{
-  border:solid lightgray 2px;
+  border:solid @hex 2px;
 }
 input.ng-touched.ng-valid{
-  border:solid mediumseagreen 2px;
+  border:solid @lightgray 2px;
 }
 
 .transparent-button {
@@ -140,13 +141,13 @@ input.ng-touched.ng-valid{
   /*max-width: 200px;*/
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
-  color: slategray;
+  color: @slategray;
   text-align-all: center;
   letter-spacing: 1px;
   transition: all 0.3s ease-out;
 }
 .transparent-button:hover{
-  background-color: slategray;
-  color: #fff;
+  background-color: @slategray;
+  color: @white;
 }
 
