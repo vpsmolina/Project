@@ -5,7 +5,6 @@
     width: 70%;
     margin: auto;
     background: @white;
-    list-style: none;
     @media (max-width: 575px) {
       width: 100%;
       margin: auto;
@@ -28,16 +27,15 @@
       color: @slategray;
     }
     &-header {
-      display: flex;
-      flex-wrap: nowrap;
-
 
       &-column {
+        display: flex;
+        flex-wrap: nowrap;
         flex: 0 1 calc((100vw - 40px) / 7);
         padding: 6px;
         text-align: left;
         &:first-child {
-          flex: 50px;
+          flex: 40px;
         }
 
         @media (max-width: 575px) {
@@ -94,5 +92,9 @@
   transform: scale(1.01);
   z-index: 10;
   background-color: @gainsboro;
+}
+ul,
+li {
+  list-style: none;
 }
 

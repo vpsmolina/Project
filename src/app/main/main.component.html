@@ -6,32 +6,30 @@
 </head>
 <header>
   <div class="header">
-    <div class="header__name">PROJECT</div>
+    <div class="header__name">{{ 'MAIN.PROJECT' | translate }}</div>
+    <div class="header__lang">
+      <label>{{ 'LANGUAGES.TITLE' | translate }}</label>
+      <select (change)="changeLocale()" [(ngModel)]="selectedLanguage">
+        <option *ngFor="let language of languages" [value]="language.id">{{ language.title }}</option>
+      </select>
+    </div>
   </div>
 </header>
 <main>
   <div class="tab">
     <div class="tab__event">
-      <button class="tab__button" (click)="showEvents()">Events</button>
+      <button class="tab__button" (click)="showEvents()">{{ 'MAIN.EVENTS' | translate }}</button>
     </div>
     <div class="tab__process">
-      <button class="tab__button" (click)="showProcess()">Process</button>
+      <button class="tab__button" (click)="showProcess()">{{ 'MAIN.PROCESS' | translate }}</button>
     </div>
     <div class="tab__users">
-      <button class="tab__button" (click)="showUsers()">Users</button>
+      <button class="tab__button" (click)="showUsers()">{{ 'MAIN.USERS' | translate }}</button>
     </div>
   </div>
 </main>
 
-<!--<app-events></app-events>-->
+
 </html>
 <router-outlet></router-outlet>
-<!--<router-outlet (deactivate)="actions($event)"></router-outlet>-->
 
-<!--<div>
-  <div class="sphere red"></div>
-  <div class="sphere green"></div>
-  <div class="sphere orange"></div>
-  <div class="sphere yellow"></div>
-  <div class="sphere"></div>
-</div>-->

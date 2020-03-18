@@ -1,0 +1,42 @@
+
+{
+  "LANGUAGES": {
+    "EN": "English",
+    "RU": "Russian",
+    "TITLE": "Language"
+
+  },
+  "MAIN": {
+    "PROJECT": "PROJECT",
+    "EVENTS": "Events",
+    "PROCESS": "Process",
+    "USERS": "Users"
+  },
+  "INCIDENTS": {
+    "NAME": "Name",
+    "ASSIGNEE": "Events",
+    "AREA": "Process",
+    "STARTDATE": "Startdate",
+    "DUEDATE": "Due date",
+    "STATUS": "Status",
+    "ADDEVENT": "Add event",
+    "DESCRIPTION": "Description",
+    "PRIORITY": "Priority",
+    "ADDINCIDENT": "Add incident",
+    "EDITINCIDENT": "Edit incident"
+  },
+  "USERS": {
+    "POSITION": "Position",
+    "USER": "User",
+    "BIRTHDAY": "Birthday",
+    "ADDUSER": "Add user"
+  },
+  "USERSFORM": {
+    "LOGIN": "Login:",
+    "PASSWORD": "Password:",
+    "BACK": "Back",
+    "DOYOUWANT": "Do you want to delete user?",
+    "DELETE": "Delete",
+    "CANCEL": "Cancel"
+  }
+}

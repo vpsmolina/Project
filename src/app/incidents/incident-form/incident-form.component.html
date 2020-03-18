@@ -13,7 +13,7 @@
               (ngSubmit)="onSubmit()">
 
           <div class="form-control">
-            <label class="form-control-label">Name:</label>
+            <label class="form-control-label">{{ 'INCIDENTS.NAME' | translate }}:</label>
             <div class="form-control" *ngIf="action === 1">
               <input class="form-control-action" formControlName="name" type="string">
               <div class="validtext"
@@ -25,7 +25,7 @@
           </div>
 
           <div class="form-control">
-            <label class="form-control-label">Assignee:</label>
+            <label class="form-control-label">{{ 'INCIDENTS.ASSIGNEE' | translate }}:</label>
             <select class="form-control-action" formControlName="assignee">
               <option *ngFor="let user of users" [value]="user.surname">
                 {{ user.surname}}
@@ -34,7 +34,7 @@
           </div>
 
           <div class="form-control">
-            <label class="form-control-label">Area:</label>
+            <label class="form-control-label">{{ 'INCIDENTS.AREA' | translate }}:</label>
             <div class="form-control" *ngIf="action === 1">
               <select class="form-control-action" formControlName="area">
                 <option *ngFor="let field of fields" [value]="field.area">
@@ -50,7 +50,7 @@
           </div>
 
           <div class="form-control">
-            <label class="form-control-label">Start date:</label>
+            <label class="form-control-label">{{ 'INCIDENTS.STARTDATE' | translate }}:</label>
             <div class="form-control" *ngIf="action === 1">
               <input class="form-control-date" formControlName="startDate" type="date">
               <div class="validtext"
@@ -61,7 +61,7 @@
           </div>
 
           <div class="form-control">
-            <label class="form-control-label">Due date:</label>
+            <label class="form-control-label">{{ 'INCIDENTS.DUEDATE' | translate }}:</label>
             <input class="form-control-date" formControlName="dueDate" type="date">
             <div class="validtext"
                  *ngIf="formIncident.controls['dueDate'].invalid && formIncident.controls['dueDate'].touched">
@@ -71,7 +71,7 @@
           </div>
 
           <div class="form-control">
-            <label class="form-control-label">Description:</label>
+            <label class="form-control-label">{{ 'INCIDENTS.DESCRIPTION' | translate }}:</label>
             <div class="form-control" *ngIf="action === 1">
               <input class="form-control-action" formControlName="description" type="string">
               <div class="validtext"
@@ -82,7 +82,7 @@
           </div>
 
           <div class="form-control">
-            <label class="form-control-label">Status:</label>
+            <label class="form-control-label">{{ 'INCIDENTS.STATUS' | translate }}:</label>
             <div class="form-control-action" *ngIf="action === 1">{{formIncident.value.status}}
             </div>
             <div class="form-control-action-two" *ngIf="action === 2">
@@ -109,9 +109,9 @@
             <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.priority}}</div>
           </div>
 
-          <button class="transparent-button" routerLink="/main/events">Back</button>
-          <button class="transparent-button" *ngIf="action===1" type="submit">Add event</button>
-          <button class="transparent-button" *ngIf="action===2" type="submit">Edit event</button>
+          <button class="transparent-button" routerLink="/main/events">{{ 'USERSFORM.BACK' | translate }}</button>
+          <button class="transparent-button" *ngIf="action===1" type="submit">{{ 'INCIDENTS.ADDINCIDENT' | translate }}</button>
+          <button class="transparent-button" *ngIf="action===2" type="submit">{{ 'INCIDENTS.EDITINCIDENT' | translate }}</button>
         </form>
 
       </div>

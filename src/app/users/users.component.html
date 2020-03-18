@@ -1,10 +1,10 @@
 <div class="users__table">
-  <button class="users__table-button" (click)="addUser()">Add user</button>
+  <button class="users__table-button" (click)="addUser()">{{ 'USERS.ADDUSER' | translate }}</button>
   <div class="users__table-header">
-    <div class="users__table-header-column">Position</div>
-    <div class="users__table-header-column">User</div>
-    <div class="users__table-header-column">Birthday</div>
-    <div class="users__table-header-column"></div>
+    <li class="users__table-header-column">{{ 'USERS.POSITION' | translate }}</li>
+    <li class="users__table-header-column">{{ 'USERS.USER' | translate }}</li>
+    <li class="users__table-header-column">{{ 'USERS.BIRTHDAY' | translate }}</li>
+    <li class="users__table-header-column"></li>
   </div>
   <div class="users__table-body">
     <div *ngFor="let user of users$ | async;" class="users__table-body-row" >

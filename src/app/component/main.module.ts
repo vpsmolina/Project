@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
+import { TranslateModule } from "@ngx-translate/core";
 import { AppRoutingModule, routing } from "../app-routing.module";
 import { AppComponent } from "../app.component";
 import { CommonModule } from "../common/common.module";
@@ -26,16 +27,17 @@ import { NotFoundComponent } from "./not-found/not-found.component";
   ],
   exports: [
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    routing,
-    CommonModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        routing,
+        CommonModule,
+        TranslateModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

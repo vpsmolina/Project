@@ -31,7 +31,7 @@ export class IncidentsComponent implements OnInit {
 
   constructor(@Inject(TableService) private dataService: IncidentData,
               private _router: Router,
-              private _store: Store<AppState>) {
+              private _store: Store<AppState>,) {
   }
 
   public addIncident(): void {

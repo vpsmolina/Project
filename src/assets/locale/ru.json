@@ -1,0 +1,43 @@
+{
+  "COMMON": {
+    "HEADER": "Пример использования библиотеки Ngx Translate"
+  },
+  "LANGUAGES": {
+    "EN": "Английский",
+    "RU": "Русский",
+    "TITLE": "Язык"
+  },
+  "MAIN": {
+    "PROJECT": "ПРОЕКТ",
+    "EVENTS": "Инциденты",
+    "PROCESS": "Процесс",
+    "USERS": "Пользователи"
+  },
+  "INCIDENTS": {
+    "NAME": "Имя",
+    "ASSIGNEE": "Должность",
+    "AREA": "Отдел",
+    "STARTDATE": "Начало",
+    "DUEDATE": "Конец",
+    "STATUS": "Статус",
+    "ADDEVENT": "Добавить инцидент",
+    "DESCRIPTION": "Description",
+    "PRIORITY": "Приоритет",
+    "ADDINCIDENT": "Добавить инцидент",
+    "EDITINCIDENT": "Редактировать инцидент"
+  },
+  "USERS": {
+    "POSITION": "Должность",
+    "USER": "Пользователь",
+    "BIRTHDAY": "День рождения",
+    "ADDUSER": "Добавить пользователя"
+  },
+  "USERSFORM": {
+    "LOGIN": "Логин:",
+    "PASSWORD": "Пароль:",
+    "BACK": "Назад",
+    "DOYOUWANT": "Вы уверены, что хотите удалить?",
+    "DELETE": "Удалить",
+    "CANCEL": "Отмена"
+  }
+}

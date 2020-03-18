@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { TranslateService } from "@ngx-translate/core";
+import { environment } from "../../environments/environment";
 import { IncidentData } from "../models/incident-data";
 import { DataService } from "../services/data.service";
 
@@ -10,8 +12,10 @@ import { DataService } from "../services/data.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent implements OnInit {
+  selectedLanguage: string;
+  languages: {id: string, title: string}[] = [];
   constructor(@Inject(DataService) private dataService: IncidentData,
-              private router: Router) {}
+              private router: Router, private translateService: TranslateService) {}
   public showUsers(): void {
     this.router.navigate([`main/users`]);
   }
@@ -22,6 +26,20 @@ export class MainComponent implements OnInit {
     this.router.navigate([`main/process`]);
   }
   ngOnInit(): void {
-  }
+    this.translateService.use(environment.defaultLocale);
+    this.selectedLanguage = environment.defaultLocale;
 
+    this.translateService.get(environment.locales.map(x => `LANGUAGES.${x.toUpperCase()}`))
+      .subscribe(translations => {
+        this.languages = environment.locales.map(x => {
+          return {
+            id: x,
+            title: translations[`LANGUAGES.${x.toUpperCase()}`],
+          };
+        });
+      });
+  }
+  changeLocale(): void {
+    this.translateService.use(this.selectedLanguage);
+  }
 }

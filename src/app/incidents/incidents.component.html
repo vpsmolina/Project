@@ -1,15 +1,15 @@
 
 <div class="events__table">
-  <button class="events__table-button" (click)="addIncident()">Add event</button>
-  <div class="events__table-header">
+  <button class="events__table-button" (click)="addIncident()">{{ 'INCIDENTS.ADDEVENT' | translate }}</button>
+  <ul class="events__table-header-column">
     <li class="events__table-header-column"></li>
-    <li class="events__table-header-column">Name</li>
-    <li class="events__table-header-column">Assignee</li>
-    <li class="events__table-header-column hidden">Area</li>
-    <li class="events__table-header-column hidden">Start date</li>
-    <li class="events__table-header-column hidden">Due date</li>
-    <li class="events__table-header-column hidden">Status</li>
-  </div>
+    <li class="events__table-header-column">{{ 'INCIDENTS.NAME' | translate }}</li>
+    <li class="events__table-header-column">{{ 'INCIDENTS.ASSIGNEE' | translate }}</li>
+    <li class="events__table-header-column hidden">{{ 'INCIDENTS.AREA' | translate }}</li>
+    <li class="events__table-header-column hidden">{{ 'INCIDENTS.STARTDATE' | translate }}</li>
+    <li class="events__table-header-column hidden">{{ 'INCIDENTS.DUEDATE' | translate }}</li>
+    <li class="events__table-header-column hidden">{{ 'INCIDENTS.STATUS' | translate }}</li>
+  </ul>
 
   <div class="events__table-body-row" *ngFor="let incident of incidents$ | async;"
        (click)="editIncident(incident._id)" appHover>
