@@ -34,8 +34,8 @@ export class UsersFormComponent implements OnInit, OnDestroy {
 
   public initAddUserForm(): void {
     this.formUser = new FormGroup({
-      login: new FormControl(null, [Validators.required, Validators.maxLength(17)]),
-      password: new FormControl(null, [Validators.required]),
+      login: new FormControl(null, [Validators.required, Validators.pattern(/^[A-z0-9]*$/)]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
       position: new FormControl(null, [Validators.required]),
       surname: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Za-zА-Яа-яЁё ]*$/)]),
       birthday: new FormControl(null),

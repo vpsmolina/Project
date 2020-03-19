@@ -15,13 +15,13 @@
         <input class="form-control-action" *ngIf="action === 1" formControlName="name" type="string">
         <div class="validtext"
              *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
-          Name must not exceed 9 symbol.</div>
+          {{ 'INVALID.NAME' | translate }}</div>
         <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.name}}</div>
 
         <label class="form-control-label">{{ 'INCIDENTS.ASSIGNEE' | translate }}:</label>
         <select class="form-control-action" formControlName="assignee">
           <option *ngFor="let user of users" [value]="user.surname">
-            {{ user.surname}}</option>
+            {{ user.surname }}</option>
         </select>
 
         <label class="form-control-label">{{ 'INCIDENTS.AREA' | translate }}:</label>
@@ -31,28 +31,30 @@
         </select>
         <div class="validtext"
              *ngIf="formIncident.controls['area'].invalid && formIncident.controls['area'].touched">
-          You must select an area.
-        </div>
+          {{ 'INVALID.AREA' | translate }}</div>
         <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.area}}</div>
 
         <label class="form-control-label">{{ 'INCIDENTS.STARTDATE' | translate }}:</label>
         <input class="form-control-date" *ngIf="action === 1" formControlName="startDate" type="date">
         <div class="validtext"
-             *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched"></div>
+             *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
+          {{ 'INVALID.STARTDATE' | translate }}</div>
         <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.startDate |  date: 'dd-MM-yyyy'}}</div>
 
         <label class="form-control-label">{{ 'INCIDENTS.DUEDATE' | translate }}:</label>
         <input class="form-control-date" formControlName="dueDate" type="date">
         <div class="validtext"
              *ngIf="formIncident.controls['dueDate'].invalid && formIncident.controls['dueDate'].touched">
+          {{ 'INVALID.DUEDATE' | translate }}
           <div *ngIf="action === 2">
-            Date must not be less than the current due date.</div>
+            {{ 'INVALID.DUEDATETWO' | translate }}</div>
         </div>
 
         <label class="form-control-label">{{ 'INCIDENTS.DESCRIPTION' | translate }}:</label>
         <input class="form-control-action" *ngIf="action === 1" formControlName="description" type="string">
         <div class="validtext"
-             *ngIf="formIncident.controls['description'].invalid && formIncident.controls['description'].touched"></div>
+             *ngIf="formIncident.controls['description'].invalid && formIncident.controls['description'].touched">
+          {{ 'INVALID.DESCRIPTION' | translate }}</div>
         <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.description}}</div>
 
         <label class="form-control-label">{{ 'INCIDENTS.STATUS' | translate }}:</label>
@@ -62,26 +64,23 @@
             {{ status.status }}</option>
         </select>
 
-        <label class="form-control-label">Priority:</label>
+        <label class="form-control-label">{{ 'INCIDENTS.PRIORITY' | translate }}:</label>
         <select class="form-control-action" *ngIf="action === 1" formControlName="priority">
           <option *ngFor="let priority of priorities" [value]="priority.priority">
             {{ priority.priority}}</option>
         </select>
         <div class="validtext"
-             *ngIf="formIncident.controls['priority'].invalid && formIncident.controls['priority'].touched"></div>
+             *ngIf="formIncident.controls['priority'].invalid && formIncident.controls['priority'].touched">
+          {{ 'INVALID.PRIORITY' | translate }}</div>
         <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.priority}}</div>
-
 
         <button class="transparent-button" routerLink="/main/events">{{ 'USERSFORM.BACK' | translate }}</button>
         <button class="transparent-button" *ngIf="action===1" type="submit">{{ 'INCIDENTS.ADDINCIDENT' | translate }}</button>
         <button class="transparent-button" *ngIf="action===2" type="submit">{{ 'INCIDENTS.EDITINCIDENT' | translate }}</button>
       </form>
-
     </div>
   </div>
-
 </div>
-
 </body>
 </html>
 <router-outlet></router-outlet>

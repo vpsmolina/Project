@@ -16,8 +16,8 @@
     "NAME": "Name",
     "ASSIGNEE": "Assignee",
     "AREA": "Area",
-    "STARTDATE": "Startdate",
-    "DUEDATE": "Due date",
+    "STARTDATE": "Start date",
+    "DUEDATE": "Duedate",
     "STATUS": "Status",
     "ADDEVENT": "Add event",
     "DESCRIPTION": "Description",
@@ -41,6 +41,16 @@
   },
   "INVALID": {
     "LOGIN": "Must contain [A-z0-9].",
-    "PASSWORD": "At least 6 symbol."
+    "PASSWORD": "At least 6 symbol.",
+    "NAME": "Name must not exceed 17 symbol.",
+    "AREA": "You must select an area.",
+    "STARTDATE": "You must select a date.",
+    "DUEDATE": "You must select a date.",
+    "DUEDATETWO": "Date must not be less than the current date.",
+    "DESCRIPTION": "You must add a description.",
+    "PRIORITY": "You must select an priority.",
+    "POSITION": "You must specify a position.",
+    "SURNAME": "Name must not contain numbers.",
+    "BIRTHDAY": "You must select a date."
   }
 }
