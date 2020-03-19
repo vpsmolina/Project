@@ -1,26 +1,24 @@
 <div class="users__table">
   <button class="users__table-button" (click)="addUser()">{{ 'USERS.ADDUSER' | translate }}</button>
-  <div class="users__table-header">
+  <ul class="users__table-header">
     <li class="users__table-header-column">{{ 'USERS.POSITION' | translate }}</li>
     <li class="users__table-header-column">{{ 'USERS.USER' | translate }}</li>
     <li class="users__table-header-column">{{ 'USERS.BIRTHDAY' | translate }}</li>
     <li class="users__table-header-column"></li>
-  </div>
-  <div class="users__table-body">
-    <div *ngFor="let user of users$ | async;" class="users__table-body-row" >
-      <div class="users__table-body-column">
-        <div class="users__table-readonly">{{user.position}}</div>
-      </div>
-      <div class="users__table-body-column">
-        <div class="users__table-readonly">{{user.surname}}</div>
-      </div>
-      <div class="users__table-body-column">
-        <div class="users__table-readonly">{{user.birthday | date: 'dd-MM-yyyy'}}</div>
-      </div>
-      <div class="users__table-body-column">
-        <button class="users__table-readonly users__table-button-delete" (click)="delete(user._id)"></button>
-      </div>
-    </div>
+  </ul>
+  <div class="users__table-body-row" *ngFor="let user of users$ | async;" >
+      <span class="users__table-body-column">
+        {{user.position}}
+      </span>
+      <span class="users__table-body-column">
+        {{user.surname}}
+      </span>
+      <span class="users__table-body-column">
+        {{user.birthday | date: 'dd-MM-yyyy'}}
+      </span>
+      <span class="users__table-body-column">
+        <button class="users__table-button-delete" (click)="delete(user._id)"></button>
+      </span>
 
   </div>
 </div>

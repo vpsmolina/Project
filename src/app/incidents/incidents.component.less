@@ -27,12 +27,15 @@
       color: @slategray;
     }
     &-header {
+      display: flex;
+      flex-wrap: nowrap;
 
+      margin: 0;
+      padding: 0;
       &-column {
-        display: flex;
-        flex-wrap: nowrap;
+
         flex: 0 1 calc((100vw - 40px) / 7);
-        padding: 6px;
+        padding: 8px;
         text-align: left;
         &:first-child {
           flex: 40px;
