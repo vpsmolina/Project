@@ -7,18 +7,18 @@
     <li class="users__table-header-column"></li>
   </ul>
   <div class="users__table-body-row" *ngFor="let user of users$ | async;" >
-      <span class="users__table-body-column">
-        {{user.position}}
-      </span>
-      <span class="users__table-body-column">
-        {{user.surname}}
-      </span>
-      <span class="users__table-body-column">
-        {{user.birthday | date: 'dd-MM-yyyy'}}
-      </span>
-      <span class="users__table-body-column">
-        <button class="users__table-button-delete" (click)="delete(user._id)"></button>
-      </span>
+    <span class="users__table-body-column">
+      {{user.position}}
+    </span>
+    <span class="users__table-body-column">
+      {{user.surname}}
+    </span>
+    <span class="users__table-body-column">
+      {{user.birthday | date: 'dd-MM-yyyy'}}
+    </span>
+    <span class="users__table-body-column">
+      <button class="users__table-button-delete" (click)="delete(user._id)"></button>
+    </span>
 
   </div>
 </div>
