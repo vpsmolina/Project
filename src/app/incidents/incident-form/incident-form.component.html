@@ -6,118 +6,80 @@
 </head>
 <body>
 <div class="incidents__form visible">
-  <div class="incidents__form-dialog">
-    <div class="incidents__form-content">
-      <div class="incidents__form-body">
-        <form *ngIf="action" noValidate [formGroup]="formIncident" class="edit-incident"
-              (ngSubmit)="onSubmit()">
+  <div class="incidents__form-content">
+    <div class="incidents__form-body">
+      <form *ngIf="action" noValidate [formGroup]="formIncident" class="edit-incident"
+            (ngSubmit)="onSubmit()">
 
-          <div class="form-control">
-            <label class="form-control-label">{{ 'INCIDENTS.NAME' | translate }}:</label>
-            <div class="form-control" *ngIf="action === 1">
-              <input class="form-control-action" formControlName="name" type="string">
-              <div class="validtext"
-                   *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
-                Name must not exceed 9 symbol.
-              </div>
-            </div>
-            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.name}}</div>
-          </div>
+        <label class="form-control-label">{{ 'INCIDENTS.NAME' | translate }}:</label>
+        <input class="form-control-action" *ngIf="action === 1" formControlName="name" type="string">
+        <div class="validtext"
+             *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
+          Name must not exceed 9 symbol.</div>
+        <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.name}}</div>
 
-          <div class="form-control">
-            <label class="form-control-label">{{ 'INCIDENTS.ASSIGNEE' | translate }}:</label>
-            <select class="form-control-action" formControlName="assignee">
-              <option *ngFor="let user of users" [value]="user.surname">
-                {{ user.surname}}
-              </option>
-            </select>
-          </div>
+        <label class="form-control-label">{{ 'INCIDENTS.ASSIGNEE' | translate }}:</label>
+        <select class="form-control-action" formControlName="assignee">
+          <option *ngFor="let user of users" [value]="user.surname">
+            {{ user.surname}}</option>
+        </select>
 
-          <div class="form-control">
-            <label class="form-control-label">{{ 'INCIDENTS.AREA' | translate }}:</label>
-            <div class="form-control" *ngIf="action === 1">
-              <select class="form-control-action" formControlName="area">
-                <option *ngFor="let field of fields" [value]="field.area">
-                  {{ field.area}}
-                </option>
-              </select>
-              <div class="validtext"
-                   *ngIf="formIncident.controls['area'].invalid && formIncident.controls['area'].touched">
-                You must select an area.
-              </div>
-            </div>
-            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.area}}</div>
-          </div>
+        <label class="form-control-label">{{ 'INCIDENTS.AREA' | translate }}:</label>
+        <select class="form-control-action" *ngIf="action === 1" formControlName="area">
+          <option *ngFor="let field of fields" [value]="field.area">
+            {{ field.area}}</option>
+        </select>
+        <div class="validtext"
+             *ngIf="formIncident.controls['area'].invalid && formIncident.controls['area'].touched">
+          You must select an area.
+        </div>
+        <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.area}}</div>
 
-          <div class="form-control">
-            <label class="form-control-label">{{ 'INCIDENTS.STARTDATE' | translate }}:</label>
-            <div class="form-control" *ngIf="action === 1">
-              <input class="form-control-date" formControlName="startDate" type="date">
-              <div class="validtext"
-                   *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched">
-              </div>
-            </div>
-            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.startDate |  date: 'dd-MM-yyyy'}}</div>
-          </div>
+        <label class="form-control-label">{{ 'INCIDENTS.STARTDATE' | translate }}:</label>
+        <input class="form-control-date" *ngIf="action === 1" formControlName="startDate" type="date">
+        <div class="validtext"
+             *ngIf="formIncident.controls['startDate'].invalid && formIncident.controls['startDate'].touched"></div>
+        <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.startDate |  date: 'dd-MM-yyyy'}}</div>
 
-          <div class="form-control">
-            <label class="form-control-label">{{ 'INCIDENTS.DUEDATE' | translate }}:</label>
-            <input class="form-control-date" formControlName="dueDate" type="date">
-            <div class="validtext"
-                 *ngIf="formIncident.controls['dueDate'].invalid && formIncident.controls['dueDate'].touched">
-              <div *ngIf="action === 2">
-                Date must not be less than the current due date.</div>
-            </div>
-          </div>
+        <label class="form-control-label">{{ 'INCIDENTS.DUEDATE' | translate }}:</label>
+        <input class="form-control-date" formControlName="dueDate" type="date">
+        <div class="validtext"
+             *ngIf="formIncident.controls['dueDate'].invalid && formIncident.controls['dueDate'].touched">
+          <div *ngIf="action === 2">
+            Date must not be less than the current due date.</div>
+        </div>
 
-          <div class="form-control">
-            <label class="form-control-label">{{ 'INCIDENTS.DESCRIPTION' | translate }}:</label>
-            <div class="form-control" *ngIf="action === 1">
-              <input class="form-control-action" formControlName="description" type="string">
-              <div class="validtext"
-                   *ngIf="formIncident.controls['description'].invalid && formIncident.controls['description'].touched">
-              </div>
-            </div>
-            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.description}}</div>
-          </div>
+        <label class="form-control-label">{{ 'INCIDENTS.DESCRIPTION' | translate }}:</label>
+        <input class="form-control-action" *ngIf="action === 1" formControlName="description" type="string">
+        <div class="validtext"
+             *ngIf="formIncident.controls['description'].invalid && formIncident.controls['description'].touched"></div>
+        <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.description}}</div>
 
-          <div class="form-control">
-            <label class="form-control-label">{{ 'INCIDENTS.STATUS' | translate }}:</label>
-            <div class="form-control-action" *ngIf="action === 1">{{formIncident.value.status}}
-            </div>
-            <div class="form-control-action-two" *ngIf="action === 2">
-              <select class="form-control-action"  formControlName="status" >
-                <option *ngFor="let status of statuses | statusFilter: formIncident.value.status" [value]="status.status">
-                  {{ status.status }}
-                </option>
-              </select>
-            </div>
-          </div>
+        <label class="form-control-label">{{ 'INCIDENTS.STATUS' | translate }}:</label>
+        <div class="form-control-action" *ngIf="action === 1">{{formIncident.value.status}}</div>
+        <select class="form-control-action" *ngIf="action === 2" formControlName="status" >
+          <option *ngFor="let status of statuses | statusFilter: formIncident.value.status" [value]="status.status">
+            {{ status.status }}</option>
+        </select>
 
-          <div class="form-control">
-            <label class="form-control-label">Priority:</label>
-            <div class="form-control" *ngIf="action === 1">
-              <select class="form-control-action" formControlName="priority">
-                <option *ngFor="let priority of priorities" [value]="priority.priority">
-                  {{ priority.priority}}
-                </option>
-              </select>
-              <div class="validtext"
-                   *ngIf="formIncident.controls['priority'].invalid && formIncident.controls['priority'].touched">
-              </div>
-            </div>
-            <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.priority}}</div>
-          </div>
+        <label class="form-control-label">Priority:</label>
+        <select class="form-control-action" *ngIf="action === 1" formControlName="priority">
+          <option *ngFor="let priority of priorities" [value]="priority.priority">
+            {{ priority.priority}}</option>
+        </select>
+        <div class="validtext"
+             *ngIf="formIncident.controls['priority'].invalid && formIncident.controls['priority'].touched"></div>
+        <div class="form-control-action-two" *ngIf="action === 2">{{formIncident.value.priority}}</div>
 
-          <button class="transparent-button" routerLink="/main/events">{{ 'USERSFORM.BACK' | translate }}</button>
-          <button class="transparent-button" *ngIf="action===1" type="submit">{{ 'INCIDENTS.ADDINCIDENT' | translate }}</button>
-          <button class="transparent-button" *ngIf="action===2" type="submit">{{ 'INCIDENTS.EDITINCIDENT' | translate }}</button>
-        </form>
 
-      </div>
+        <button class="transparent-button" routerLink="/main/events">{{ 'USERSFORM.BACK' | translate }}</button>
+        <button class="transparent-button" *ngIf="action===1" type="submit">{{ 'INCIDENTS.ADDINCIDENT' | translate }}</button>
+        <button class="transparent-button" *ngIf="action===2" type="submit">{{ 'INCIDENTS.EDITINCIDENT' | translate }}</button>
+      </form>
+
     </div>
-
   </div>
+
 </div>
 
 </body>

@@ -12,33 +12,27 @@
   pointer-events: none;
   margin: 0;
   padding: 0;
-  &-dialog{
-    position: relative;
-    width: auto;
-    margin: 10px;
-    @media (min-width: 576px) {
-      max-width: 500px;
-      margin: 30px auto;
-    }
-  }
+
   &-content{
     position: relative;
     display: flex;
+    width: auto;
+    margin: 10px;
     flex-direction: column;
     background-color: @white;
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: .3rem;
     outline: 0;
-    @media (min-width: 768px) {
+
+    @media (min-width: 576px) {
+      max-width: 500px;
+      margin: 30px auto;
       box-shadow: 0 5px 15px rgba(0,0,0,.5);
     }
   }
   &-body{
     position: relative;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 15px;
     overflow: auto;
@@ -57,11 +51,9 @@
   overflow-y: auto;
 }
 .form-control {
-  display: flex;
-  flex-direction: column;
-
-
   &-label {
+    display: flex;
+    flex-direction: column;
     font-weight: bold;
   }
   &-date {
@@ -92,11 +84,6 @@
   flex-direction: column;
 }
 .primary{
-  /*
-  border: 1px solid #6c757d;
-  color: #000;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  */
   margin: 0 2px auto;
   padding: 8px;
   width: 80%;
@@ -114,40 +101,6 @@
   color: @white;
 }
 
-.validtext {
-  visibility: visible;
-  width: 100%;
-  background-color: @lightgray;
-  color: @black;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 5px;
-}
-input.ng-touched.ng-invalid{
-  border:solid @hex 2px;
-}
-input.ng-touched.ng-valid{
-  border:solid @lightgray 2px;
-}
 
-.transparent-button {
-  display: flex;
-  margin: 0 2px auto;
-  padding: 8px 40%;
-  width: 100%;
-  /*max-width: 200px;*/
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  color: @slategray;
-  text-align-all: center;
-  letter-spacing: 1px;
-  transition: all 0.3s ease-out;
-}
-.transparent-button:hover{
-  background-color: @slategray;
-  color: @white;
-}
+
 

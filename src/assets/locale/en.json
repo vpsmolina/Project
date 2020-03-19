@@ -14,8 +14,8 @@
   },
   "INCIDENTS": {
     "NAME": "Name",
-    "ASSIGNEE": "Events",
-    "AREA": "Process",
+    "ASSIGNEE": "Assignee",
+    "AREA": "Area",
     "STARTDATE": "Startdate",
     "DUEDATE": "Due date",
     "STATUS": "Status",
@@ -38,5 +38,9 @@
     "DOYOUWANT": "Do you want to delete user?",
     "DELETE": "Delete",
     "CANCEL": "Cancel"
+  },
+  "INVALID": {
+    "LOGIN": "Must contain [A-z0-9].",
+    "PASSWORD": "At least 6 symbol."
   }
 }

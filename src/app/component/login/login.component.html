@@ -1,34 +1,31 @@
 <div class="login visible">
-  <div class="login__dialog">
-    <div class="login__content">
-      <div class="login__body">
-        <div class="welcome">
-          <h2>Welcome back</h2>
-          <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
-            <div class="form-input">
-              <label class="login-form-row">
-                <span class="placeholder">Your login</span>
-                <input class="login-form-row-action" type="text" formControlName="login">
-                <div class="validtext"
-                     *ngIf="loginForm.controls['login'].invalid && loginForm.controls['login'].touched">
-                  так
-                </div>
-              </label>
+  <div class="login__content">
+    <div class="login__body">
+
+      <h2>Welcome back</h2>
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
+        <div class="form-input">
+          <label class="login-form-row">
+            <span class="placeholder">Your login</span>
+            <input class="login-form-row-action" type="text" formControlName="login">
+            <div class="validtext"
+                 *ngIf="loginForm.controls['login'].invalid && loginForm.controls['login'].touched">
+              Может содержать [A-z0-9].
             </div>
-            <div class="form-input">
-              <label class="login-form-row">
-                <span class="placeholder">Your password</span>
-                <input class="login-form-row-action" type="password" formControlName="password">
-                <div class="validtext"
-                     *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
-                  тактактак
-                </div>
-              </label>
-            </div>
-            <button class="transparent-button" type="submit"> LogIn </button>
-          </form>
+          </label>
         </div>
-      </div>
+        <div class="form-input">
+          <label class="login-form-row">
+            <span class="placeholder">Your password</span>
+            <input class="login-form-row-action" type="password" formControlName="password">
+            <div class="validtext"
+                 *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+              Не меньше 6 символов.
+            </div>
+          </label>
+        </div>
+        <button class="transparent-button" type="submit"> LogIn </button>
+      </form>
     </div>
   </div>
 </div>

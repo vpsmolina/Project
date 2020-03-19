@@ -12,27 +12,24 @@
   pointer-events: none;
   margin: 0;
   padding: 0;
-  &__dialog{
-    position: relative;
-    width: auto;
-    top: 10%;
-    margin: 10px;
-    @media (min-width: 576px) {
-      max-width: 500px;
-      margin: 30px auto;
-    }
-  }
+
   &__content{
     position: relative;
     display: flex;
+    width: auto;
+    top: 10%;
+    margin: 10px;
     flex-direction: column;
     background-color: @white;
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: .3rem;
     outline: 0;
-    @media (min-width: 768px) {
+
+    @media (min-width: 576px) {
       box-shadow: 0 5px 15px rgba(0,0,0,.5);
+      max-width: 500px;
+      margin: 30px auto;
     }
   }
   &__body{
@@ -47,59 +44,24 @@
   pointer-events: auto;
   overflow-y: auto;
 }
+h2{
+  margin-bottom: 40px;
+}
 
 
-.welcome{
-  h2{
-    margin-bottom: 40px;
-  }
-  .login-form {
-    &-row {
+.login-form {
+  &-row {
+    display: flex;
+    flex-direction: column;
+    &-action {
       display: flex;
       flex-direction: column;
-      &-action {
-        display: flex;
-        flex-direction: column;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        padding: 5px;
-      }
+      margin-top: 5px;
+      margin-bottom: 5px;
+      padding: 5px;
     }
   }
 }
 
-.transparent-button {
-  display: flex;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 8px 40%;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  color: @slategray;
-  text-align-all: center;
-  letter-spacing: 1px;
-  transition: all 0.3s ease-out;
-}
-.transparent-button:hover{
-  background-color: @slategray;
-  color: @white;
-}
-.validtext {
-  visibility: visible;
-  width: 100%;
-  background-color: @hex;
-  color: @black;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 5px;
-}
-input.ng-touched.ng-invalid{
-  border:solid @hex 2px;
-}
-input.ng-touched.ng-valid{
-  border:solid @lightgray 2px;
-}
+
+
