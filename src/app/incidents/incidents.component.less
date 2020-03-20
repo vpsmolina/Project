@@ -1,6 +1,5 @@
 @import "./../../styles/variables";
 .events {
-
   &__table {
     width: 70%;
     margin: auto;
@@ -58,7 +57,6 @@
         display: flex;
         border: 1px solid @black;
         border-bottom: none;
-        flex-wrap: nowrap;
 
         &:last-child {
           border: 1px solid @black;
@@ -97,4 +95,22 @@
   background-color: @gainsboro;
 }
 
+.inline-svg-icon {
+  stroke: #f5f5dc;
+  stroke-width: 3;
+  height: 22px;
+  width: 22px;
+  &-closed {
+    fill: #ff2400;
+  }
+  &-info {
+    fill: #ffff00;
+  }
+  &-open {
+    fill: #808080;
+  }
+  &-check {
+    fill: #32cd32;
+  }
+}
 

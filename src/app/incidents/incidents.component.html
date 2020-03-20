@@ -12,38 +12,36 @@
 
   <div class="events__table-body-row" *ngFor="let incident of incidents$ | async;"
        (click)="editIncident(incident._id)" appHover>
-      <div class="events__table-body-column">
-        <span *ngIf="incident.status === 'Closed' || incident.status === 'Marriage' ">
-          <svg width="22" height="22">
-            <circle r="8" cx="11" cy="12"
-                    fill="#ff2400" stroke="#f5f5dc" stroke-width="3"/>
-          </svg>
-        </span>
-        <span *ngIf="incident.status === 'Additional information' || incident.status === 'Additional information received'">
-          <svg width="22" height="22">
-            <circle r="8" cx="11" cy="12"
-                    fill="#ffff00" stroke="#f5f5dc" stroke-width="3" />
-          </svg>
-        </span>
-        <span *ngIf="incident.status === 'Checked' || incident.status === 'Resolved'|| incident.status === 'In operation'">
-          <svg width="22" height="22">
-            <circle r="8" cx="11" cy="12"
-                    fill="#32cd32" stroke="#f5f5dc" stroke-width="3"/>
-          </svg>
-        </span>
-        <span *ngIf="incident.status === 'Open' || incident.status === 'Re-start'">
-          <svg width="22" height="22">
-            <circle r="8" cx="11" cy="12"
-                    fill="#808080" stroke="#f5f5dc" stroke-width="3"/>
-          </svg>
-        </span>
-      </div>
-      <span class="events__table-body-column">{{incident.name}}</span>
-      <span class="events__table-body-column">{{incident.assignee}}</span>
-      <span class="events__table-body-column hidden">{{incident.area}}</span>
-      <span class="events__table-body-column hidden">{{incident.startDate | date: 'dd-MM-yyyy'}}</span>
-      <span class="events__table-body-column hidden ">{{incident.dueDate | date: 'dd-MM-yyyy'}}</span>
-      <span class="events__table-body-column hidden">{{incident.status}}</span>
+    <span class="events__table-body-column">
+      <svg display="none">
+        <symbol id="status" >
+          <circle r="8" cx="11" cy="12"/>
+        </symbol>
+      </svg>
+
+      <svg class="inline-svg-icon inline-svg-icon-closed" *ngIf="incident.status === 'Closed' || incident.status === 'Marriage' ">
+        <use xlink:href="#status"></use>
+      </svg>
+
+      <svg class="inline-svg-icon inline-svg-icon-info" *ngIf="incident.status === 'Additional information' || incident.status === 'Additional information received'">
+        <use xlink:href="#status"></use>
+      </svg>
+
+      <svg class="inline-svg-icon inline-svg-icon-check" *ngIf="incident.status === 'Checked' || incident.status === 'Resolved'|| incident.status === 'In operation'">
+        <use xlink:href="#status"></use>
+      </svg>
+
+      <svg class="inline-svg-icon inline-svg-icon-open" *ngIf="incident.status === 'Open' || incident.status === 'Re-start'">
+        <use xlink:href="#status"></use>
+      </svg>
+
+    </span>
+    <span class="events__table-body-column">{{incident.name}}</span>
+    <span class="events__table-body-column">{{incident.assignee}}</span>
+    <span class="events__table-body-column hidden">{{incident.area}}</span>
+    <span class="events__table-body-column hidden">{{incident.startDate | date: 'dd-MM-yyyy'}}</span>
+    <span class="events__table-body-column hidden ">{{incident.dueDate | date: 'dd-MM-yyyy'}}</span>
+    <span class="events__table-body-column hidden">{{incident.status}}</span>
   </div>
 </div>
 <router-outlet (deactivate)="actions($event)"></router-outlet>
