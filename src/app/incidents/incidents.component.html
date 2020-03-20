@@ -13,26 +13,21 @@
   <div class="events__table-body-row" *ngFor="let incident of incidents$ | async;"
        (click)="editIncident(incident._id)" appHover>
     <span class="events__table-body-column">
-      <svg display="none">
-        <symbol id="status" >
-          <circle r="8" cx="11" cy="12"/>
-        </symbol>
-      </svg>
 
       <svg class="inline-svg-icon inline-svg-icon-closed" *ngIf="incident.status === 'Closed' || incident.status === 'Marriage' ">
-        <use xlink:href="#status"></use>
+        <use xlink:href="./assets/images/sprite.svg#status"></use>
       </svg>
 
       <svg class="inline-svg-icon inline-svg-icon-info" *ngIf="incident.status === 'Additional information' || incident.status === 'Additional information received'">
-        <use xlink:href="#status"></use>
+        <use xlink:href="./assets/images/sprite.svg#status"></use>
       </svg>
 
       <svg class="inline-svg-icon inline-svg-icon-check" *ngIf="incident.status === 'Checked' || incident.status === 'Resolved'|| incident.status === 'In operation'">
-        <use xlink:href="#status"></use>
+        <use xlink:href="./assets/images/sprite.svg#status"></use>
       </svg>
 
       <svg class="inline-svg-icon inline-svg-icon-open" *ngIf="incident.status === 'Open' || incident.status === 'Re-start'">
-        <use xlink:href="#status"></use>
+        <use xlink:href="./assets/images/sprite.svg#status"></use>
       </svg>
 
     </span>
