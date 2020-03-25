@@ -8,13 +8,12 @@ export function authReducers (state: AuthState = initialAuthState, action: AuthA
         ...state,
         isLogged: true,
         token: action.payload.token,
-        login: action.payload.login,
       };
     }
     case EAuthActions.UserLogOut: {
       return {
         ...state,
-        user: null,
+        login: null,
         isLogged: false,
         token: null
       };
@@ -25,6 +24,9 @@ export function authReducers (state: AuthState = initialAuthState, action: AuthA
         user: {
           login: action.payload.login,
           surname: action.payload.surname,
+          position: action.payload.position,
+          password: action.payload.password,
+          birthday: action.payload.birthday,
         }
       };
     }

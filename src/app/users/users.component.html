@@ -1,5 +1,5 @@
 <div class="users__table">
-  <button class="users__table-button" (click)="addUser()">{{ 'USERS.ADDUSER' | translate }}</button>
+  <button class="table-button" (click)="addUser()">{{ 'USERS.ADDUSER' | translate }}</button>
   <ul class="users__table-header">
     <li class="users__table-header-column">{{ 'USERS.POSITION' | translate }}</li>
     <li class="users__table-header-column">{{ 'USERS.USER' | translate }}</li>
@@ -17,7 +17,7 @@
       {{user.birthday | date: 'dd-MM-yyyy'}}
     </span>
     <span class="users__table-body-column">
-      <button class="users__table-button-delete" (click)="delete(user._id)"></button>
+      <button class="table-button-delete" (click)="delete(user._id)"></button>
     </span>
 
   </div>

@@ -1,4 +1,4 @@
-@import "./../../../styles/variables";
+@import "../../../styles/variables";
 .login {
   position: fixed;
   top: 0;
@@ -17,7 +17,7 @@
     position: relative;
     display: flex;
     width: auto;
-    top: 10%;
+    top: 5%;
     margin: 10px;
     flex-direction: column;
     background-color: @white;
@@ -33,10 +33,10 @@
     }
   }
   &__body{
-    position: relative;
-    flex: 1 1 auto;
-    padding: 15px;
-    overflow: auto;
+    /*    position: relative;
+        flex: 1 1 auto;
+        padding: 15px;
+        overflow: auto;*/
   }
 }
 .visible{
@@ -50,6 +50,10 @@ h2{
 
 
 .login-form {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 15px;
+  overflow: auto;
   &-row {
     display: flex;
     flex-direction: column;
@@ -60,8 +64,11 @@ h2{
       margin-bottom: 5px;
       padding: 5px;
     }
+    &-date {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      padding: 5px;
+    }
   }
 }
-
-
 

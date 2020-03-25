@@ -19,7 +19,8 @@ export function incidentReducers( state: IncidentState = initialIncidentState,
     }
     case EIncidentActions.CreateIncidentsSuccess: {
       return {
-        ...state
+        ...state,
+        count: state.incidents.push(action.payload)
       };
     }
     case EIncidentActions.UpdateIncidentSuccess: {

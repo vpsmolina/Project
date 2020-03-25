@@ -1,7 +1,6 @@
 export interface Incident {
   _id?: string;
-  id: number;
-  svg?: string;
+  id?: number;
   name: string;
   assignee: string;
   area: string;

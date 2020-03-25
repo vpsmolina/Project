@@ -9,7 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
+  },
   "devDependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -17,6 +19,11 @@
     "http-error": "0.0.6",
     "http-errors": "^1.7.3",
     "mongoose": "^5.9.2",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "bcryptjs": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "jsonwebtoken": "*",
+    "npm": "^6.14.3"
   }
 }

@@ -15,7 +15,7 @@ export class AuthUser implements Action {
 }
 export class AuthUserSuccess implements Action {
   public readonly type = EAuthActions.AuthUserSuccess;
-  constructor(public payload: { login: string; token: string }) {}
+  constructor(public payload: { user: User; token: string }) {}
 }
 export class GetDataUser implements Action {
   public readonly type = EAuthActions.GetDataUser;

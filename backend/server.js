@@ -31,6 +31,10 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+app.get('/', (req, res) => {
+  res.send('NOW');
+});
+
 app.use(cors());
 
 app.use(express.static(path.join(__dirname, '../dist/project')));

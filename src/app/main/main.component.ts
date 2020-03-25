@@ -1,9 +1,12 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
+import { FlashMessagesService } from "angular2-flash-messages";
 import { environment } from "../../environments/environment";
 import { IncidentData } from "../models/incident-data";
+import { AuthService } from "../services/auth.service";
 import { DataService } from "../services/data.service";
+import { UserLogOut } from "../store/actions/auth.actions";
 
 @Component({
   selector: "app-main",
@@ -14,8 +17,11 @@ import { DataService } from "../services/data.service";
 export class MainComponent implements OnInit {
   selectedLanguage: string;
   languages: {id: string, title: string}[] = [];
+
   constructor(@Inject(DataService) private dataService: IncidentData,
-              private router: Router, private translateService: TranslateService) {}
+              private router: Router, private translateService: TranslateService,
+              private authService: AuthService,
+              private flashMessage: FlashMessagesService, ) {}
   public showUsers(): void {
     this.router.navigate([`main/users`]);
   }
@@ -42,4 +48,18 @@ export class MainComponent implements OnInit {
   changeLocale(): void {
     this.translateService.use(this.selectedLanguage);
   }
+  // tslint:disable-next-line:typedef
+  logoutUser() {
+    this.authService.logout();
+    this.flashMessage.show("Вы вышли", {
+      cssClass: "",
+      timeout: 2000
+    });
+    this.router.navigate(["main/auth"]);
+    return false;
+  }
+/*  public logOut(): void {
+    this._store.dispatch(new UserLogOut());
+    this.router.navigate(["login"]);
+  }*/
 }

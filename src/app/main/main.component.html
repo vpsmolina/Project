@@ -7,12 +7,14 @@
 <header>
   <div class="header">
     <div class="header__name">{{ 'MAIN.PROJECT' | translate }}</div>
-    <div class="header__lang">
-      <label>{{ 'LANGUAGES.TITLE' | translate }}</label>
+    <a *ngIf="!authService.logIn" class="table-button header__entry" href="/main/reg">SignIn</a>
+    <a *ngIf="!authService.logIn" class="table-button header__entry" href="/main/auth">LogIn</a>
+    <!--<button *ngIf="authService.isLoggedIn()" class="table-button header__entry" (click)="logoutUser()">Exit</button>-->
+    <button *ngIf="authService.logIn" class="table-button header__entry" (click)="logoutUser()">Exit</button>
+      <label class="header__lang">{{ 'LANGUAGES.TITLE' | translate }}
       <select (change)="changeLocale()" [(ngModel)]="selectedLanguage">
         <option *ngFor="let language of languages" [value]="language.id">{{ language.title }}</option>
-      </select>
-    </div>
+      </select></label>
   </div>
 </header>
 <main>
@@ -21,6 +23,7 @@
     <button class="tab__button" (click)="showProcess()">{{ 'MAIN.PROCESS' | translate }}</button>
     <button class="tab__button" (click)="showUsers()">{{ 'MAIN.USERS' | translate }}</button>
   </div>
+  <flash-messages></flash-messages>
 </main>
 
 

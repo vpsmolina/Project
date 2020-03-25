@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Store } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
 import { FieldsList } from "../../data/fields-list";
 import { PrioritiesList } from "../../data/priorities-list";
 import { StatusesList } from "../../data/statuses";
@@ -14,7 +14,9 @@ import { Status } from "../../models/status";
 import { User } from "../../models/user";
 import { TableService } from "../../services/table.service";
 import { ValidatorsService } from "../../services/validators.service";
-import { GetIncidents } from "../../store/actions/incident.actions";
+import { CreateIncident, GetIncident, GetIncidents, UpdateIncident } from "../../store/actions/incident.actions";
+import { CreateUser } from "../../store/actions/user.actions";
+import { selectSelectedIncident } from "../../store/selectors/incidents.selectors";
 import { AppState } from "../../store/state/app.state";
 import { IncidentEvents } from "../incidentevents";
 
@@ -22,14 +24,14 @@ import { IncidentEvents } from "../incidentevents";
   selector: "app-incident-form",
   templateUrl: "./incident-form.component.html",
   styleUrls: ["./incident-form.component.less"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+ /* changeDetection: ChangeDetectionStrategy.OnPush,*/
 })
 export class IncidentFormComponent implements OnInit, OnDestroy {
 
   constructor(private IncidentValidators: ValidatorsService,
               @Inject(TableService) private dataService: IncidentData,
               private router: Router, private activatedRoute: ActivatedRoute,
-              private _store: Store<AppState>) {}
+              private _store: Store<AppState>, private fb: FormBuilder) {}
   public formIncident: FormGroup;
   public title: string;
   public incidentId: string;
@@ -37,6 +39,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
   public action: Number;
   public piece: string;
   public count: number;
+  public id: number;
   public incident: Incident;
   public confirm: boolean = false;
   public users: User[] = UsersList;
@@ -57,7 +60,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
   }
   public initAddIncident(): void {
     this.formIncident = new FormGroup({
-      name: new FormControl(null, [Validators.required, Validators.maxLength(17)]),
+      name: new FormControl(null, [Validators.required/*, Validators.maxLength(30)*/]),
       area: new FormControl(null, [Validators.required]),
       assignee: new FormControl(null),
       startDate: new FormControl(this.convertDate(this.today), [Validators.required]),
@@ -66,7 +69,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
       status: new FormControl(this.statusStart, [Validators.required]),
       priority: new FormControl(null, [Validators.required]),
     });
-    this.dataService.getCountIncidents().subscribe(num => this.count = +num);
+    /*this.dataService.getCountIncidents().subscribe(num => this.count = +num);*/
   }
 
   public initEditIncident(): void {
@@ -78,21 +81,22 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
       dueDate: new FormControl(null, [Validators.required, this.IncidentValidators.dateValidator]),
       description: new FormControl(null),
       status: new FormControl(null, [Validators.required]),
-      priority: new FormControl(null, [Validators.required]),
+      priority: new FormControl(null),
     });
+
     this.dataService.getIncidentById(this.incidentId).subscribe((incident) => {
       const editIncident = {
-        name: incident[0].name,
-        area: incident[0].area,
-        assignee: incident[0].assignee,
-        startDate: this.convertDate(new Date(incident[0].startDate)),
-        dueDate: this.convertDate(new Date(incident[0].dueDate)),
-        description: incident[0].description,
-        status: incident[0].status,
-        priority: incident[0].priority,
+        name: incident["name"],
+        area: incident["area"],
+        assignee: incident["assignee"],
+        startDate: this.convertDate(new Date(incident["startDate"])),
+        dueDate: this.convertDate(new Date(incident["dueDate"])),
+        description: incident["description"],
+        status: incident["status"],
+        priority: incident["priority"],
       };
-      this.data.id = incident[0].id;
-      this.data._id = incident[0]._id;
+/*      this.data.id = incident[0].id;
+      this.data._id = incident[0]._id;*/
       this.formIncident.setValue(editIncident);
     });
 
@@ -104,26 +108,27 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
       return false;
     }
     if (this.action === 1) {
-      this.data._id = "id00000" + this.count;
-      this.data.id = this.count + 1;
-      this.data.startDate = new Date(this.formIncident.value.startDate);
-      this.data.dueDate = new Date(this.formIncident.value.dueDate);
-      this.data.area = this.formIncident.value.area;
-      this.data.name = this.formIncident.value.name;
-      this.data.assignee = this.formIncident.value.assignee;
-      this.data.description = this.formIncident.value.description;
-      this.data.status = this.formIncident.value.status;
+      const dataForm: Incident = {
+        ...this.formIncident.value,
+        _id: "id00000" + this.count,
+        /*id: this.count + 1,*/
+        startDate: new Date(this.formIncident.value.startDate),
+        dueDate: new Date(this.formIncident.value.dueDate)
+      };
       this.hideForm();
       this.confirm = true;
+      this._store.dispatch(new CreateIncident(dataForm));
+    } else if (this.action === 2) {
+      const dataUpd: Incident = {
+        ...this.formIncident.value,
+        _id: this.activatedRoute.snapshot.params.id,
+        startDate: new Date(this.formIncident.value.startDate),
+        dueDate: new Date(this.formIncident.value.dueDate)
+      };
+      this._store.dispatch(new UpdateIncident({_id: this.activatedRoute.snapshot.params.id, data: dataUpd}));
     }
-    this.data.startDate = new Date(this.formIncident.value.startDate);
-    this.data.dueDate = new Date(this.formIncident.value.dueDate);
-    this.data.area = this.formIncident.value.area;
-    this.data.name = this.formIncident.value.name;
-    this.data.assignee = this.formIncident.value.assignee;
-    this.data.description = this.formIncident.value.description;
-    this.data.status = this.formIncident.value.status;
-    this.data.priority = this.formIncident.value.priority;
+
+
     this.hideForm();
     this.confirm = true;
   }
@@ -154,7 +159,9 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this._store.dispatch(new GetIncident(this.activatedRoute.snapshot.params.id));
     this.piece = this.activatedRoute.snapshot.url[0].path;
+    /*this._store.pipe(select(selectSelectedIncident)).subscribe(data => this.incident = data);*/
     this._action(this.piece);
   }
   ngOnDestroy(): void {

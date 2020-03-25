@@ -1,7 +1,80 @@
-{"_id": "id000001",
-  "id": 1,
-  "position": "Junior Developer",
-  "surname": "Ivanov",
-  "birthday": "new Date('1998/1/16')"
-}
-
+[
+  {  "position": "Junior Developer",
+    "surname": "Ivanov",
+    "login": "ivanov",
+    "password": "123456789",
+    "birthday": "new Date('1998/1/16')"
+  },
+  {"position": "Middle Developer",
+  "surname": "Petrov",
+  "login": "petrov",
+  "password": "123456789",
+  "birthday": "19972-12"
+  },
+  {"position": "Middle Developer",
+    "surname": "Sazonov",
+    "login": "sazonov",
+    "password": "12345679",
+    "birthday": "1994-3-17"
+  },
+  {"position": "Senior developer",
+    "surname": "Zotova",
+    "login": "zotova",
+    "password": "12345679",
+    "birthday": "1996-4-19"
+  },
+  {"position": "Senior developer",
+    "surname": "Borisov",
+    "login": "borisov",
+    "password": "12345679",
+    "birthday": "1995-5-10"
+  },
+  {"position": "Software Architect",
+    "surname": "Knyazev",
+    "login": "knyazev",
+    "password": "12345679",
+    "birthday": "1993-2-10"
+  },
+  {"position": "Junior QA",
+    "surname": "Babushkin",
+    "login": "babushkin",
+    "password": "12345679",
+    "birthday": "1994-2-11"
+  },
+  {"position": "Middle QA",
+    "surname": "Turina",
+    "login": "turina",
+    "password": "12345679",
+    "birthday": "1991-5-11"
+  },
+  {"position": "Senior QA",
+    "surname": "Igoshin",
+    "login": "igoshin",
+    "password": "12345679",
+    "birthday": "1993-10-28"
+  },
+  {"position": "Project Manager",
+    "surname": "Titova",
+    "login": "titova",
+    "password": "12345679",
+    "birthday": "1992-10-25"
+  },
+  {"position": "Project Manager",
+    "surname": "Voroncov",
+    "login": "voroncov",
+    "password": "12345679",
+    "birthday": "1998-10-5"
+  },
+  {"position": "Project Manager",
+    "surname": "Shipanova",
+    "login": "shipanova",
+    "password": "12345679",
+    "birthday": "1994-5-25"
+  },
+  {"position": "Project Manager",
+    "surname": "Orlova",
+    "login": "orlova",
+    "password": "12345679",
+    "birthday": "1999-2-2"
+  }
+]

@@ -10,16 +10,14 @@ ol[class] {
   list-style: none;
 }
 .transparent-button {
-  display: flex;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 8px 40%;
+  display: inline-block;
+  margin: 2px 0;
+  padding: 8px 0;
   width: 100%;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   color: @slategray;
-  text-align-all: center;
-  letter-spacing: 1px;
+  text-align: center;
   transition: all 0.3s ease-out;
 }
 .transparent-button:hover{
@@ -40,4 +38,27 @@ input.ng-touched.ng-valid{
   padding: 5px 0;
   border-radius: 6px;
   margin-bottom: 5px;
+}
+
+.table-button {
+  color: @black;
+  padding: 10px;
+  border: solid @white;
+  background: @white;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-out;
+  &-delete {
+    display: block;
+    border-radius: 50%;
+    background: @hex;
+    width: 20px;
+    height: 20px;
+  }
+}
+.table-button:hover {
+  color: @slategray;
 }

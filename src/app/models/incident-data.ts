@@ -11,5 +11,5 @@ export interface IncidentData {
   getUsers(): Observable<User[]>;
   createUser(data: User): Observable<User>;
   getCountUsers(): Observable<Number>;
-  deleteUser(_id: string): Observable<User>;
+  deleteUser(_id: string): Observable<string>;
 }

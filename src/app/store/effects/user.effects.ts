@@ -41,8 +41,8 @@ export class UserEffects {
   deleteUser$ = this._actions$.pipe(
     ofType<DeleteUser>(EUserActions.DeleteUser),
     map(action => action.payload),
-    switchMap((id: string) => this._usersService.deleteUser(id).pipe(
-      switchMap(() => of(new DeleteUserSuccess(id))),
+    switchMap((_id: string) => this._usersService.deleteUser(_id).pipe(
+      switchMap(() => of(new DeleteUserSuccess(_id))),
     )),
   );
   constructor(private _usersService: TableService,

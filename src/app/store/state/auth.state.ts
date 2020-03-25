@@ -1,4 +1,4 @@
-import { User } from "../../models/user";
+import { User, UserAuth } from "../../models/user";
 
 export interface AuthState {
   user: User;
@@ -9,5 +9,6 @@ export interface AuthState {
 export const initialAuthState: AuthState = {
   user: null,
   token: null,
+  login: null,
   isLogged: false
 };

@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from "@
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
-import { UsersList } from "../../data/users-list";
 import { IncidentData } from "../../models/incident-data";
 import { User } from "../../models/user";
 import { DataService } from "../../services/data.service";
 import { CreateUser, DeleteUser, GetUsers } from "../../store/actions/user.actions";
 import { getCountUser } from "../../store/selectors/user.selectors";
+
 class IAppState {
 }
 

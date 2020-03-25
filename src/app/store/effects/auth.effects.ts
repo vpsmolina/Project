@@ -5,7 +5,8 @@ import { Store } from "@ngrx/store";
 import { of } from "rxjs";
 import { exhaustMap, map, switchMap, tap } from "rxjs/operators";
 import { Auth } from "../../models/auth";
-import { UserAuth } from "../../models/user";
+import { RegisterResponse } from "../../models/registerPesponse";
+import { User, UserAuth } from "../../models/user";
 import { AuthService } from "../../services/auth.service";
 import { AuthUser, AuthUserSuccess, EAuthActions, UserLogOut } from "../actions/auth.actions";
 import { ResetDataUser } from "../actions/user.actions";
@@ -17,9 +18,9 @@ export class AuthEffects {
   authUser$ = this._actions$.pipe(
     ofType<AuthUser>(EAuthActions.AuthUser),
     map(action => action.payload),
-    exhaustMap((action: UserAuth) => this._userService.authUser(action).pipe(
-      exhaustMap((res: Auth) => of(new AuthUserSuccess({token: res.token, login: action.login}))),
-      tap(() => this.router.navigate(["/"])),
+    exhaustMap((action: User) => this._userService.authenUser(action).pipe(
+      exhaustMap((res: RegisterResponse) => of(new AuthUserSuccess({token: res.token, user: res.user}))),
+      tap(() => this.router.navigate(["main/events"])),
     )),
   );
   @Effect()
@@ -27,6 +28,15 @@ export class AuthEffects {
     ofType<UserLogOut>(EAuthActions.UserLogOut),
     switchMap(() => of(new ResetDataUser())),
   );
+
+/*  @Effect()
+  getUserData$ = this._actions$.pipe(
+    ofType<GetDataUser>(EAuthActions.GetDataUser),
+    switchMap(() => this._store.pipe(select(getAuthData))),
+    switchMap((action: AuthState) => this._userService.getAuthUser(action.token, action.user).pipe(
+      switchMap((result: User) => of(new GetDataUserSuccess(result))),
+    )),
+  );*/
 /*  @Effect()
   getUserData$ = this._actions$.pipe(
     ofType<GetDataUser>(EAuthActions.GetDataUser),

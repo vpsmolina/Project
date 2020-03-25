@@ -1,5 +1,5 @@
 <div class="events__table">
-  <button class="events__table-button" (click)="addIncident()">{{ 'INCIDENTS.ADDEVENT' | translate }}</button>
+  <button class="table-button" (click)="addIncident()">{{ 'INCIDENTS.ADDEVENT' | translate }}</button>
   <ul class="events__table-header">
     <li class="events__table-header-column"></li>
     <li class="events__table-header-column">{{ 'INCIDENTS.NAME' | translate }}</li>
@@ -39,6 +39,7 @@
     <span class="events__table-body-column hidden">{{incident.status}}</span>
   </div>
 </div>
-<router-outlet (deactivate)="actions($event)"></router-outlet>
+<!--<router-outlet (deactivate)="actions($event)"></router-outlet>-->
+<router-outlet></router-outlet>
 
 

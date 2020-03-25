@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -16,7 +16,7 @@ import { IncidentEvents } from "./incidentevents";
   selector: "app-incidents",
   templateUrl: "./incidents.component.html",
   styleUrls: ["./incidents.component.less"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+/*  changeDetection: ChangeDetectionStrategy.OnPush,*/
 })
 export class IncidentsComponent implements OnInit {
   public incident: Incident;
@@ -31,7 +31,7 @@ export class IncidentsComponent implements OnInit {
 
   constructor(@Inject(TableService) private dataService: IncidentData,
               private _router: Router,
-              private _store: Store<AppState>,) {
+              private _store: Store<AppState>) {
   }
 
   public addIncident(): void {
@@ -45,16 +45,17 @@ export class IncidentsComponent implements OnInit {
     switch (IncidentEvents[incidentform.piece]) {
       case 1: {
         if (incidentform.confirm) {
-          this.dataService.createIncident(incidentform.data).subscribe(() => {
+/*          this.dataService.createIncident(incidentform.data).subscribe(() => {
             this.incidents.push(incidentform.data);
-          });
+          });*/
+          /*this._store.dispatch(new CreateIncident(incidentform.data));*/
 
         }
         break;
       }
       case 2: {
         if (incidentform.confirm) {
-          this.dataService.updateIncident(incidentform.incidentId, incidentform.data).subscribe(() => {
+/*          this.dataService.updateIncident(incidentform.incidentId, incidentform.data).subscribe(() => {
             this.incidents.forEach(incident => {
               if (incident._id === incidentform.incidentId) {
                 incident.name = incidentform.data.name;
@@ -67,8 +68,9 @@ export class IncidentsComponent implements OnInit {
                 incident.priority = incidentform.data.priority;
               }
             });
-          });
-        }
+          });*/
+         /* this._store.dispatch(new UpdateIncident({_id: incidentform.incidentId, data: incidentform.data}));
+        */}
         break;
       }
       default: {
@@ -85,6 +87,7 @@ export class IncidentsComponent implements OnInit {
   ngOnInit(): void {
     /*this._reloadIncidents();*/
     this._store.dispatch(new GetIncidents());
+/*    this._store.pipe(select(selectSelectedIncident)).subscribe(data => this.incident = data);*/
   }
 
 }

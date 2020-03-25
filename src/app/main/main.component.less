@@ -4,13 +4,15 @@
   height: 80px;
   position: relative;
   margin-bottom: 10px;
+  display: flex;
   &__name {
     width: 88px;
-    margin: 20px 0 0 60px;
+    margin: 20px 0 20px 60px;
     background: @black;
     color: @white;
     align-items: center;
-    position: absolute;
+    display: inline-block;
+
     padding: 10px 0;
     font-size: 20px;
     @media (max-width: 575px) {
@@ -18,10 +20,19 @@
     }
   }
   &__lang {
+    display: inline-block;
     position: absolute;
     right: 0;
-    margin: 20px 20px 0 0;
+    margin: 30px 0 0 0;
   }
+  &__entry {
+    display: inline-block;
+    /*left: 20%;*/
+    margin: 20px 0 0 0;
+    font: 16px "Times New Roman";
+  }
+
+
 }
 
 .tab {
