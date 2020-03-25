@@ -2,58 +2,43 @@
   <div class="login__content">
     <form class="login-form" [formGroup]="loginForm" (submit)="userRegisterClick()" novalidate>
       <h1>SignIn</h1>
-      <label class="login-form-row">Your login
+      <label class="login-form-row">{{ 'USERSFORM.LOGIN' | translate }}
         <input class="login-form-row-action" type="text" formControlName="login">
         <div class="validtext"
              *ngIf="loginForm.controls['login'].invalid && loginForm.controls['login'].touched">
-          Может содержать [A-z0-9].
+          {{ 'INVALID.LOGIN' | translate }}
         </div>
       </label>
-      <label class="login-form-row">Your surname
+      <label class="login-form-row">{{ 'USERSFORM.SURNAME' | translate }}
         <input class="login-form-row-action" type="text" formControlName="surname">
         <div class="validtext"
              *ngIf="loginForm.controls['surname'].invalid && loginForm.controls['surname'].touched">
-          Может содержать [A-z0-9].
+          {{ 'INVALID.SURNAME' | translate }}
         </div>
       </label>
-      <label class="login-form-row">Your position
+      <label class="login-form-row">{{ 'USERS.POSITION' | translate }}
       <input class="login-form-row-action" type="text" formControlName="position">
       <div class="validtext"
            *ngIf="loginForm.controls['position'].invalid && loginForm.controls['position'].touched">
-        Может содержать [A-z0-9].
+        {{ 'INVALID.POSITION' | translate }}
       </div>
     </label>
-      <label class="login-form-row">Your password
+      <label class="login-form-row">{{ 'USERSFORM.PASSWORD' | translate }}
         <input class="login-form-row-action" type="password" formControlName="password">
         <div class="validtext"
              *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
-          Не меньше 6 символов.
+          {{ 'INVALID.PASSWORD' | translate }}
         </div>
       </label>
-      <label class="login-form-row">Your birthday
+      <label class="login-form-row">{{ 'USERS.BIRTHDAY' | translate }}
         <input class="login-form-row-date" type="date" formControlName="birthday">
         <div class="validtext"
              *ngIf="loginForm.controls['birthday'].invalid && loginForm.controls['birthday'].touched">
-          Не меньше 6 символов.
+          {{ 'INVALID.BIRTHDAY' | translate }}
         </div>
       </label>
-<!--      <label class="login-form-row">Your login
-        <input class="login-form-row-action" type="text" [(ngModel)]="login" name="login">
-      </label>
-      <label class="login-form-row">Your surname
-        <input class="login-form-row-action" type="text" [(ngModel)]="surname" name="surname">
-      </label>
-      <label class="login-form-row">Your position
-        <input class="login-form-row-action" type="text" [(ngModel)]="position" name="position">
-      </label>
-      <label class="login-form-row">Your password
-        <input class="login-form-row-action" type="password" [(ngModel)]="password" name="password">
-      </label>
-      <label class="login-form-row">Your birthday
-        <input class="login-form-row-date" type="date" [(ngModel)]="birthday" name="birthday">
-      </label>-->
+      <button class="transparent-button" type="submit">{{ 'MAIN.SIGN' | translate }}</button>
       <button class="transparent-button" routerLink="/main/events">{{ 'USERSFORM.BACK' | translate }}</button>
-      <button class="transparent-button" type="submit">Зарегистрироваться</button>
     </form>
   </div>
 </div>

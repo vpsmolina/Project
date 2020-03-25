@@ -10,7 +10,10 @@
     "PROJECT": "PROJECT",
     "EVENTS": "Events",
     "PROCESS": "Process",
-    "USERS": "Users"
+    "USERS": "Users",
+    "EXIT": "Exit",
+    "LOGIN": "LogIn",
+    "SIGN": "SignIn"
   },
   "INCIDENTS": {
     "NAME": "Name",
@@ -32,8 +35,9 @@
     "ADDUSER": "Add user"
   },
   "USERSFORM": {
-    "LOGIN": "Login:",
-    "PASSWORD": "Password:",
+    "LOGIN": "Login",
+    "SURNAME": "Surname",
+    "PASSWORD": "Password",
     "BACK": "Back",
     "DOYOUWANT": "Do you want to delete user?",
     "DELETE": "Delete",

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
@@ -11,7 +11,8 @@ import { AppState } from "../../store/state/app.state";
 @Component({
   selector: "app-auth",
   templateUrl: "./auth.component.html",
-  styleUrls: ["./auth.component.less"]
+  styleUrls: ["./auth.component.less"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthComponent implements OnInit, OnDestroy {
   login: string;
@@ -21,7 +22,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               private authService: AuthService,
               private flashMessage: FlashMessagesService,
-              private _store: Store<AppState> ) { }
+              private _store: Store<AppState>) { }
 
   ngOnInit(): void {
   }

@@ -1,15 +1,15 @@
 <div class="login visible">
   <div class="login__content">
     <form class="login-form" (submit)="userLoginClick()">
-      <h1>LogIn</h1>
-      <label class="login-form-row">Your login
+      <h1>{{ 'MAIN.LOGIN' | translate }}</h1>
+      <label class="login-form-row">{{ 'USERSFORM.LOGIN' | translate }}:
         <input class="login-form-row-action"  type="text" [(ngModel)]="login" name="login">
       </label>
-      <label class="login-form-row">Your password
+      <label class="login-form-row">{{ 'USERSFORM.PASSWORD' | translate }}:
         <input class="login-form-row-action"  type="password" [(ngModel)]="password" name="password">
       </label>
       <button class="transparent-button" routerLink="/main/events">{{ 'USERSFORM.BACK' | translate }}</button>
-      <button class="transparent-button" type="submit">Войти</button>
+      <button class="transparent-button" type="submit">{{ 'MAIN.LOGIN' | translate }}</button>
     </form>
   </div>
 </div>

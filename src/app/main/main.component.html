@@ -7,10 +7,9 @@
 <header>
   <div class="header">
     <div class="header__name">{{ 'MAIN.PROJECT' | translate }}</div>
-    <a *ngIf="!authService.logIn" class="table-button header__entry" href="/main/reg">SignIn</a>
-    <a *ngIf="!authService.logIn" class="table-button header__entry" href="/main/auth">LogIn</a>
-    <!--<button *ngIf="authService.isLoggedIn()" class="table-button header__entry" (click)="logoutUser()">Exit</button>-->
-    <button *ngIf="authService.logIn" class="table-button header__entry" (click)="logoutUser()">Exit</button>
+    <a *ngIf="!authService.logIn" class="table-button header__entry" href="/main/reg">{{ 'MAIN.SIGN' | translate }}</a>
+    <a *ngIf="!authService.logIn" class="table-button header__entry" href="/main/auth">{{ 'MAIN.LOGIN' | translate }}</a>
+    <button *ngIf="authService.logIn" class="table-button header__entry" (click)="logoutUser()">{{ 'MAIN.EXIT' | translate }}</button>
       <label class="header__lang">{{ 'LANGUAGES.TITLE' | translate }}
       <select (change)="changeLocale()" [(ngModel)]="selectedLanguage">
         <option *ngFor="let language of languages" [value]="language.id">{{ language.title }}</option>
