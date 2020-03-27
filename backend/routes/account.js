@@ -47,8 +47,7 @@ router.post('/auth', (req, res) => {
           user: {
             id: user._id,
             surname: user.surname,
-            login: user.login,
-            email: user.email,
+            position: user.position,
             birthday: user.birthday,
           },
           msg: "Зашли"

@@ -1,4 +1,3 @@
-// tslint:disable-next-line:file-name-casing
 import { User } from "./user";
 
 export interface RegisterResponse {

@@ -11,13 +11,10 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { FlashMessagesModule } from "angular2-flash-messages";
 import { environment } from "../environments/environment";
-
 import { AppRoutingModule, routing } from "./app-routing.module";
-
 import { AppComponent } from "./app.component";
 import { AuthComponent } from "./component/auth/auth.component";
 import { MainModule } from "./component/main.module";
-import { RegistrationComponent } from "./component/registration/registration.component";
 import { MainComponent } from "./main/main.component";
 import { AuthEffects } from "./store/effects/auth.effects";
 import { IncidentEffects } from "./store/effects/incident.effects";
@@ -32,7 +29,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   declarations: [
     AppComponent,
     MainComponent,
-    RegistrationComponent,
     AuthComponent,
   ],
     imports: [

@@ -9,7 +9,6 @@ import { TableService } from "../services/table.service";
 import { GetIncidents } from "../store/actions/incident.actions";
 import { selectIncidentList } from "../store/selectors/incidents.selectors";
 import { AppState } from "../store/state/app.state";
-import { IncidentFormComponent } from "./incident-form/incident-form.component";
 import { IncidentEvents } from "./incidentevents";
 
 @Component({
@@ -22,7 +21,6 @@ export class IncidentsComponent implements OnInit {
   public incident: Incident;
   public incidents: Incident[] = IncidentsList;
   public incidents$: Observable<Incident[]> = this._store.pipe(select(selectIncidentList));
-  public isDisplayed: boolean;
   public action: IncidentEvents;
   public type = true;
   public index: number;
@@ -41,53 +39,8 @@ export class IncidentsComponent implements OnInit {
     this._router.navigate([`main/events/edit/${_id}`]);
   }
 
-  public actions(incidentform: IncidentFormComponent): void {
-    switch (IncidentEvents[incidentform.piece]) {
-      case 1: {
-        if (incidentform.confirm) {
-/*          this.dataService.createIncident(incidentform.data).subscribe(() => {
-            this.incidents.push(incidentform.data);
-          });*/
-          /*this._store.dispatch(new CreateIncident(incidentform.data));*/
-
-        }
-        break;
-      }
-      case 2: {
-        if (incidentform.confirm) {
-/*          this.dataService.updateIncident(incidentform.incidentId, incidentform.data).subscribe(() => {
-            this.incidents.forEach(incident => {
-              if (incident._id === incidentform.incidentId) {
-                incident.name = incidentform.data.name;
-                incident.assignee = incidentform.data.assignee;
-                incident.area = incidentform.data.area;
-                incident.startDate = incidentform.data.startDate;
-                incident.dueDate = incidentform.data.dueDate;
-                incident.description = incidentform.data.description;
-                incident.status = incidentform.data.status;
-                incident.priority = incidentform.data.priority;
-              }
-            });
-          });*/
-         /* this._store.dispatch(new UpdateIncident({_id: incidentform.incidentId, data: incidentform.data}));
-        */}
-        break;
-      }
-      default: {
-        break;
-      }
-    }
-  }
-
-/*  private _reloadIncidents(): void {
-    this.dataService.getIncidents().subscribe(data => {
-      this.incidents = data;
-    });
-  }*/
   ngOnInit(): void {
-    /*this._reloadIncidents();*/
     this._store.dispatch(new GetIncidents());
-/*    this._store.pipe(select(selectSelectedIncident)).subscribe(data => this.incident = data);*/
   }
 
 }

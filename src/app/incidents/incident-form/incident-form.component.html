@@ -20,7 +20,7 @@
 
         <label class="form-control-label">{{ 'INCIDENTS.ASSIGNEE' | translate }}:</label>
         <select class="form-control-action" formControlName="assignee">
-          <option *ngFor="let user of users" [value]="user.surname">
+          <option *ngFor="let user of users$ | async;" [value]="user.surname">
             {{ user.surname }}</option>
         </select>
 

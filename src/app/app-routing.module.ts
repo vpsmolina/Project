@@ -5,7 +5,6 @@ import { AuthGuard } from "./component/auth/auth.guard";
 import { NotFoundComponent } from "./component/not-found/not-found.component";
 import { IncidentFormComponent } from "./incidents/incident-form/incident-form.component";
 
-import { RegistrationComponent } from "./component/registration/registration.component";
 import { IncidentsComponent } from "./incidents/incidents.component";
 import { MainComponent } from "./main/main.component";
 import { ProcessComponent } from "./process/process.component";
@@ -24,7 +23,6 @@ const childRoutes: Routes = [
   {path: "events", component: IncidentsComponent, children: itemRoutes},
   {path: "process", component: ProcessComponent},
   {path: "users", component: UsersComponent, children: itRoutes},
-  { path: "reg", component: RegistrationComponent},
   { path: "auth", component: AuthComponent},
 ];
 const routes: Routes = [

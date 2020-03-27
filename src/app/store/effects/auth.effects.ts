@@ -4,9 +4,8 @@ import { Actions, Effect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { of } from "rxjs";
 import { exhaustMap, map, switchMap, tap } from "rxjs/operators";
-import { Auth } from "../../models/auth";
-import { RegisterResponse } from "../../models/registerPesponse";
-import { User, UserAuth } from "../../models/user";
+import { RegisterResponse } from "../../models/register-response";
+import { User } from "../../models/user";
 import { AuthService } from "../../services/auth.service";
 import { AuthUser, AuthUserSuccess, EAuthActions, UserLogOut } from "../actions/auth.actions";
 import { ResetDataUser } from "../actions/user.actions";
@@ -20,7 +19,7 @@ export class AuthEffects {
     map(action => action.payload),
     exhaustMap((action: User) => this._userService.authenUser(action).pipe(
       exhaustMap((res: RegisterResponse) => of(new AuthUserSuccess({token: res.token, user: res.user}))),
-      tap(() => this.router.navigate(["main/events"])),
+      tap(() => this.router.navigate(["main/users"])),
     )),
   );
   @Effect()

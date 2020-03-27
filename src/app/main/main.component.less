@@ -12,25 +12,33 @@
     color: @white;
     align-items: center;
     display: inline-block;
-
     padding: 10px 0;
     font-size: 20px;
     @media (max-width: 575px) {
     margin: 20px 0 0 0;
     }
   }
-  &__lang {
-    display: inline-block;
+  &__profile {
+    display: flex;
     position: absolute;
-    right: 0;
-    margin: 30px 0 0 0;
+    right: 2%;
+    flex-direction: column;
+    align-items: center;
+    &-icon {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  &__lang {
+    font: 18px "Times New Roman";
+    padding: 5px;
   }
   &__entry {
-    display: inline-block;
-    /*left: 20%;*/
-    margin: 20px 0 0 0;
-    font: 16px "Times New Roman";
+    font: 18px "Times New Roman";
+    padding: 0;
+
   }
+
 
 
 }
@@ -68,4 +76,12 @@
     background: @slategray;
     color: @white;
   }
+}
+.icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 0;
+  stroke: @black;
+  fill: @black;
+
 }

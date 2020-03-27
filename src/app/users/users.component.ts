@@ -21,15 +21,11 @@ export class UsersComponent implements OnInit {
   public user: User;
   public users: User[] = UsersList;
   public users$: Observable<User[]> = this._store.pipe(select(selectUserList));
-  public isDisplayed: boolean;
 
   constructor(@Inject(DataService) private dataService: IncidentData,
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private _store: Store<AppState>) { }
-  public hideForm(displayed: boolean): void {
-    this.isDisplayed = displayed;
-  }
   public addUser(): void {
     this.router.navigate([`main/users/add`]);
   }

@@ -17,8 +17,7 @@ export class IncidentEffects {
     map(action => action.payload),
     withLatestFrom(this._store.pipe(select(selectIncidentList))),
     switchMap(([id, incidents]) => {
-      // @ts-ignore
-      const selectedIncident = incidents.filter(incident => incident._id === +id)[0];
+      const selectedIncident = incidents.filter(incident => incident._id === id)[0];
       return of(new GetIncidentSuccess(selectedIncident));
     }),
   );

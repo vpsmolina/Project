@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 import { FieldsList } from "../../data/fields-list";
 import { PrioritiesList } from "../../data/priorities-list";
 import { StatusesList } from "../../data/statuses";
-import { UsersList } from "../../data/users-list";
 import { Field } from "../../models/field";
 import { Incident } from "../../models/incident";
 import { IncidentData } from "../../models/incident-data";
@@ -15,8 +15,7 @@ import { User } from "../../models/user";
 import { TableService } from "../../services/table.service";
 import { ValidatorsService } from "../../services/validators.service";
 import { CreateIncident, GetIncident, GetIncidents, UpdateIncident } from "../../store/actions/incident.actions";
-import { CreateUser } from "../../store/actions/user.actions";
-import { selectSelectedIncident } from "../../store/selectors/incidents.selectors";
+import { selectUserList } from "../../store/selectors/user.selectors";
 import { AppState } from "../../store/state/app.state";
 import { IncidentEvents } from "../incidentevents";
 
@@ -31,18 +30,17 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
   constructor(private IncidentValidators: ValidatorsService,
               @Inject(TableService) private dataService: IncidentData,
               private router: Router, private activatedRoute: ActivatedRoute,
-              private _store: Store<AppState>, private fb: FormBuilder) {}
+              private _store: Store<AppState>) {}
   public formIncident: FormGroup;
   public title: string;
   public incidentId: string;
-  public target = " ";
   public action: Number;
   public piece: string;
   public count: number;
   public id: number;
   public incident: Incident;
   public confirm: boolean = false;
-  public users: User[] = UsersList;
+  public users$: Observable<User[]> = this._store.pipe(select(selectUserList));
   public fields: Field[] = FieldsList;
   public priorities: Priority[] = PrioritiesList;
   public statuses: Status[] = StatusesList;
