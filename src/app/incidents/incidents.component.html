@@ -1,6 +1,11 @@
 <div class="events__table">
   <div class="events__table-strip">
-    <input class="events__table-strip-enter_filter" type="text" [formControl]="filter" placeholder="Enter name">
+    <label>
+      <svg class="icon-search">
+        <use xlink:href="./assets/images/search.svg#icon-search"></use>
+      </svg>
+      <input class="events__table-strip-enter_filter" type="text" [formControl]="filter" placeholder="Enter name">
+    </label>
     <button class="table-button events__table-strip-button" (click)="addIncident()">{{ 'INCIDENTS.ADDEVENT' | translate }}</button>
   </div>
   <ul class="events__table-header">

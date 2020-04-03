@@ -13,16 +13,11 @@
       padding: 20px 0;
       position: relative;
       &-enter_filter {
-/*        font-size: 14px;
-        justify-content: space-between;
-        background-color: rgb(250, 251, 252);
-        border-color: rgb(223, 225, 230);
+        padding: 5px;
         border-radius: 3px;
+        border-color: rgb(223, 225, 230);
         border-style: solid;
-        overflow: hidden;
-        transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
-        border-width: 2px;
-        padding: 2px 6px;*/
+        font-size: 14px;
       }
       &-button {
         position: absolute;
@@ -119,6 +114,26 @@
     fill: #32cd32;
   }
 }
+label {
+  position: relative;
+}
 
+label > .icon-search {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: silver;
+}
 
-
+label > input {
+  padding-left: calc(1em + 10px + 8px); /* icon width + icon padding-left + desired separation*/
+  height: 2em;
+}
+.icon-search {
+  width: 18px;
+  height: 18px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}

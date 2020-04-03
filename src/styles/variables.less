@@ -41,16 +41,17 @@ input.ng-touched.ng-valid{
 }
 
 .table-button {
-  color: @black;
+  color: @white;
   padding: 10px;
   border: solid @white;
-  background: @white;
+  background: cornflowerblue;
   display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
+ /* background: rgba(255, 255, 255, 0.2);*/
   text-align: center;
   text-decoration: none;
   letter-spacing: 1px;
   transition: all 0.3s ease-out;
+  font-size: 14px;
   &-delete {
     display: block;
     border-radius: 50%;
@@ -60,7 +61,16 @@ input.ng-touched.ng-valid{
   }
 }
 .table-button:hover {
-  color: @slategray;
+  background: dodgerblue;
 }
-
+.icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  &-earth:hover {
+    fill: cornflowerblue;
+  }
+}
 
