@@ -97,7 +97,6 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
       this.data._id = incident[0]._id;*/
       this.formIncident.setValue(editIncident);
     });
-
   }
   public onSubmit(): boolean {
     const controls = this.formIncident.controls;

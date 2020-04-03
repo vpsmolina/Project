@@ -1,5 +1,7 @@
 <div class="events__table">
   <button class="table-button" (click)="addIncident()">{{ 'INCIDENTS.ADDEVENT' | translate }}</button>
+  <label for="search"></label>
+  <input id="search" class="search-input" #search type="search" placeholder="Search by name" (keyup)="applySearch(search.value)">
   <ul class="events__table-header">
     <li class="events__table-header-column"></li>
     <li class="events__table-header-column">{{ 'INCIDENTS.NAME' | translate }}</li>
@@ -11,7 +13,8 @@
   </ul>
 
   <div class="events__table-body-row" *ngFor="let incident of incidents$ | async;"
-       (click)="editIncident(incident._id)" appHover>
+       (click)="editIncident(incident._id)" appHover
+       [class.accent]="incident.name.includes(selectedIncidents)">
     <span class="events__table-body-column">
 
       <svg class="inline-svg-icon inline-svg-icon-closed" *ngIf="incident.status === 'Closed' || incident.status === 'Marriage' ">

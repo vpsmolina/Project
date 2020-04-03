@@ -15,6 +15,7 @@ import { AppRoutingModule, routing } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AuthComponent } from "./component/auth/auth.component";
 import { MainModule } from "./component/main.module";
+import { ProfileComponent } from "./component/profile/profile.component";
 import { MainComponent } from "./main/main.component";
 import { AuthEffects } from "./store/effects/auth.effects";
 import { IncidentEffects } from "./store/effects/incident.effects";
@@ -30,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
     AppComponent,
     MainComponent,
     AuthComponent,
+    ProfileComponent,
   ],
     imports: [
         BrowserModule,

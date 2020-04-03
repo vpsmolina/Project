@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Project</title>
+</head>
+<div class="profile">
+  <span>{{user.surname}}</span>
+  <span>{{user.login}}</span>
+  <span>{{user.birthday | date: 'dd-MM-yyyy'}}</span>
+  <div *ngFor="let incident of incidents$ | async;">
+    <div *ngIf="incident.assignee === user.surname">{{incident.name}}</div>
+  </div>
+</div>
+<router-outlet></router-outlet>

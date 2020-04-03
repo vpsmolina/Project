@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { FlashMessagesService } from "angular2-flash-messages";
@@ -15,6 +15,7 @@ import { DataService } from "../services/data.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent implements OnInit {
+  @Input() isOn: boolean;
   selectedLanguage: string;
   languages: {id: string, title: string}[] = [];
   user: User = JSON.parse(localStorage.getItem("user"));
@@ -44,9 +45,10 @@ export class MainComponent implements OnInit {
           };
         });
       });
-    console.log(this.user);
+    console.log(this.selectedLanguage);
   }
   changeLocale(): void {
+   (this.selectedLanguage === "en") ? this.selectedLanguage = "ru" : this.selectedLanguage = "en";
     this.translateService.use(this.selectedLanguage);
   }
 

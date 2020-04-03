@@ -1,3 +1,7 @@
 <div class="process__table">
-  <img class="process__table-block" src="./assets/images/blockDiagram.png" alt="BlockDiagram">
+  <!--<img class="process__table-block" src="./assets/images/blockDiagram.png" alt="BlockDiagram">-->
+  <div class="events__table-body-row" *ngFor="let incident of incidents$ | async;">
+    <span class="events__table-body-column">{{incident.name}}</span>
+    <span class="events__table-body-column hidden">{{incident.status}}</span>
+  </div>
 </div>

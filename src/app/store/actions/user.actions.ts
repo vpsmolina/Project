@@ -1,5 +1,7 @@
 import { Action } from "@ngrx/store";
+import { Incident } from "../../models/incident";
 import { User } from "../../models/user";
+import { EIncidentActions } from "./incident.actions";
 
 export enum EUserActions {
   GetUsers = "[Users List] Get users",
@@ -10,7 +12,9 @@ export enum EUserActions {
   CreateUserSuccess = "[Create Users] Create users success",
   DeleteUser = "[Users List] Delete user",
   DeleteUserSuccess = "[Users List] Delete user success",
-  ResetDataUsers = "[User] Reset data user"
+  ResetDataUsers = "[User] Reset data user",
+  UpdateUser = "[Edit User] Update users",
+  UpdateUserSuccess = "[Edit User] Update users success",
 }
 export class GetUsers implements Action {
   public readonly type = EUserActions.GetUsers;
@@ -46,8 +50,21 @@ export class DeleteUserSuccess implements Action {
 export class ResetDataUser implements Action {
   public readonly type = EUserActions.ResetDataUsers;
 }
+export class UpdateUser implements Action {
+  public readonly type = EUserActions.UpdateUser;
+  constructor(public payload: {_id: string, data: User}) {
+  }
+}
+
+export class UpdateUserSuccess implements Action {
+  public readonly type = EUserActions.UpdateUserSuccess;
+
+  constructor(public payload: { _id: string, data: User }) {
+  }
+}
 export type UserActions =
   GetUser | GetUserSuccess |
   GetUsers | GetUsersSuccess |
   CreateUser | CreateUserSuccess |
-  DeleteUser | DeleteUserSuccess | ResetDataUser;
+  DeleteUser | DeleteUserSuccess | ResetDataUser |
+  UpdateUser | UpdateUserSuccess;

@@ -6,7 +6,8 @@
     <li class="users__table-header-column">{{ 'USERS.BIRTHDAY' | translate }}</li>
     <li class="users__table-header-column"></li>
   </ul>
-  <div class="users__table-body-row" *ngFor="let user of users$ | async;" >
+  <div class="users__table-body-row" *ngFor="let user of users$ | async;"
+       (click)="editUser(user._id)">
     <span class="users__table-body-column">
       {{user.position}}
     </span>

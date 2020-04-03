@@ -6,32 +6,29 @@
 </head>
 <header class="header">
   <div class="header__name">{{ 'MAIN.PROJECT' | translate }}</div>
+  <div class="tab">
+    <button routerLink="/main/events" routerLinkActive="active" class="tab__button">{{ 'MAIN.EVENTS' | translate }}</button>
+    <button routerLink="/main/process" routerLinkActive="active" class="tab__button">{{ 'MAIN.PROCESS' | translate }}</button>
+    <button routerLink="/main/users" routerLinkActive="active" class="tab__button">{{ 'MAIN.USERS' | translate }}</button>
+  </div>
   <div class="header__profile">
-    <label class="header__lang">{{ 'LANGUAGES.TITLE' | translate }}
-      <select (change)="changeLocale()" [(ngModel)]="selectedLanguage">
-        <option *ngFor="let language of languages" [value]="language.id">{{ language.title }}</option>
-      </select></label>
+    <svg class=" icon icon-earth header__lang" (click)="changeLocale()">
+      <use xlink:href="./assets/images/earth.svg#icon-earth"></use>
+    </svg>
     <div class="header__profile-icon">
-      <svg class="icon">
+      <svg class="icon header__lang">
         <use xlink:href="./assets/images/user.svg#icon-user"></use>
       </svg>
-      <span *ngIf="authService.logIn" class="header__entry">{{user.surname}}</span>
-      <a *ngIf="!authService.logIn" class="table-button header__entry" href="/main/auth">{{ 'MAIN.LOGIN' | translate }}</a>
+      <span *ngIf="authService.logIn" class="header__lang">{{user.surname}}</span>
+      <a *ngIf="!authService.logIn" class="tab__button header__lang" href="/main/auth">{{ 'MAIN.LOGIN' | translate }}</a>
     </div>
-    <button *ngIf="authService.logIn" class="table-button header__entry" (click)="logoutUser()">{{ 'MAIN.EXIT' | translate }}</button>
+    <button *ngIf="authService.logIn" class="tab__button header__lang" (click)="logoutUser()">{{ 'MAIN.EXIT' | translate }}</button>
 
   </div>
 </header>
 <main>
-  <div class="tab">
-    <button class="tab__button" (click)="showEvents()">{{ 'MAIN.EVENTS' | translate }}</button>
-    <button class="tab__button" (click)="showProcess()">{{ 'MAIN.PROCESS' | translate }}</button>
-    <button class="tab__button" (click)="showUsers()">{{ 'MAIN.USERS' | translate }}</button>
-  </div>
   <flash-messages></flash-messages>
 </main>
-
-
 </html>
 <router-outlet></router-outlet>
 

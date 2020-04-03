@@ -32,6 +32,9 @@ export class UsersComponent implements OnInit {
   public delete(_id: string): void {
     this.router.navigate([`main/users/delete/${_id}`]);
   }
+  public editUser(_id: string): void {
+    this.router.navigate([`main/edit/${_id}`]);
+  }
 
   ngOnInit(): void {
     this._store.dispatch(new GetUsers());

@@ -73,4 +73,11 @@ export class TableService {
     return of(this._user);*/
     return this.http.delete<string>(`${this.apiUri}/account/delete/${_id}`);
   }
+  public updateUser(_id: string, data: User): Observable<User> {
+
+    return this.http.put<User>(this.apiUri + "/account/update/" + _id, data);
+  }
+  public getUserById(_id: string): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUri + "/account/read/" + _id);
+  }
 }

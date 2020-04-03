@@ -1,13 +1,13 @@
 @import "./../../styles/variables";
 .header {
   background: @white;
-  height: 80px;
+  height: 40px;
   position: relative;
   margin-bottom: 10px;
   display: flex;
+  border-top: 1px solid @lightgray;
+  border-bottom: 1px solid @lightgray;
   &__name {
-    width: 88px;
-    margin: 20px 0 20px 60px;
     background: @black;
     color: @white;
     align-items: center;
@@ -22,8 +22,9 @@
     display: flex;
     position: absolute;
     right: 2%;
-    flex-direction: column;
+   /* flex-direction: column;*/
     align-items: center;
+    padding: 0 20px;
     &-icon {
       display: flex;
       flex-direction: row;
@@ -32,25 +33,14 @@
   &__lang {
     font: 18px "Times New Roman";
     padding: 5px;
-  }
-  &__entry {
-    font: 18px "Times New Roman";
-    padding: 0;
 
   }
-
-
-
 }
 
 .tab {
-  width: 70%;
   background: @white;
-  margin: auto;
-  padding: 10px 0 10px 0;
+  padding: 0 20px;
   display: flex;
-  border-top: 1px solid @lightgray;
-  border-bottom: 1px solid @lightgray;
   @media (max-width: 575px) {
     width: 100%;
     margin: auto;
@@ -60,22 +50,21 @@
     color: @black;
     border: solid @white;
     background: @white;
-    margin: 0;
+   /* margin: 5px;*/
+    padding: 5px;
     display: inline-block;
     background: rgba(255, 255, 255, 0.2);
+    font: 18px "Times New Roman";
     text-align: center;
     text-decoration: none;
-    letter-spacing: 1px;
-    transition: all 0.3s ease-out;
   }
   &__button:hover {
-       color: @slategray;
+       color: cornflowerblue;
      }
-  &__button:active {
-    border: solid @slategray;
-    background: @slategray;
-    color: @white;
+.active {
+    border-bottom: 2px solid cornflowerblue;
   }
+
 }
 .icon {
   width: 22px;
@@ -83,5 +72,7 @@
   stroke-width: 0;
   stroke: @black;
   fill: @black;
-
+  &-earth:hover {
+    fill: cornflowerblue;
+  }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -26,12 +26,13 @@ export class IncidentsComponent implements OnInit {
   public index: number;
   public target: string;
 
-
+  public selectedIncidents: string;
   constructor(@Inject(TableService) private dataService: IncidentData,
               private _router: Router,
-              private _store: Store<AppState>) {
+              private _store: Store<AppState>) {}
+  public applySearch(search: string): void {
+    search === "" ? this.selectedIncidents = null :  this.selectedIncidents = search;
   }
-
   public addIncident(): void {
     this._router.navigate([`main/events/add`]);
   }

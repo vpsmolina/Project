@@ -116,6 +116,15 @@ router.post('/createuser', (req, res) => {
       res.json({success: true, msg: "Пользователь добавлен"});
     }
   });
+  router.get('/read/:id', (req, res) => {
+    User.findById(req.params.id, (error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        res.json(data)
+      }
+    })
+  });
 });
 
 module.exports = router;

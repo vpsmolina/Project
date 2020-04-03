@@ -3,9 +3,11 @@ import { Actions, Effect, ofType } from "@ngrx/effects";
 import { select, Store } from "@ngrx/store";
 import { of } from "rxjs";
 import { map, switchMap, withLatestFrom } from "rxjs/operators";
+import { Incident } from "../../models/incident";
 import { User } from "../../models/user";
 import { TableService } from "../../services/table.service";
-import { CreateUser, CreateUserSuccess, DeleteUser, DeleteUserSuccess, EUserActions, GetUser, GetUsers, GetUsersSuccess, GetUserSuccess } from "../actions/user.actions";
+import { EIncidentActions, UpdateIncident, UpdateIncidentSuccess } from "../actions/incident.actions";
+import { CreateUser, CreateUserSuccess, DeleteUser, DeleteUserSuccess, EUserActions, GetUser, GetUsers, GetUsersSuccess, GetUserSuccess, UpdateUser, UpdateUserSuccess } from "../actions/user.actions";
 import { selectUserList } from "../selectors/user.selectors";
 import { AppState } from "../state/app.state";
 
@@ -43,6 +45,14 @@ export class UserEffects {
     map(action => action.payload),
     switchMap((_id: string) => this._usersService.deleteUser(_id).pipe(
       switchMap(() => of(new DeleteUserSuccess(_id))),
+    )),
+  );
+  @Effect()
+  updateUser$ = this._actions$.pipe(
+    ofType<UpdateUser>(EUserActions.UpdateUser),
+    map(action => action.payload),
+    switchMap((action: {_id: string, data: User}) => this._usersService.updateUser(action._id, action.data).pipe(
+      switchMap(() => of(new UpdateUserSuccess(action))),
     )),
   );
   constructor(private _usersService: TableService,
