@@ -1,13 +1,35 @@
 @import "./../../styles/variables";
 .events {
   &__table {
-    width: 70%;
+    width: 95%;
     margin: auto;
     background: @white;
     @media (max-width: 575px) {
       width: 100%;
       margin: auto;
       font-size: 14px;
+    }
+    &-strip {
+      padding: 20px 0;
+      position: relative;
+      &-enter_filter {
+/*        font-size: 14px;
+        justify-content: space-between;
+        background-color: rgb(250, 251, 252);
+        border-color: rgb(223, 225, 230);
+        border-radius: 3px;
+        border-style: solid;
+        overflow: hidden;
+        transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+        border-width: 2px;
+        padding: 2px 6px;*/
+      }
+      &-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        align-items: center;
+      }
     }
 
     &-header {
@@ -97,7 +119,6 @@
     fill: #32cd32;
   }
 }
-.accent{
-  background-color: fade(@slategray, 10%);
-}
+
+
 
