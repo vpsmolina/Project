@@ -2,13 +2,21 @@
 .users {
 
   &__table {
-    width: 95%;
+    width: 80%;
     margin: auto;
     background: @white;
+
     @media (max-width: 575px) {
       width: 100%;
       margin: auto;
       font-size: 14px;
+    }
+    &-strip {
+      padding: 20px 0;
+      position: relative;
+    }
+    &-button {
+      position: absolute;
     }
 
     &-header {

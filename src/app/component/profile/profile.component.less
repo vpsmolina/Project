@@ -1,5 +1,84 @@
-.profile {
-  width: 70%;
-  margin: auto;
-  background: white;
+@import "./../../../styles/variables";
+.line-header {
+  width: 100%;
+  height: 130px;
+  background: @lightgray;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 40px;
 }
+.icon-profile {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  stroke-width: 1px;
+  stroke: @white;
+  fill: currentColor;
+  left: calc(10% + 20px);
+  bottom: -30px;
+}
+.info {
+  width: 80%;
+  margin: auto;
+  background: @white;
+  display: flex;
+}
+.info-name {
+  font-size: 28px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: -.24px;
+  word-break: break-all;
+  margin-bottom: 0;
+}
+.info-data {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+.info-main {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.31) 0px 0px 1px 0px;
+  padding: 20px 0px;
+  border-radius: 3px;
+  margin: 40px 0 20px 0;
+  background: @white;
+  .info-data();
+}
+.info-event {
+  flex: 1;
+  .info-main;
+  margin-right: 20px;
+}
+
+.info-strip {
+  color: @black;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -.096px;
+  padding: 20px 0;
+}
+
+.info-profile {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  word-break: break-all;
+  letter-spacing: -.096px;
+  padding: 10px;
+
+}
+.info-work {
+  display: flex;
+  flex-direction: row;
+  &-event {
+    .info-profile();
+    flex: 0 1 calc((100vw - 40px) / 3);
+  }
+}
+
+

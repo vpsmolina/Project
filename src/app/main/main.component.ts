@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { Store } from "@ngrx/store";
 import { TranslateService } from "@ngx-translate/core";
 import { FlashMessagesService } from "angular2-flash-messages";
 import { environment } from "../../environments/environment";
@@ -7,6 +8,8 @@ import { IncidentData } from "../models/incident-data";
 import { User } from "../models/user";
 import { AuthService } from "../services/auth.service";
 import { DataService } from "../services/data.service";
+import { GetUsers } from "../store/actions/user.actions";
+import { AppState } from "../store/state/app.state";
 
 @Component({
   selector: "app-main",
@@ -22,7 +25,7 @@ export class MainComponent implements OnInit {
   constructor(@Inject(DataService) private dataService: IncidentData,
               private router: Router, private translateService: TranslateService,
               private authService: AuthService,
-              private flashMessage: FlashMessagesService, ) {}
+              private flashMessage: FlashMessagesService, private _store: Store<AppState>) {}
   public showUsers(): void {
     this.router.navigate([`main/users`]);
   }

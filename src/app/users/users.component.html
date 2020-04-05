@@ -1,5 +1,8 @@
 <div class="users__table">
-  <button class="table-button" (click)="addUser()">{{ 'USERS.ADDUSER' | translate }}</button>
+  <div class="users__table-strip">
+    <button class="table-button users__table-button" (click)="addUser()">{{ 'USERS.ADDUSER' | translate }}</button>
+  </div>
+
   <ul class="users__table-header">
     <li class="users__table-header-column">{{ 'USERS.POSITION' | translate }}</li>
     <li class="users__table-header-column">{{ 'USERS.USER' | translate }}</li>

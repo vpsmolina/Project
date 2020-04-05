@@ -4,12 +4,36 @@
   <meta charset="utf-8" />
   <title>Project</title>
 </head>
-<div class="profile">
-  <span>{{user.surname}}</span>
-  <span>{{user.login}}</span>
-  <span>{{user.birthday | date: 'dd-MM-yyyy'}}</span>
-  <div *ngFor="let incident of incidents$ | async;">
-    <div *ngIf="incident.assignee === user.surname">{{incident.name}}</div>
+<div class="line-header">
+  <svg class="icon-profile">
+    <use xlink:href="./assets/images/profile.svg#icon-profile"></use>
+  </svg>
+</div>
+<div class="info">
+  <div class="info-data">
+    <h2 class="info-name">{{user.surname}}</h2>
+    <div class="info-main">
+      <span class="info-strip">INFO</span>
+      <span class="info-profile">Login: {{user.login}}</span>
+      <span class="info-profile">Position: {{user.position}}</span>
+      <span class="info-profile">Birthday: {{user.birthday | date: 'dd-MM-yyyy'}}</span>
+    </div>
+  </div>
+  <div class="info-event">
+    <span class="info-strip">IN WORK</span>
+    <div class="info-work">
+      <span class="info-work-event">Name</span>
+      <span class="info-work-event">Status</span>
+      <span class="info-work-event">Due date</span>
+    </div>
+    <div *ngFor="let incident of incidents$ | async;">
+      <div class="info-work" *ngIf="incident.assignee === user.surname">
+        <span class="info-work-event">{{incident.name}}</span>
+        <span class="info-work-event">{{incident.status}}</span>
+        <span class="info-work-event">{{incident.dueDate | date: 'dd-MM-yyyy'}}</span>
+      </div>
+    </div>
+
   </div>
 </div>
 <router-outlet></router-outlet>

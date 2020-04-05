@@ -1,4 +1,5 @@
 import { Action } from "@ngrx/store";
+import { Subscription } from "rxjs";
 import { Incident } from "../../models/incident";
 import { User } from "../../models/user";
 import { EIncidentActions } from "./incident.actions";
