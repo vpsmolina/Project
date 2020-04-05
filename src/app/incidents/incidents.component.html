@@ -1,10 +1,17 @@
 <div class="events__table">
   <div class="events__table-strip">
-    <label>
+    <label class="events__table-strip_label">
       <svg class="icon-search">
         <use xlink:href="./assets/images/search.svg#icon-search"></use>
       </svg>
       <input class="events__table-strip-enter_filter" type="text" [formControl]="filter" placeholder="Enter name">
+    </label>
+    <label>
+      <select class="events__table-strip-enter_filter" [(ngModel)]="checkEvent">
+        <option [value]="''" >All area</option>
+        <option>IT</option>
+        <option>QA</option>
+      </select>
     </label>
     <button class="table-button events__table-strip-button" (click)="addIncident()">{{ 'INCIDENTS.ADDEVENT' | translate }}</button>
   </div>
@@ -18,7 +25,7 @@
     <li class="events__table-header-column hidden">{{ 'INCIDENTS.STATUS' | translate }}</li>
   </ul>
 
-  <div class="events__table-body-row" *ngFor="let incident of filteredStates$| async;"
+  <div class="events__table-body-row" *ngFor="let incident of filteredStates$| areaFilter:checkEvent | async ;"
        (click)="editIncident(incident._id)" appHover>
 
     <span class="events__table-body-column">
