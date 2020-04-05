@@ -4,13 +4,18 @@
   </div>
 
   <ul class="users__table-header">
+    <li class="users__table-header-column"></li>
     <li class="users__table-header-column">{{ 'USERS.POSITION' | translate }}</li>
     <li class="users__table-header-column">{{ 'USERS.USER' | translate }}</li>
     <li class="users__table-header-column">{{ 'USERS.BIRTHDAY' | translate }}</li>
     <li class="users__table-header-column"></li>
   </ul>
-  <div class="users__table-body-row" *ngFor="let user of users$ | async;"
-       (click)="editUser(user._id)">
+  <div class="users__table-body-row" *ngFor="let user of users$ | async;">
+    <span class="users__table-body-column">
+      <svg class="icon icon-pencil" (click)="editUser(user._id)">
+        <use xlink:href="./assets/images/profile.svg#icon-profile"></use>
+      </svg>
+    </span>
     <span class="users__table-body-column">
       {{user.position}}
     </span>
@@ -20,10 +25,10 @@
     <span class="users__table-body-column">
       {{user.birthday | date: 'dd-MM-yyyy'}}
     </span>
+
     <span class="users__table-body-column">
       <button class="table-button-delete" (click)="delete(user._id)"></button>
     </span>
-
   </div>
 </div>
 <!--<router-outlet (deactivate)="actions($event)"></router-outlet>-->
