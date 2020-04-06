@@ -2,12 +2,12 @@
   <div class="users__table-strip">
     <button class="table-button users__table-button" (click)="addUser()">{{ 'USERS.ADDUSER' | translate }}</button>
   </div>
-
+<div class="users__table-main">
   <ul class="users__table-header">
     <li class="users__table-header-column"></li>
-    <li class="users__table-header-column">{{ 'USERS.POSITION' | translate }}</li>
     <li class="users__table-header-column">{{ 'USERS.USER' | translate }}</li>
-    <li class="users__table-header-column">{{ 'USERS.BIRTHDAY' | translate }}</li>
+    <li class="users__table-header-column">{{ 'USERS.POSITION' | translate }}</li>
+    <!--<li class="users__table-header-column">{{ 'USERS.BIRTHDAY' | translate }}</li>-->
     <li class="users__table-header-column"></li>
   </ul>
   <div class="users__table-body-row" *ngFor="let user of users$ | async;">
@@ -17,19 +17,20 @@
       </svg>
     </span>
     <span class="users__table-body-column">
-      {{user.position}}
-    </span>
-    <span class="users__table-body-column">
       {{user.surname}}
     </span>
     <span class="users__table-body-column">
-      {{user.birthday | date: 'dd-MM-yyyy'}}
+      {{user.position}}
     </span>
+<!--    <span class="users__table-body-column">
+      {{user.birthday | date: 'dd-MM-yyyy'}}
+    </span>-->
 
     <span class="users__table-body-column">
       <button class="table-button-delete" (click)="delete(user._id)"></button>
     </span>
   </div>
+</div>
 </div>
 <!--<router-outlet (deactivate)="actions($event)"></router-outlet>-->
 <router-outlet></router-outlet>
