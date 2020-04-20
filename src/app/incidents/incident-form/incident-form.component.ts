@@ -15,6 +15,7 @@ import { User } from "../../models/user";
 import { TableService } from "../../services/table.service";
 import { ValidatorsService } from "../../services/validators.service";
 import { CreateIncident, GetIncident, GetIncidents, UpdateIncident } from "../../store/actions/incident.actions";
+import { selectSelectedIncident } from "../../store/selectors/incidents.selectors";
 import { selectUserList } from "../../store/selectors/user.selectors";
 import { AppState } from "../../store/state/app.state";
 import { IncidentEvents } from "../incidentevents";
@@ -72,17 +73,17 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
 
   public initEditIncident(): void {
     this.formIncident = new FormGroup({
-      name: new FormControl(),
-      area: new FormControl(null),
-      assignee: new FormControl(null),
-      startDate: new FormControl(null),
-      dueDate: new FormControl(null, [Validators.required, this.IncidentValidators.dateValidator]),
-      description: new FormControl(null),
-      status: new FormControl(null, [Validators.required]),
-      priority: new FormControl(null),
+      name: new FormControl(this.incident.name),
+      area: new FormControl(this.incident.area),
+      assignee: new FormControl(this.incident.assignee),
+      startDate: new FormControl(this.convertDate(new Date(this.incident.startDate))),
+      dueDate: new FormControl(this.convertDate(new Date(this.incident.dueDate)), [Validators.required, this.IncidentValidators.dateValidator]),
+      description: new FormControl(this.incident.description),
+      status: new FormControl(this.incident.status, [Validators.required]),
+      priority: new FormControl(this.incident.priority),
     });
 
-    this.dataService.getIncidentById(this.incidentId).subscribe((incident) => {
+/*    this.dataService.getIncidentById(this.incidentId).subscribe((incident) => {
       const editIncident = {
         name: incident["name"],
         area: incident["area"],
@@ -94,7 +95,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
         priority: incident["priority"],
       };
       this.formIncident.setValue(editIncident);
-    });
+    });*/
   }
   public onSubmit(): boolean {
     const controls = this.formIncident.controls;
@@ -156,7 +157,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._store.dispatch(new GetIncident(this.activatedRoute.snapshot.params.id));
     this.piece = this.activatedRoute.snapshot.url[0].path;
-    /*this._store.pipe(select(selectSelectedIncident)).subscribe(data => this.incident = data);*/
+    this._store.pipe(select(selectSelectedIncident)).subscribe(data => this.incident = data);
     this._action(this.piece);
   }
   ngOnDestroy(): void {
