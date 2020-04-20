@@ -82,20 +82,6 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
       status: new FormControl(this.incident.status, [Validators.required]),
       priority: new FormControl(this.incident.priority),
     });
-
-/*    this.dataService.getIncidentById(this.incidentId).subscribe((incident) => {
-      const editIncident = {
-        name: incident["name"],
-        area: incident["area"],
-        assignee: incident["assignee"],
-        startDate: this.convertDate(new Date(incident["startDate"])),
-        dueDate: this.convertDate(new Date(incident["dueDate"])),
-        description: incident["description"],
-        status: incident["status"],
-        priority: incident["priority"],
-      };
-      this.formIncident.setValue(editIncident);
-    });*/
   }
   public onSubmit(): boolean {
     const controls = this.formIncident.controls;
@@ -144,7 +130,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
       case 2: {
         this.title = "Edit";
         this.action = 2;
-        this.activatedRoute.params.subscribe(param => this.incidentId = param.id);
+        /*this.activatedRoute.params.subscribe(param => this.incidentId = param.id);*/
         this.initEditIncident();
         break;
       }
