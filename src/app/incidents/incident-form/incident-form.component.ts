@@ -34,7 +34,7 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
   public formIncident: FormGroup;
   public title: string;
   public incidentId: string;
-  public action: Number;
+  public action: number;
   public piece: string;
   public count: number;
   public id: number;
@@ -93,8 +93,6 @@ export class IncidentFormComponent implements OnInit, OnDestroy {
         status: incident["status"],
         priority: incident["priority"],
       };
-/*      this.data.id = incident[0].id;
-      this.data._id = incident[0]._id;*/
       this.formIncident.setValue(editIncident);
     });
   }

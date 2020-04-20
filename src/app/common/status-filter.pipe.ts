@@ -7,32 +7,34 @@ import { Status } from "../models/status";
 })
 export class StatusFilterPipe implements PipeTransform {
   transform(statuses: Status[] = StatusesList, value: string= ""): Status[] {
-    if (value === "Open") {
-      return statuses = statuses.filter(status => status.status === "In operation" || status.status === "Closed" || status.status === "Open");
-    }
-    if (value === "Re-start") {
-      return statuses = statuses.filter(status => status.status === "In operation" ||  status.status === "Additional information" || status.status === "Re-start");
-    }
-    if (value === "In operation") {
-      return statuses = statuses.filter(status => status.status === "In operation" || status.status === "Checked" || status.status === "Re-start" || status.status === "Additional information" || status.status === "Marriage");
-    }
-    if (value === "Marriage") {
-      return statuses = statuses.filter(status => status.status === "Marriage" || status.status === "Closed" || status.status === "Additional information");
-    }
-    if (value === "Additional information") {
-      return statuses = statuses.filter(status => status.status === "Additional information received" || status.status === "Closed" || status.status === "Additional information");
-    }
-    if (value === "Additional information received") {
-      return statuses = statuses.filter(status => status.status === "Additional information received" || status.status === "Closed" || status.status === "Re-start" || status.status === "Checked");
-    }
-    if (value === "Checked") {
-      return statuses = statuses.filter(status => status.status === "Checked" || status.status === "Closed" || status.status === "Resolved");
-    }
-    if (value === "Closed") {
-      return statuses = statuses.filter(status => status.status === "Closed" || status.status === "Re-start");
-    }
-    if (value === "Resolved") {
-      return statuses = statuses.filter(status => status.status === "Resolved" || status.status === "Re-start");
+    switch (value) {
+      case "Open":
+        statuses = statuses.filter(status => status.status === "In operation" || status.status === "Closed" || status.status === "Open");
+        break;
+      case "Re-start":
+        statuses = statuses.filter(status => status.status === "In operation" ||  status.status === "Additional information" || status.status === "Re-start");
+        break;
+      case "In operation":
+        statuses = statuses.filter(status => status.status === "In operation" || status.status === "Checked" || status.status === "Re-start" || status.status === "Additional information" || status.status === "Marriage");
+        break;
+      case "Marriage":
+        statuses = statuses.filter(status => status.status === "Marriage" || status.status === "Closed" || status.status === "Additional information");
+        break;
+      case "Additional information":
+        statuses = statuses.filter(status => status.status === "Additional information received" || status.status === "Closed" || status.status === "Additional information");
+        break;
+      case "Additional information received":
+        statuses = statuses.filter(status => status.status === "Additional information received" || status.status === "Closed" || status.status === "Re-start" || status.status === "Checked");
+        break;
+      case "Checked":
+        statuses = statuses.filter(status => status.status === "Checked" || status.status === "Closed" || status.status === "Resolved");
+        break;
+      case "Closed":
+        statuses = statuses.filter(status => status.status === "Closed" || status.status === "Re-start");
+        break;
+      case "Resolved":
+        statuses = statuses.filter(status => status.status === "Resolved" || status.status === "Re-start");
+        break;
     }
     return statuses;
   }
