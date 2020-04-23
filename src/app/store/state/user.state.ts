@@ -1,4 +1,3 @@
-import { UsersList } from "../../data/users-list";
 import { User } from "../../models/user";
 
 export interface UserState {

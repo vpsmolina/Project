@@ -20,10 +20,7 @@ export class AreaFilterPipe implements PipeTransform {
       return incidents.pipe(
         map(events => events.filter(incident => incident.area === value)),
     );
-      // tslint:disable-next-line:unnecessary-else
-    } else {
-      return incidents;
     }
+      return incidents;
   }
-
 }

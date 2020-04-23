@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
-import { Observable, Subscription } from "rxjs";
+import { Observable } from "rxjs";
 import { Incident } from "../../models/incident";
 import { User } from "../../models/user";
-import { GetIncidents } from "../../store/actions/incident.actions";
-import { GetUser, GetUsers } from "../../store/actions/user.actions";
+import { GetUser } from "../../store/actions/user.actions";
 import { selectIncidentList } from "../../store/selectors/incidents.selectors";
 import { selectSelectedUser } from "../../store/selectors/user.selectors";
 import { AppState } from "../../store/state/app.state";

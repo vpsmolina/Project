@@ -20,17 +20,15 @@ import { IncidentEvents } from "./incidentevents";
 })
 export class IncidentsComponent implements OnInit {
   public incident: Incident;
-  /*public incidents: Incident[] = IncidentsList;*/
   public incidents$: Observable<Incident[]> = this._store.pipe(select(selectIncidentList));
   filteredStates$: Observable<Incident[]> = this._store.pipe(select(selectIncidentList));
   filter: FormControl;
   filter$: Observable<string>;
-  public action: IncidentEvents;
+  /*public action: IncidentEvents;*/
   public type = true;
   public index: number;
   public target: string;
-  checkEvent: string;
-  private categories: string[] = [];
+  public checkEvent: string;
 
   constructor(@Inject(TableService) private dataService: IncidentData,
               private _router: Router,

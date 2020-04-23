@@ -9,9 +9,6 @@ export class ValidatorsService {
     const today = Date.now();
     const nowDate = new Date(today);
     const currentDate = new Date(control.value);
-    if (nowDate > currentDate) {
-      return { invalidDate: "Invalid date"};
-    }
-    return null;
+    return nowDate > currentDate ? { invalidDate: "Invalid date"} : null;
   }
 }

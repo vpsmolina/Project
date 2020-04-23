@@ -10,7 +10,8 @@ import { AppState } from "../../store/state/app.state";
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(public router: Router, private _store: Store<AppState>,
+  constructor(public router: Router,
+              private _store: Store<AppState>,
               private authService: AuthService) {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
