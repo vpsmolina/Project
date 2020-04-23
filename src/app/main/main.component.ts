@@ -23,18 +23,11 @@ export class MainComponent implements OnInit {
   languages: {id: string, title: string}[] = [];
   user: User = JSON.parse(localStorage.getItem("user"));
   constructor(@Inject(DataService) private dataService: IncidentData,
-              private router: Router, private translateService: TranslateService,
+              private router: Router,
+              private translateService: TranslateService,
               private authService: AuthService,
-              private flashMessage: FlashMessagesService, private _store: Store<AppState>) {}
-  public showUsers(): void {
-    this.router.navigate([`main/users`]);
-  }
-  public showEvents(): void {
-    this.router.navigate([`main/events`]);
-  }
-  public showProcess(): void {
-    this.router.navigate([`main/process`]);
-  }
+              private flashMessage: FlashMessagesService,
+              private _store: Store<AppState>) {}
   ngOnInit(): void {
     this.translateService.use(environment.defaultLocale);
     this.selectedLanguage = environment.defaultLocale;

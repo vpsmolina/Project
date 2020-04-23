@@ -72,7 +72,7 @@ router.get('/', (req, res) => {
   })
 });
 
-router.put('/update/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
   User.findByIdAndUpdate(req.params.id, {
     $set: req.body
   }, (error, data) => {
@@ -87,7 +87,7 @@ router.put('/update/:id', (req, res, next) => {
   })
 });
 
-router.route('/delete/:id').delete((req, res, next) => {
+router.route('/:id').delete((req, res, next) => {
   User.findOneAndRemove({_id: req.params.id}, (error,data) => {
     if (error) {
       return next(error);
@@ -99,7 +99,7 @@ router.route('/delete/:id').delete((req, res, next) => {
   })
 });
 
-router.post('/createuser', (req, res) => {
+router.post('/', (req, res) => {
   let newUser = new User({
     surname: req.body.surname,
     position: req.body.position,
@@ -116,7 +116,7 @@ router.post('/createuser', (req, res) => {
       res.json({success: true, msg: "Пользователь добавлен"});
     }
   });
-  router.get('/read/:id', (req, res) => {
+  router.get('/:id', (req, res) => {
     User.findById(req.params.id, (error, data) => {
       if (error) {
         return next(error)

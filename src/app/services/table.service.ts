@@ -16,11 +16,11 @@ export class TableService {
   }
 
   public createIncident(data: Incident): Observable<Incident> {
-    return this.http.post<Incident>(this.apiUri + "/event/createincident", data);
+    return this.http.post<Incident>(this.apiUri + "/event", data);
   }
 
   public updateIncident(_id: string, data: Incident): Observable<Incident> {
-    return this.http.put<Incident>(this.apiUri + "/event/update/" + _id, data);
+    return this.http.put<Incident>(this.apiUri + "/event/" + _id, data);
   }
 
   public getUsers(): Observable<User[]> {
@@ -28,17 +28,17 @@ export class TableService {
   }
 
   public createUser(data: User): Observable<User> {
-    return this.http.post<User>(this.apiUri + "/account/createuser", data);
+    return this.http.post<User>(this.apiUri + "/account/", data);
   }
 
   public deleteUser(_id: string): Observable<string> {
-    return this.http.delete<string>(`${this.apiUri}/account/delete/${_id}`);
+    return this.http.delete<string>(`${this.apiUri}/account/${_id}`);
   }
   public updateUser(_id: string, data: User): Observable<User> {
 
-    return this.http.put<User>(this.apiUri + "/account/update/" + _id, data);
+    return this.http.put<User>(this.apiUri + "/account/" + _id, data);
   }
   public getUserById(_id: string): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUri + "/account/read/" + _id);
+    return this.http.get<User[]>(this.apiUri + "/account/" + _id);
   }
 }

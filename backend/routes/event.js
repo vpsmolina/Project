@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   })
 });
 
-router.put('/update/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
   Incident.findByIdAndUpdate(req.params.id, {
     $set: req.body
   }, (error, data) => {
@@ -38,7 +38,7 @@ router.get('/read/:id', (req, res) => {
   })
 });
 
-router.route('/delete/:id').delete((req, res, next) => {
+router.route('/:id').delete((req, res, next) => {
   Incident.findOneAndRemove({_id: req.params.id}, (error,data) => {
     if (error) {
       return next(error);
@@ -50,7 +50,7 @@ router.route('/delete/:id').delete((req, res, next) => {
   })
 });
 
-router.post('/createincident', (req, res) => {
+router.post('/', (req, res) => {
   let newIncident = new Incident({
     name: req.body.name,
     assignee: req.body.assignee,

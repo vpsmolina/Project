@@ -13,9 +13,10 @@ import { AppState } from "../../store/state/app.state";
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
-  styleUrls: ["./profile.component.less"]
+  styleUrls: ["./profile.component.less"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProfileComponent implements OnInit, DoCheck {
+export class ProfileComponent implements OnInit {
   public user: User;
   public id: number;
   public incidents$: Observable<Incident[]> = this._store.pipe(select(selectIncidentList));
@@ -26,11 +27,5 @@ export class ProfileComponent implements OnInit, DoCheck {
     this._store.dispatch(new GetUser(this._route.snapshot.params.id));
     this._store.pipe(select(selectSelectedUser)).subscribe(data => this.user = data);
     console.log(this.user.surname);
-  }
-  ngDoCheck(): void {
-/*    this._store.dispatch(new GetUser(this._route.snapshot.params.id));
-    this._store.dispatch(new GetIncidents());
-    this._store.pipe(select(selectSelectedUser)).subscribe(data => this.user = data);
-    console.log(this.user.surname);*/
   }
 }
