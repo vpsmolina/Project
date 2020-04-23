@@ -22,7 +22,7 @@ export class GetDataUser implements Action {
 }
 export class GetDataUserSuccess implements Action {
   public readonly type = EAuthActions.GetDataUserSuccess;
-  constructor(public payload: User) {}
+  constructor(public payload: {user: User; login: string; token: string}) {}
 }
 export class LogInFail implements Action {
   public readonly type = EAuthActions.logInFail;

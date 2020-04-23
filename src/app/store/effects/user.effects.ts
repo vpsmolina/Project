@@ -1,13 +1,10 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { select, Store } from "@ngrx/store";
 import { of } from "rxjs";
 import { map, switchMap, withLatestFrom } from "rxjs/operators";
-import { Incident } from "../../models/incident";
 import { User } from "../../models/user";
 import { TableService } from "../../services/table.service";
-import { EIncidentActions, UpdateIncident, UpdateIncidentSuccess } from "../actions/incident.actions";
 import { CreateUser, CreateUserSuccess, DeleteUser, DeleteUserSuccess, EUserActions, GetUser, GetUsers, GetUsersSuccess, GetUserSuccess, UpdateUser, UpdateUserSuccess } from "../actions/user.actions";
 import { selectUserList } from "../selectors/user.selectors";
 import { AppState } from "../state/app.state";

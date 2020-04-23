@@ -36,7 +36,4 @@ export class AuthService {
   public isLoggedIn(): boolean {
     return (localStorage.getItem("token") !== null);
   }
-  public get logIn(): boolean {
-    return (localStorage.getItem("token") !== null);
-  }
 }

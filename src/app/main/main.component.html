@@ -19,10 +19,10 @@
       <svg class="icon header__lang">
         <use xlink:href="./assets/images/user.svg#icon-user"></use>
       </svg>
-      <span *ngIf="authService.logIn" class="header__lang">{{user.surname}}</span>
-      <a *ngIf="!authService.logIn" class="tab__button header__lang" href="/main/auth">{{ 'MAIN.LOGIN' | translate }}</a>
+      <span *ngIf="authService.isLoggedIn()" class="header__lang">{{user.surname}}</span>
+      <a *ngIf="!authService.isLoggedIn()" class="tab__button header__lang" href="/main/auth">{{ 'MAIN.LOGIN' | translate }}</a>
     </div>
-    <button *ngIf="authService.logIn" class="tab__button header__lang" (click)="logoutUser()">{{ 'MAIN.EXIT' | translate }}</button>
+    <button *ngIf="authService.isLoggedIn()" class="tab__button header__lang" (click)="logoutUser()">{{ 'MAIN.EXIT' | translate }}</button>
 
   </div>
 </header>

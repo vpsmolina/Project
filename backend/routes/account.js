@@ -46,6 +46,7 @@ router.post('/auth', (req, res) => {
           token: 'JWT ' + token,
           user: {
             id: user._id,
+            login: user.login,
             surname: user.surname,
             position: user.position,
             birthday: user.birthday,

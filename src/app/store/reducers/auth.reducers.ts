@@ -8,6 +8,8 @@ export function authReducers (state: AuthState = initialAuthState, action: AuthA
         ...state,
         isLogged: true,
         token: action.payload.token,
+        login: action.payload.user.login,
+        user: action.payload.user
       };
     }
     case EAuthActions.UserLogOut: {
@@ -21,13 +23,16 @@ export function authReducers (state: AuthState = initialAuthState, action: AuthA
     case EAuthActions.GetDataUserSuccess: {
       return {
         ...state,
-        user: {
+        user: action.payload.user,
+        login: action.payload.user.login,
+        token: action.payload.token,
+/*        user: {
           login: action.payload.login,
           surname: action.payload.surname,
           position: action.payload.position,
           password: action.payload.password,
           birthday: action.payload.birthday,
-        }
+        }*/
       };
     }
     default: {
