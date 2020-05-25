@@ -1,11 +1,16 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, Output } from "@angular/core";
+import { FormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { UsersList } from "../data/users-list";
+import { FieldModel } from "../models/field.model";
 import { IncidentData } from "../models/incident-data";
 import { User } from "../models/user";
 import { DataService } from "../services/data.service";
+import { FormService } from "../services/form.service";
 import { GetUsers } from "../store/actions/user.actions";
 import { selectUserList } from "../store/selectors/user.selectors";
 import { AppState } from "../store/state/app.state";
@@ -17,7 +22,7 @@ import { AppState } from "../store/state/app.state";
   styleUrls: ["./users.component.less"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
   public user: User;
   public users: User[] = UsersList;
   public users$: Observable<User[]> = this._store.pipe(select(selectUserList));
@@ -25,7 +30,9 @@ export class UsersComponent implements OnInit {
   constructor(@Inject(DataService) private dataService: IncidentData,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private _store: Store<AppState>) { }
+              private _store: Store<AppState>,
+              private httpClient: HttpClient,
+              private formControlService: FormService) { }
   public addUser(): void {
     this.router.navigate([`main/users/add`]);
   }
@@ -38,5 +45,9 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this._store.dispatch(new GetUsers());
+  }
+  ngOnDestroy(): void {
+
+
   }
 }

@@ -1,0 +1,13 @@
+{
+  "form_template": [
+    {
+      "type": "string",
+      "label": "Login"
+    },
+    {
+      "type": "string",
+      "label": "Password"
+    }
+
+  ]
+}

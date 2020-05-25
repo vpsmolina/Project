@@ -10,7 +10,6 @@ import { TableService } from "../services/table.service";
 import { GetIncidents } from "../store/actions/incident.actions";
 import { selectIncidentList } from "../store/selectors/incidents.selectors";
 import { AppState } from "../store/state/app.state";
-import { IncidentEvents } from "./incidentevents";
 
 @Component({
   selector: "app-incidents",
@@ -24,7 +23,6 @@ export class IncidentsComponent implements OnInit {
   filteredStates$: Observable<Incident[]> = this._store.pipe(select(selectIncidentList));
   filter: FormControl;
   filter$: Observable<string>;
-  /*public action: IncidentEvents;*/
   public type = true;
   public index: number;
   public target: string;

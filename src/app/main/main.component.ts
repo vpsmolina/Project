@@ -8,7 +8,6 @@ import { IncidentData } from "../models/incident-data";
 import { User } from "../models/user";
 import { AuthService } from "../services/auth.service";
 import { DataService } from "../services/data.service";
-import { GetUsers } from "../store/actions/user.actions";
 import { AppState } from "../store/state/app.state";
 
 @Component({

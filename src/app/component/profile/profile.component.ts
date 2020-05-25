@@ -6,7 +6,7 @@ import { Incident } from "../../models/incident";
 import { User } from "../../models/user";
 import { GetUser } from "../../store/actions/user.actions";
 import { selectIncidentList } from "../../store/selectors/incidents.selectors";
-import { selectSelectedUser } from "../../store/selectors/user.selectors";
+import { selectSelectedUser, selectUserList } from "../../store/selectors/user.selectors";
 import { AppState } from "../../store/state/app.state";
 
 @Component({
@@ -19,12 +19,12 @@ export class ProfileComponent implements OnInit {
   public user: User;
   public id: number;
   public incidents$: Observable<Incident[]> = this._store.pipe(select(selectIncidentList));
+  public user$ = this._store.pipe(select(selectSelectedUser));
   constructor(private _store: Store<AppState>,
               private _route: ActivatedRoute,
               private _router: Router) { }
   ngOnInit(): void {
     this._store.dispatch(new GetUser(this._route.snapshot.params.id));
-    this._store.pipe(select(selectSelectedUser)).subscribe(data => this.user = data);
-    console.log(this.user.surname);
+    /*this._store.pipe(select(selectSelectedUser)).subscribe(data => this.user = data);*/
   }
 }

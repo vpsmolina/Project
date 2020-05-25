@@ -1,0 +1,28 @@
+<div class="process__table">
+<div [formGroup]="form" class="edit-user">
+  <label class="form-control-label" [attr.for]="field.id">{{field.label}}</label>
+
+  <div [ngSwitch]="field.controlType">
+    <section>
+      <input class="form-control-action" *ngSwitchCase="'textbox'" [formControlName]="field.id" [id]="field.id" type="text">
+    </section>
+    <section>
+      <input class="form-control-action" *ngSwitchCase="'date'" [formControlName]="field.id" [id]="field.id" type="date">
+    </section>
+    <section *ngSwitchCase="'dropdown'">
+      <select [id]="field.id" [formControlName]="field.id">
+        <option *ngFor="let opt of field.options" [value]="opt.code">{{opt.value}}</option>
+      </select>
+    </section>
+
+    <section *ngSwitchCase="'radioGroup'">
+            <span *ngFor="let opt of field.options">
+            <input  type="radio" [value]='opt.code' [formControlName]="field.id">{{opt.value}}
+            </span>
+    </section>
+  </div>
+
+  <div class="validtext" *ngIf="!isValid">{{field.errorMessage}} is required</div>
+</div>
+</div>
+

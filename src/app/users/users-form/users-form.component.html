@@ -7,8 +7,15 @@
 <body>
 <div class="users__form visible">
   <div class="users__form-content">
-    <div class="users__form-body">
-      <form  *ngIf="!confirm; else confirmTemplate"noValidate [formGroup]="formUser" class="edit-incident"
+    <div class="users__form-body" >
+      <div *ngIf="!confirm; else confirmTemplate">
+      <div *ngFor="let field of fields$">
+        <app-field [form]="personalInfoForm" [field]="field"></app-field>
+      </div>
+      <button class="transparent-button" routerLink="/main/users">{{ 'USERSFORM.BACK' | translate }}</button>
+      <button class="transparent-button" (click)="submitForm()">{{ 'USERS.ADDUSER' | translate }}</button>
+      </div>
+     <!-- <form  *ngIf="!confirm; else confirmTemplate" noValidate [formGroup]="formUser" class="edit-user"
              (ngSubmit)="submitForm()">
 
         <label class="form-control-label">{{ 'USERSFORM.LOGIN' | translate }}</label>
@@ -44,7 +51,7 @@
         <button class="transparent-button" routerLink="/main/users">{{ 'USERSFORM.BACK' | translate }}</button>
         <button class="transparent-button" type="submit">{{ 'USERS.ADDUSER' | translate }}</button>
 
-      </form>
+      </form>-->
       <ng-template #confirmTemplate>
         <p>{{ 'USERSFORM.DOYOUWANT' | translate }}</p>
         <button class="transparent-button" (click)="delete()">{{ 'USERSFORM.DELETE' | translate }}</button><button class="transparent-button" routerLink="/main/users">{{ 'USERSFORM.CANCEL' | translate }}</button>

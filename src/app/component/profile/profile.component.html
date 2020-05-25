@@ -10,7 +10,7 @@
   </svg>
 </div>
 <div class="info">
-  <div class="info-data">
+  <div class="info-data" *ngIf="user$ | async as user">
     <h2 class="info-name">{{user.surname}}</h2>
     <div class="info-main">
       <span class="info-strip">INFO</span>
@@ -27,7 +27,7 @@
       <span class="info-work-event">Due date</span>
     </div>
     <div *ngFor="let incident of incidents$ | async;">
-      <div class="info-work" *ngIf="incident.assignee === user.surname">
+      <div class="info-work" *ngIf="incident.assignee === (user$ | async).surname">
         <span class="info-work-event">{{incident.name}}</span>
         <span class="info-work-event">{{incident.status}}</span>
         <span class="info-work-event">{{incident.dueDate | date: 'dd-MM-yyyy'}}</span>
@@ -36,4 +36,5 @@
 
   </div>
 </div>
+</html>
 <router-outlet></router-outlet>
