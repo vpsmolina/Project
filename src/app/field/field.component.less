@@ -1,4 +1,4 @@
-@import "./../../../styles/variables";
+@import "./../../styles/variables";
 .users__form {
   position: fixed;
   top: 0;
@@ -67,5 +67,22 @@
 .edit-user {
   display: flex;
   flex-direction: column;
+}
+.process {
+
+  &__table {
+    width: 70%;
+    margin: auto;
+    @media (max-width: 575px) {
+      width: 100%;
+      margin: auto;
+    }
+
+    &-block {
+      width: 100%;
+      background-size: contain;
+    }
+
+  }
 }
 

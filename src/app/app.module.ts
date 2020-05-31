@@ -27,12 +27,12 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, "./assets/locale/", ".json");
 }
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent,
-    AuthComponent,
-    ProfileComponent,
-  ],
+    declarations: [
+        AppComponent,
+        MainComponent,
+        AuthComponent,
+        ProfileComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -56,8 +56,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
         FlashMessagesModule.forRoot(),
         ReactiveFormsModule,
     ],
-
-  bootstrap: [AppComponent]
+    providers: [],
+    exports: [
+    ],
+    bootstrap: [AppComponent]
 })
 
 export class AppModule {

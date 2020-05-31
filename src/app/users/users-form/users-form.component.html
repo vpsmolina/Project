@@ -7,44 +7,14 @@
 <body>
 <div class="users__form visible">
   <div class="users__form-content">
-    <div class="users__form-body">
-      <form  *ngIf="!confirm; else confirmTemplate"noValidate [formGroup]="formUser" class="edit-incident"
-             (ngSubmit)="submitForm()">
-
-        <label class="form-control-label">{{ 'USERSFORM.LOGIN' | translate }}</label>
-        <input class="form-control-action" formControlName="login" type="string">
-        <div class="validtext"
-             *ngIf="formUser.controls['login'].invalid && formUser.controls['login'].touched">
-          {{ 'INVALID.LOGIN' | translate }}</div>
-
-        <label class="form-control-label">{{ 'USERSFORM.PASSWORD' | translate }}</label>
-        <input class="form-control-action" formControlName="password" type="string">
-        <div class="validtext"
-             *ngIf="formUser.controls['password'].invalid && formUser.controls['password'].touched">
-          {{ 'INVALID.PASSWORD' | translate }}</div>
-
-        <label class="form-control-label">{{ 'USERS.POSITION' | translate }}:</label>
-        <input class="form-control-action" formControlName="position" type="string">
-        <div class="validtext"
-             *ngIf="formUser.controls['position'].invalid && formUser.controls['position'].touched">
-          {{ 'INVALID.POSITION' | translate }}</div>
-
-        <label class="form-control-label">{{ 'USERS.USER' | translate }}:</label>
-        <input class="form-control-action" formControlName="surname" type="string">
-        <div class="validtext"
-             *ngIf="formUser.controls['surname'].invalid && formUser.controls['surname'].touched">
-          {{ 'INVALID.SURNAME' | translate }}</div>
-
-        <label class="form-control-label">{{ 'USERS.BIRTHDAY' | translate }}:</label>
-        <input class="form-control-action" formControlName="birthday" type="date">
-        <div class="validtext"
-             *ngIf="formUser.controls['birthday'].invalid && formUser.controls['birthday'].touched">
-          {{ 'INVALID.BIRTHDAY' | translate }}</div>
-
-        <button class="transparent-button" routerLink="/main/users">{{ 'USERSFORM.BACK' | translate }}</button>
-        <button class="transparent-button" type="submit">{{ 'USERS.ADDUSER' | translate }}</button>
-
-      </form>
+    <div class="users__form-body" >
+      <div *ngIf="!confirm; else confirmTemplate">
+      <div *ngFor="let field of fields$">
+        <app-field [form]="personalInfoForm" [field]="field"></app-field>
+      </div>
+      <button class="transparent-button" routerLink="/main/users">{{ 'USERSFORM.BACK' | translate }}</button>
+      <button class="transparent-button" (click)="submitForm()">{{ 'USERS.ADDUSER' | translate }}</button>
+      </div>
       <ng-template #confirmTemplate>
         <p>{{ 'USERSFORM.DOYOUWANT' | translate }}</p>
         <button class="transparent-button" (click)="delete()">{{ 'USERSFORM.DELETE' | translate }}</button><button class="transparent-button" routerLink="/main/users">{{ 'USERSFORM.CANCEL' | translate }}</button>

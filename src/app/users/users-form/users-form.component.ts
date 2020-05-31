@@ -1,10 +1,12 @@
-import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
-import { IncidentData } from "../../models/incident-data";
+import { map } from "rxjs/operators";
+import { FieldModel } from "../../models/field.model";
 import { User } from "../../models/user";
-import { DataService } from "../../services/data.service";
+import { FormService } from "../../services/form.service";
 import { CreateUser, DeleteUser, GetUsers } from "../../store/actions/user.actions";
 import { getCountUser } from "../../store/selectors/user.selectors";
 
@@ -18,39 +20,55 @@ enum Action {
 @Component({
   selector: "app-users-form",
   templateUrl: "./users-form.component.html",
-  styleUrls: ["./users-form.component.less"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ["./users-form.component.less"]
 })
 export class UsersFormComponent implements OnInit, OnDestroy {
-  public formUser: FormGroup;
   public action: Number;
   public confirm: boolean = false;
   public id: number;
-
-  constructor(@Inject(DataService) private dataService: IncidentData,
+  public fields$: FieldModel[];
+  public personalInfoForm: FormGroup;
+  constructor(
               private fb: FormBuilder,
               private router: Router, private activatedRoute: ActivatedRoute,
-              private _store: Store<IAppState>) { }
-
-  public initAddUserForm(): void {
-    this.formUser = new FormGroup({
-      login: new FormControl(null, [Validators.required, Validators.pattern(/^[A-z0-9]*$/)]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
-      position: new FormControl(null, [Validators.required]),
-      surname: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Za-zА-Яа-яЁё ]*$/)]),
-      birthday: new FormControl(null),
-    });
+              private _store: Store<IAppState>,
+              private httpClient: HttpClient,
+              private formControlService: FormService) {
+                    this.httpClient.get("./../assets/model-form.json")
+                      .pipe(map((fields$: FieldModel[]) => {
+                        return fields$.map(field => {
+                          return new FieldModel(field);
+                        });
+                      }))
+                      // tslint:disable-next-line:no-any
+                      .subscribe((fields: any) => {
+                        /*this.fields = fields;*/
+                        this.fields$ = fields;
+                        this.personalInfoForm = this.formControlService.getFormGroupObject(fields);
+                      });
   }
 
-  public submitForm(): boolean {
-    const controls = this.formUser.controls;
-    if (this.formUser.invalid) {
-      Object.keys(controls)
-        .forEach(controlName => controls[controlName].markAsTouched());
-      return false;
-    }
+
+  // tslint:disable-next-line:typedef
+/*  getFields() {
+      this.httpClient.get("./assets/model-form.json")
+        .pipe(map((fields$: FieldModel<string>[]) => {
+          return fields$.map(field => {
+            return new FieldModel(field);
+          });
+        }))
+        // tslint:disable-next-line:no-any
+        .subscribe((fields: any) => {
+          /!*this.fields = fields;*!/
+          this.fields$ = fields;
+          this.personalInfoForm = this.formControlService.getFormGroupObject(fields);
+        });
+  }*/
+
+
+  public submitForm(): void {
     const data: User = {
-      ...this.formUser.value,
+      ...this.personalInfoForm.value,
       id: this.id + 1,
     };
     this._store.dispatch(new CreateUser(data));
@@ -68,7 +86,7 @@ export class UsersFormComponent implements OnInit, OnDestroy {
         break;
       }
       case Action.add: {
-        this.initAddUserForm();
+        /*this.getFields();*/
         this._store.pipe(select(getCountUser)).subscribe(count => this.id = count).unsubscribe();
         break;
       }
@@ -79,7 +97,9 @@ export class UsersFormComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this._action(this.activatedRoute.snapshot.url[0].path);
+    this._store.dispatch(new GetUsers());
   }
+
   ngOnDestroy(): void {
     this._store.dispatch(new GetUsers());
   }

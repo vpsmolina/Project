@@ -1,0 +1,49 @@
+[
+  {
+    "id": "login",
+    "value": "",
+    "controlType": "textbox",
+    "placeHolder": "Enter Login",
+    "label": "Login",
+    "required": true,
+    "errorMessage": "Please enter login"
+  },
+  {
+    "id": "password",
+    "value": "",
+    "controlType": "textbox",
+    "placeHolder": "Enter password",
+    "label": "Password",
+    "required": true,
+    "errorMessage": "Please enter password"
+  },
+  {
+    "id": "position",
+    "value": "",
+    "controlType": "textbox",
+    "placeHolder": "Enter position",
+    "label": "Position",
+    "required": true,
+    "errorMessage": "Please enter position"
+
+  },
+  {
+    "id": "surname",
+    "value": "",
+    "controlType": "textbox",
+    "placeHolder": "Enter surname",
+    "label": "Surname",
+    "required": true,
+    "errorMessage": "Please enter surname"
+
+  },
+  {
+    "id": "birthday",
+    "value": "",
+    "controlType": "date",
+    "placeHolder": "Enter birthday",
+    "label": "Birthday",
+    "required": true,
+    "errorMessage": "Please enter birthday"
+  }
+]
