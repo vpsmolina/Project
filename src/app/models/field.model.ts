@@ -1,6 +1,6 @@
-export class FieldModel {
+export class FieldModel<T> {
   id: string;
-  value: string;
+  value: T;
   controlType: string;
   placeHolder: string;
   options: DropdownOption[];
@@ -11,7 +11,7 @@ export class FieldModel {
 
   constructor(field: {
     id?: string;
-    value?: string;
+    value?: T;
     controlType?: string;
     placeHolder?: string;
     options?: DropdownOption[];

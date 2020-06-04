@@ -9,7 +9,7 @@ import { FieldModel } from "../models/field.model";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FieldComponent implements OnInit {
-  @Input() field: FieldModel;
+  @Input() field: FieldModel<string>;
   @Input() form: FormGroup;
 
   get isValid(): boolean {

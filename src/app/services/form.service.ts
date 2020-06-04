@@ -11,7 +11,7 @@ import { FieldModel } from "../models/field.model";
 export class FormService {
   constructor(private http: HttpClient) {
   }
-  getFormGroupObject(fields: FieldModel[]): FormGroup {
+  getFormGroupObject(fields: FieldModel<string>[]): FormGroup {
     const formGroup = {};
     fields
       .forEach(field => {

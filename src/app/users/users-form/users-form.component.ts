@@ -26,7 +26,7 @@ export class UsersFormComponent implements OnInit, OnDestroy {
   public action: Number;
   public confirm: boolean = false;
   public id: number;
-  public fields$: FieldModel[];
+  public fields$: FieldModel<string>[];
   public personalInfoForm: FormGroup;
   constructor(
               private fb: FormBuilder,
@@ -35,7 +35,7 @@ export class UsersFormComponent implements OnInit, OnDestroy {
               private httpClient: HttpClient,
               private formControlService: FormService) {
                     this.httpClient.get("./../assets/model-form.json")
-                      .pipe(map((fields$: FieldModel[]) => {
+                      .pipe(map((fields$: FieldModel<string>[]) => {
                         return fields$.map(field => {
                           return new FieldModel(field);
                         });
