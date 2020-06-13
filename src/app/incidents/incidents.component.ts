@@ -10,7 +10,6 @@ import { TableService } from "../services/table.service";
 import { GetIncidents } from "../store/actions/incident.actions";
 import { selectIncidentList } from "../store/selectors/incidents.selectors";
 import { AppState } from "../store/state/app.state";
-import { IncidentEvents } from "./incidentevents";
 
 @Component({
   selector: "app-incidents",

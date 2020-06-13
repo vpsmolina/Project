@@ -1,16 +1,12 @@
 @import "./../../styles/variables";
 .events {
   &__table {
-    width: 95%;
+    width: 100%;
     margin: auto;
     background: @white;
     font: 16px "sans-serif";
     outline: none;
-    @media (max-width: 575px) {
-      width: 100%;
-      margin: auto;
-      font-size: 14px;
-    }
+
     &-strip {
       padding: 20px 0;
       position: relative;
@@ -30,6 +26,9 @@
         top: 0;
         align-items: center;
         outline: none;
+      }
+      &_label{
+        margin: 10px;
       }
     }
 
@@ -87,6 +86,24 @@
           }
         }
       }
+      &-content{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        @media (max-width: 759px) {
+          justify-content: space-around;
+        }
+      }
+
+      &-item{
+        width: 200px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        border: 1px solid lightgrey;
+        margin: 10px;
+      }
 
     }
   }
@@ -124,7 +141,7 @@
 label > .icon-search {
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 20px;
   transform: translateY(-50%);
   color: silver;
 }
@@ -140,3 +157,4 @@ label > input {
   stroke: currentColor;
   fill: currentColor;
 }
+

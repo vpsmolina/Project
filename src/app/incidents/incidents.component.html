@@ -15,7 +15,7 @@
     </label>
     <button class="table-button events__table-strip-button" (click)="addIncident()">{{ 'INCIDENTS.ADDEVENT' | translate }}</button>
   </div>
-  <ul class="events__table-header">
+<!--  <ul class="events__table-header">
     <li class="events__table-header-column"></li>
     <li class="events__table-header-column">{{ 'INCIDENTS.NAME' | translate }}</li>
     <li class="events__table-header-column">{{ 'INCIDENTS.ASSIGNEE' | translate }}</li>
@@ -23,9 +23,39 @@
     <li class="events__table-header-column hidden">{{ 'INCIDENTS.STARTDATE' | translate }}</li>
     <li class="events__table-header-column hidden">{{ 'INCIDENTS.DUEDATE' | translate }}</li>
     <li class="events__table-header-column hidden">{{ 'INCIDENTS.STATUS' | translate }}</li>
-  </ul>
+  </ul>-->
 
-  <div class="events__table-body-row" *ngFor="let incident of filteredStates$| areaFilter:checkEvent | async ;"
+<div class="events__table-body-content">
+  <div class="events__table-body-item" *ngFor="let incident of filteredStates$| areaFilter:checkEvent | async ;"
+       (click)="editIncident(incident._id)" appHover>
+        <span class="">
+
+      <svg class="inline-svg-icon inline-svg-icon-closed" *ngIf="incident.status === 'Closed' || incident.status === 'Marriage' ">
+        <use xlink:href="./assets/images/sprite.svg#status"></use>
+      </svg>
+
+      <svg class="inline-svg-icon inline-svg-icon-info" *ngIf="incident.status === 'Additional information' || incident.status === 'Additional information received'">
+        <use xlink:href="./assets/images/sprite.svg#status"></use>
+      </svg>
+
+      <svg class="inline-svg-icon inline-svg-icon-check" *ngIf="incident.status === 'Checked' || incident.status === 'Resolved'|| incident.status === 'In operation'">
+        <use xlink:href="./assets/images/sprite.svg#status"></use>
+      </svg>
+
+      <svg class="inline-svg-icon inline-svg-icon-open" *ngIf="incident.status === 'Open' || incident.status === 'Re-start'">
+        <use xlink:href="./assets/images/sprite.svg#status"></use>
+      </svg>
+
+    </span>
+    <span class="">{{incident.name}}</span>
+    <span class="">{{incident.assignee}}</span>
+    <span class="">{{incident.area}}</span>
+    <span class="">{{incident.startDate | date: 'dd-MM-yyyy'}}</span>
+    <span class="">{{incident.dueDate | date: 'dd-MM-yyyy'}}</span>
+    <span class="">{{incident.status}}</span>
+  </div>
+</div>
+  <!--<div class="events__table-body-row" *ngFor="let incident of filteredStates$| areaFilter:checkEvent | async ;"
        (click)="editIncident(incident._id)" appHover>
 
     <span class="events__table-body-column">
@@ -53,7 +83,7 @@
     <span class="events__table-body-column hidden">{{incident.startDate | date: 'dd-MM-yyyy'}}</span>
     <span class="events__table-body-column hidden ">{{incident.dueDate | date: 'dd-MM-yyyy'}}</span>
     <span class="events__table-body-column hidden">{{incident.status}}</span>
-  </div>
+  </div>-->
 </div>
 <router-outlet></router-outlet>
 

@@ -18,7 +18,7 @@ import { CreateIncident, GetIncident, GetIncidents, UpdateIncident } from "../..
 import { selectSelectedIncident } from "../../store/selectors/incidents.selectors";
 import { selectUserList } from "../../store/selectors/user.selectors";
 import { AppState } from "../../store/state/app.state";
-import { IncidentEvents } from "../incidentevents";
+import { IncidentEvents } from "../incident-events";
 
 @Component({
   selector: "app-incident-form",
