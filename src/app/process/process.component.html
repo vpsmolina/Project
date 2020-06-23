@@ -1,7 +1,34 @@
-<div class="process__table">
-  <!--<img class="process__table-block" src="./assets/images/blockDiagram.png" alt="BlockDiagram">-->
-  <div class="events__table-body-row" *ngFor="let incident of incidents$ | async;">
-    <span class="events__table-body-column">{{incident.name}}</span>
-    <span class="events__table-body-column hidden">{{incident.status}}</span>
+<div class="process">
+  <div class="process__table">
+  <div class="process__table-row" *ngFor="let incident of incidents$ | async;">
+    <div class="process__table-status status-open" *ngIf="incident.status === 'Open' || incident.status === 'Re-start'">
+    <svg  class="icon-status">
+      <use xlink:href="./assets/images/open.svg#icon-unlocked"></use>
+    </svg>
+  </div>
+    <div class="process__table-status status-closed"  *ngIf="incident.status === 'Closed' || incident.status ===
+    'Marriage'">
+      <svg  class="icon-status icon-closed">
+        <use xlink:href="./assets/images/closed.svg#icon-lock"></use>
+      </svg>
+    </div>
+    <div class="process__table-status status-info" *ngIf="incident.status === 'Additional information' ||
+    incident.status === 'Additional information received'">
+      <svg  class="icon-status">
+        <use xlink:href="./assets/images/info.svg#icon-info"></use>
+      </svg>
+    </div>
+    <div class="process__table-status status-check" *ngIf="incident.status === 'Checked' || incident.status ===
+    'Resolved'|| incident.status === 'In operation'">
+      <svg  class="icon-status">
+        <use xlink:href="./assets/images/check.svg#icon-spinner6"></use>
+      </svg>
+    </div>
+    <span class="">{{incident.name}}</span>
+    <span class="">{{incident.assignee}}</span>
+    <span class="">{{incident.area}}</span>
+    <span class="">{{incident.startDate | date: 'dd-MM-yyyy'}} {{incident.dueDate | date: 'dd-MM-yyyy'}}</span>
+    <span class="">{{incident.status}}</span>
+  </div>
   </div>
 </div>
