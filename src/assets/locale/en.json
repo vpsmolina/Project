@@ -22,7 +22,7 @@
     "STARTDATE": "Start date",
     "DUEDATE": "Duedate",
     "STATUS": "Status",
-    "ADDEVENT": "Add event",
+    "ADDEVENT": "+ Create New Event",
     "DESCRIPTION": "Description",
     "PRIORITY": "Priority",
     "ADDINCIDENT": "Add incident",

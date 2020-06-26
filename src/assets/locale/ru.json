@@ -23,7 +23,7 @@
     "STARTDATE": "Начало",
     "DUEDATE": "Конец",
     "STATUS": "Статус",
-    "ADDEVENT": "Добавить инцидент",
+    "ADDEVENT": "+ Добавить новое событие",
     "DESCRIPTION": "Описание",
     "PRIORITY": "Приоритет",
     "ADDINCIDENT": "Добавить инцидент",

@@ -8,40 +8,45 @@
     </label>
     <label>
       <select class="events__research-filter" [(ngModel)]="checkEvent">
-        <option [value]="''" >All area</option>
-        <option>IT</option>
-        <option>QA</option>
+        <option class="events__research-select" [value]="''" >All area</option>
+        <option class="events__research-select">IT</option>
+        <option class="events__research-select">QA</option>
       </select>
     </label>
-    <button class="table-button events__research-button" (click)="addIncident()">{{ 'INCIDENTS.ADDEVENT' | translate }}</button>
+    <button class="btn-event" (click)="addIncident()">{{ 'INCIDENTS.ADDEVENT' | translate }}</button>
   </div>
-  <div class="events__content">
-    <div class="events__content-item" *ngFor="let incident of filteredStates$| areaFilter:checkEvent | async ;"
-         (click)="editIncident(incident._id)" appHover>
-      <span class="events__content-title">{{incident.name}}</span>
-      <span class="events__content-name">{{incident.assignee}}</span>
-      <span class="events__content-name">{{incident.area}}</span>
-      <span class="events__content-name">{{incident.startDate | date: 'dd-MM-yyyy'}} {{incident.dueDate | date: 'dd-MM-yyyy'}}</span>
-      <span class="events__content-name">{{incident.status}}</span>
-      <span class="events__content-status">
-
-        <svg class="inline-svg-icon inline-svg-icon-closed" *ngIf="incident.status === 'Closed' || incident.status === 'Marriage'">
-          <use xlink:href="./assets/images/sprite.svg#status"></use>
+  <div class="events__table">
+    <div class="events__table-row" *ngFor="let incident of filteredStates$| areaFilter:checkEvent | async ;"
+         (click)="editIncident(incident._id)">
+      <div class="events__table-status status-open" *ngIf="incident.status === 'Open' || incident.status === 'Re-start'">
+        <svg  class="icon-status">
+          <use xlink:href="./assets/images/open.svg#icon-unlocked"></use>
         </svg>
-
-        <svg class="inline-svg-icon inline-svg-icon-info" *ngIf="incident.status === 'Additional information' || incident.status === 'Additional information received'">
-          <use xlink:href="./assets/images/sprite.svg#status"></use>
+      </div>
+      <div class="events__table-status status-closed"  *ngIf="incident.status === 'Closed' || incident.status ===
+    'Marriage'">
+        <svg  class="icon-status icon-closed">
+          <use xlink:href="./assets/images/closed.svg#icon-lock"></use>
         </svg>
-
-        <svg class="inline-svg-icon inline-svg-icon-check" *ngIf="incident.status === 'Checked' || incident.status === 'Resolved'|| incident.status === 'In operation'">
-          <use xlink:href="./assets/images/sprite.svg#status"></use>
+      </div>
+      <div class="events__table-status status-info" *ngIf="incident.status === 'Additional information' ||
+    incident.status === 'Additional information received'">
+        <svg  class="icon-status">
+          <use xlink:href="./assets/images/info.svg#icon-info"></use>
         </svg>
-
-        <svg class="inline-svg-icon inline-svg-icon-open" *ngIf="incident.status === 'Open' || incident.status === 'Re-start'">
-          <use xlink:href="./assets/images/sprite.svg#status"></use>
+      </div>
+      <div class="events__table-status status-check" *ngIf="incident.status === 'Checked' || incident.status ===
+    'Resolved'|| incident.status === 'In operation'">
+        <svg  class="icon-status">
+          <use xlink:href="./assets/images/check.svg#icon-spinner6"></use>
         </svg>
+      </div>
+      <span class="">{{incident.name}}</span>
+      <span class="">{{incident.assignee}}</span>
+      <span class="">{{incident.area}}</span>
+      <span class="">{{incident.startDate | date: 'dd-MM-yyyy'}} {{incident.dueDate | date: 'dd-MM-yyyy'}}</span>
+      <span class="">{{incident.status}}</span>
 
-      </span>
     </div>
   </div>
 </div>

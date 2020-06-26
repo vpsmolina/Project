@@ -1,62 +1,66 @@
 @import "./../../styles/variables";
 .events {
-  width: 100%;
-  margin: auto;
-  background: @white;
-
   outline: none;
 
   &__research {
-    padding: 20px 0;
+    padding: 10px 0;
+    border-radius: 5px;
     position: relative;
+    background-color: @3gray;
+
 
     &-filter {
       padding: 5px;
+      width: 200px;
+      border: none;
       border-radius: 3px;
-      border-color: rgb(223, 225, 230);
-      border-style: solid;
+      background-color: @2gray;
+      color: @6gray;
       font-size: 14px;
       margin-right: 20px;
       outline: none;
+      &::placeholder {
+        color: @6gray;
+      }
     }
 
-    &-button {
-      position: absolute;
-      right: 0;
-      top: 0;
-      align-items: center;
-      outline: none;
+    &-select {
+      color: @6gray;
+      border: none;
+
     }
+
     &-label{
       margin: 10px;
     }
   }
 
-  &__content {
+  &__table {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    @media (max-width: 759px) {
-      justify-content: space-around;
-    }
-    &-item {
-      width: 220px;
-      height: 200px;
+
+
+    &-row {
       display: flex;
       flex-direction: column;
+      position: relative;
+
+      margin: 20px 50px;
       padding: 10px;
-      border: 1px solid lightgrey;
-      margin: 10px;
-    }
+      width: 40%;
 
-    &-name {
-      padding: 5px 10px 0;
+      color: @6gray;
+      background-color: @3gray;
     }
+    &-status {
+      position: absolute;
+      width: 30px;
+      height: 100%;
+      top: 0;
+      left: -30px;
+      z-index: 1;
 
-    &-title {
-      font-weight: 600;
-      font-size: 20px;
-      padding: 0 5px;
     }
   }
 }
@@ -73,23 +77,32 @@
   background-color: @gainsboro;
 }
 
-.inline-svg-icon {
-  stroke: #f5f5dc;
-  stroke-width: 3;
-  height: 22px;
-  width: 22px;
+
+.status {
+  &-open {
+    background-color: @green;
+  }
   &-closed {
-    fill: #ff2400;
+    background-color: @red;
   }
   &-info {
-    fill: #ffff00;
-  }
-  &-open {
-    fill: #808080;
+    background-color: @orange;
   }
   &-check {
-    fill: #32cd32;
+    background-color: @purple;
   }
+}
+.icon-status {
+  position: absolute;
+  top: 40%;
+  padding: 0 3px;
+  height: 24px;
+  width: 24px;
+  stroke-width: 1;
+  fill: @white;
+}
+.icon-closed {
+  padding: 0 6px;
 }
 
 label > .icon-search {
@@ -97,7 +110,7 @@ label > .icon-search {
   top: 50%;
   left: 20px;
   transform: translateY(-50%);
-  color: silver;
+  color: @6gray;
 }
 
 label > input {
@@ -108,7 +121,37 @@ label > input {
   width: 18px;
   height: 18px;
   stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
+  stroke: @6gray;
+  fill: @6gray;
 }
+
+.btn-event {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 16px 30px;
+
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.1;
+  font-weight: 500;
+
+  background-color: @2gray;
+  color: @6gray;
+
+  transition: background .1s linear;
+
+  &:hover {
+    background-color: @blue;
+    color: @white;
+  }
+}
+
 
