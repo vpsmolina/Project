@@ -1,12 +1,14 @@
-<body>
-<div class="incidents__form visible">
-  <div class="incidents__form-content">
-    <div class="incidents__form-body">
+<div class="events__form visible">
+  <div class="events__form-content">
+    <div class="events__header">
+      <div class="events__header-title">Create New Event</div>
+    </div>
+    <div class="events__form-body">
       <form *ngIf="action" noValidate [formGroup]="formIncident" class="edit-incident"
             (ngSubmit)="onSubmit()">
 
         <label class="form-control-label">{{ 'INCIDENTS.NAME' | translate }}:</label>
-        <input class="form-control-action" *ngIf="action === 1" formControlName="name" type="string">
+        <input class="form-control-action" *ngIf="action === 1" formControlName="name" type="text">
         <div class="validtext"
              *ngIf="formIncident.controls['name'].invalid && formIncident.controls['name'].touched">
           {{ 'INVALID.NAME' | translate }}</div>
@@ -14,6 +16,7 @@
 
         <label class="form-control-label">{{ 'INCIDENTS.ASSIGNEE' | translate }}:</label>
         <select class="form-control-action" formControlName="assignee">
+          <option value="" disabled>Choose a state</option>
           <option *ngFor="let user of users$ | async;" [value]="user.surname">
             {{ user.surname }}</option>
         </select>
@@ -75,6 +78,6 @@
     </div>
   </div>
 </div>
-</body>
+
 
 <router-outlet></router-outlet>

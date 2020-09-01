@@ -24,7 +24,7 @@ const childRoutes: Routes = [
   {path: "events", component: IncidentsComponent, children: incidentsRoutes},
   {path: "process", component: ProcessComponent},
   {path: "users", component: UsersComponent, children: usersRoutes},
-  { path: "auth", component: AuthComponent},
+  {path: "auth", component: AuthComponent},
   {path: "edit/:id", component: ProfileComponent, canActivate: [AuthGuard]},
 ];
 const routes: Routes = [

@@ -8,6 +8,7 @@
 @2gray: #2c3c52;
 @3gray: #3D4D65;
 @4gray: #54657E;
+@41gray: #707e91;
 @5gray: #8493A8;
 @6gray: #ADB9CA;
 @7gray: #CAD3DF;
@@ -98,3 +99,31 @@ input.ng-touched.ng-valid{
   }
 }
 
+.btn-event {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 16px 30px;
+
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.1;
+  font-weight: 500;
+
+  background-color: @2gray;
+  color: @6gray;
+
+  transition: background .1s linear;
+
+  &:hover {
+    background-color: @blue;
+    color: @white;
+  }
+}
