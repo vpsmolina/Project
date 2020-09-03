@@ -1,35 +1,36 @@
-<div class="users__table">
+<div class="users">
   <div class="users__research">
     <button class="btn-event" (click)="addUser()">{{ 'USERS.ADDUSER' | translate }}</button>
   </div>
+  <div class="users__table">
+    <ul class="users__table-header">
+      <li class="users__table-header-column"></li>
+      <li class="users__table-header-column">{{ 'USERS.USER' | translate }}</li>
+      <li class="users__table-header-column">{{ 'USERS.POSITION' | translate }}</li>
+      <li class="users__table-header-column"></li>
 
- <!-- <div class="users__table-strip"></div>-->
-<div class="users__table-main">
-  <ul class="users__table-header">
-    <li class="users__table-header-column"></li>
-    <li class="users__table-header-column">{{ 'USERS.USER' | translate }}</li>
-    <li class="users__table-header-column">{{ 'USERS.POSITION' | translate }}</li>
-    <li class="users__table-header-column"></li>
-  </ul>
-  <div class="users__table-body-row" *ngFor="let user of users$ | async;">
-    <span class="users__table-body-column">
-      <svg class="icon icon-pencil" (click)="editUser(user._id)">
-        <use xlink:href="./assets/images/profile.svg#icon-profile"></use>
-      </svg>
-    </span>
-    <span class="users__table-body-column">
-      {{user.surname}}
-    </span>
-    <span class="users__table-body-column">
-      {{user.position}}
-    </span>
+    </ul>
 
-    <span class="users__table-body-column">
-      <button class="table-button-delete" (click)="delete(user._id)"></button>
-    </span>
+    <div class="users__table-body-row" *ngFor="let user of users$ | async;">
+      <span class="users__table-body-column">
+        <svg class="icon icon-pencil" (click)="editUser(user._id)">
+          <use xlink:href="./assets/images/profile.svg#icon-profile"></use>
+        </svg>
+      </span>
+      <span class="users__table-body-column">
+        {{user.surname}}
+      </span>
+      <span class="users__table-body-column">
+        {{user.position}}
+      </span>
+      <span class="users__table-body-column">
+        <button class="table-button-delete" (click)="delete(user._id)"></button>
+      </span>
+    </div>
+
   </div>
 </div>
-</div>
+
 
 <router-outlet></router-outlet>
 
