@@ -1,3 +1,4 @@
+@import "./styles/variables";
 body{
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
   Roboto, Helvetica, Arial, sansSerif, "Apple Color Emogji", "Segoe UI Emoji";
@@ -5,3 +6,130 @@ body{
   font-size: 16px;
   background-color: #181830;
 }
+
+.form {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1050;
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+
+  &-content{
+    position: relative;
+    display: flex;
+    width: auto;
+    margin: 10px;
+    flex-direction: column;
+    background-color: @3gray;
+    color: @6gray;
+    background-clip: padding-box;
+
+    border-radius: .3rem;
+    outline: 0;
+
+    @media (min-width: 576px) {
+      max-width: 500px;
+      margin: 80px auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    }
+  }
+
+  &-body{
+    position: relative;
+    flex: 1 1 auto;
+    padding: 0 10px;
+    overflow: auto;
+    border: 10px solid @4gray;
+  }
+
+  &-btn {
+    width: 100%;
+    margin: 0 20px;
+    padding: 5px 10px;
+    outline: none;
+
+    background-color: @3gray;
+    border-radius: 5px;
+    line-height: 1.5;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+.btn-back {
+  border: 2px solid @red;
+  color: @red;
+}
+.btn-back:hover{
+  background-color: @red;
+  color: @white;
+}
+.btn-success {
+  border: 2px solid @green;
+  color: @green;
+
+}
+.btn-success:hover{
+  background-color: @green;
+  color: @white;
+}
+.visible{
+  opacity: 1;
+  pointer-events: auto;
+  overflow-y: auto;
+}
+.input {
+  &-label {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+  }
+  &-action{
+    padding: 5px;
+    border: none;
+    outline: none;
+    background-color: @2gray;
+    color: @6gray;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sansSerif, "Apple Color Emogji", "Segoe UI Emoji";
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  &-btn {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0;
+  }
+}
+
+.edit-incident {
+  display: flex;
+  flex-direction: column;
+}
+
+.events__header {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  top: -40px;
+  z-index: 1;
+
+  background-color: @41gray;
+
+  &-title {
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 500;
+
+    color: @white;
+  }
+}
+

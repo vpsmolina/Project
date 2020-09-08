@@ -19,8 +19,7 @@ enum Action {
 }
 @Component({
   selector: "app-users-form",
-  templateUrl: "./users-form.component.html",
-  styleUrls: ["./users-form.component.less"]
+  templateUrl: "./users-form.component.html"
 })
 export class UsersFormComponent implements OnInit, OnDestroy {
   public action: Number;

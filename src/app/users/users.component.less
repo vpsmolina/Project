@@ -1,7 +1,6 @@
 @import "./../../styles/variables";
 .users {
   outline: none;
-
   color: @6gray;
 
   &__research {
@@ -9,15 +8,33 @@
     height: 48px;
     position: relative;
     background-color: @3gray;
+
+
+  }
+  &__header {
+    display: flex;
+    flex-wrap: nowrap;
+
+    width: 90%;
+
+    &-column {
+      flex: 0 1 50%;
+      padding: 12px 8px;
+      text-align: left;
+      &:first-child,
+      &:last-child {
+        flex-basis: 40px;
+
+      }
+    }
   }
   &__table {
-    padding: 10px 0;
+    width: 90%;
     border-radius: 5px;
     background: @2gray;
     line-height: 1.5;
     font-size: 16px;
-
-    margin: 20px;
+    margin-top: 10px;
     border: 3px solid @blue;
 
     @media (max-width: 575px) {
@@ -25,46 +42,21 @@
       margin: auto;
       font-size: 14px;
     }
-
-    &-header {
+    &-row {
       display: flex;
+      border-bottom: 1px solid @6gray;
       flex-wrap: nowrap;
-      margin: 0;
-      padding: 0;
-      &-column {
-        flex: 0 1 calc((100vw - 40px) / 4);
-        padding: 8px;
-        text-align: left;
-        &:first-child,
-        &:last-child {
-          flex: 40px;
-        }
+    }
+
+    &-column {
+      flex: 0 1 50%;
+      padding: 18px 8px 8px;
+      &:first-child,
+      &:last-child {
+        flex-basis: 40px;
       }
     }
 
-    &-body {
-      &-row {
-        display: flex;
-        border: 1px solid @black;
-        border-bottom: none;
-        flex-wrap: nowrap;
-
-        &:last-child {
-          border: 1px solid @black;
-        }
-
-      }
-      &-column {
-        flex: 0 1 calc((100vw - 40px) / 4);
-        padding: 8px;
-        display: flex;
-        &:first-child,
-        &:last-child {
-          flex: 40px;
-        }
-      }
-
-    }
   }
 }
 

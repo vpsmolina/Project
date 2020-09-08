@@ -23,7 +23,6 @@ import { IncidentEvents } from "../incident-events";
 @Component({
   selector: "app-incident-form",
   templateUrl: "./incident-form.component.html",
-  styleUrls: ["./incident-form.component.less"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IncidentFormComponent implements OnInit, OnDestroy {

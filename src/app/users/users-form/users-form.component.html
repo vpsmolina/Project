@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>Project</title>
-</head>
-<body>
-<div class="users__form visible">
-  <div class="users__form-content">
-    <div class="users__form-body" >
+<div class="form visible">
+  <div class="form-content">
+    <div class="events__header">
+      <div class="events__header-title">Create New User</div>
+    </div>
+    <div class="form-body">
       <div *ngIf="!confirm; else confirmTemplate">
-      <div *ngFor="let field of fields$">
-        <app-field [form]="personalInfoForm" [field]="field"></app-field>
-      </div>
-      <button class="transparent-button" routerLink="/main/users">{{ 'USERSFORM.BACK' | translate }}</button>
-      <button class="transparent-button" (click)="submitForm()">{{ 'USERS.ADDUSER' | translate }}</button>
+        <div *ngFor="let field of fields$">
+          <app-field [form]="personalInfoForm" [field]="field"></app-field>
+        </div>
+        <div class="input-btn">
+          <button class="form-btn btn-success" (click)="submitForm()">{{ 'USERS.ADDUSER' | translate }}</button>
+          <button class="form-btn btn-back" routerLink="/main/users">{{ 'USERSFORM.BACK' | translate }}</button>
+        </div>
       </div>
       <ng-template #confirmTemplate>
         <p>{{ 'USERSFORM.DOYOUWANT' | translate }}</p>
@@ -21,9 +19,7 @@
       </ng-template>
     </div>
   </div>
-
 </div>
 
-</body>
-</html>
+
 
