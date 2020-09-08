@@ -2,7 +2,7 @@
 .line-header {
   width: 100%;
   height: 130px;
-  background: @lightgray;
+  background: @5gray;
   display: inline-block;
   position: relative;
   margin-bottom: 40px;
@@ -11,16 +11,17 @@
   position: absolute;
   width: 60px;
   height: 60px;
-  stroke-width: 1px;
+  stroke-width: 0.1px;
   stroke: @white;
-  fill: currentColor;
-  left: calc(10% + 20px);
+  fill: @white;
+  left: calc(5% + 20px);
   bottom: -30px;
 }
 .info {
-  width: 80%;
+  width: 90%;
   margin: auto;
-  background: @white;
+  background: @3gray;
+  color: @white;
   display: flex;
 }
 .info-name {
@@ -36,11 +37,11 @@
   padding: 0 20px;
 }
 .info-main {
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.31) 0px 0px 1px 0px;
+  background: @2gray;
   padding: 20px 0px;
   border-radius: 3px;
   margin: 40px 0 20px 0;
-  background: @white;
+  color: @white;
   .info-data();
 }
 .info-event {
@@ -50,8 +51,8 @@
 }
 
 .info-strip {
-  color: @black;
-  padding: 20px 0;
+  color: @white;
+  padding: 20px 10px;
 }
 
 .info-profile {

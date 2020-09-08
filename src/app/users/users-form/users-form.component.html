@@ -15,7 +15,10 @@
       </div>
       <ng-template #confirmTemplate>
         <p>{{ 'USERSFORM.DOYOUWANT' | translate }}</p>
-        <button class="transparent-button" (click)="delete()">{{ 'USERSFORM.DELETE' | translate }}</button><button class="transparent-button" routerLink="/main/users">{{ 'USERSFORM.CANCEL' | translate }}</button>
+        <div class="input-btn">
+        <button class="form-btn btn-success" (click)="delete()">{{ 'USERSFORM.DELETE' | translate }}</button>
+        <button class="form-btn btn-back" routerLink="/main/users">{{ 'USERSFORM.CANCEL' | translate }}</button>
+        </div>
       </ng-template>
     </div>
   </div>

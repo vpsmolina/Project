@@ -3,7 +3,7 @@
 @slategray: #708090;
 @gainsboro: #dcdcdc;
 @lightgray: #d3d3d3;
-@hex: #d81818;
+
 
 @2gray: #2c3c52;
 @3gray: #3D4D65;
@@ -24,23 +24,7 @@ ul[class],
 ol[class] {
   list-style: none;
 }
-.transparent-button {
-  display: inline-block;
-  margin: 2px 0;
-  padding: 8px 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  color: @slategray;
-  text-align: center;
-  transition: all 0.3s ease-out;
-  outline: none;
 
-}
-.transparent-button:hover{
-  background-color: @slategray;
-  color: @white;
-}
 input.ng-touched.ng-invalid{
   border: 2px solid @red;
 }
@@ -79,7 +63,7 @@ input.ng-touched.ng-valid{
     border: 0;
     display: block;
     border-radius: 50%;
-    background: @hex;
+    background: @red;
     width: 20px;
     height: 20px;
   }
