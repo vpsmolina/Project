@@ -15,13 +15,13 @@
     <svg class="icon header__profile-item">
       <use xlink:href="./assets/images/user.svg#icon-user"></use>
     </svg>
-
-    <span *ngIf="authService.isLoggedIn()" class="header__profile-item">{{user.surname}}</span>
-    <a *ngIf="!authService.isLoggedIn()" class="header__profile-btn" routerLink="/main/auth">{{ 'MAIN.LOGIN' | translate }}</a>
-    <button *ngIf="authService.isLoggedIn()" class="header__profile-btn" (click)="logoutUser()">{{
-    'MAIN.EXIT' |
-      translate }}</button>
-
+    <div class="header__profile-login">
+      <span *ngIf="authService.isLoggedIn()" class="header__profile-item">{{user.surname}}</span>
+      <a *ngIf="!authService.isLoggedIn()" class="header__profile-btn" routerLink="/main/auth">{{ 'MAIN.LOGIN' | translate }}</a>
+      <button *ngIf="authService.isLoggedIn()" class="header__profile-btn" (click)="logoutUser()">{{
+        'MAIN.EXIT' |
+          translate }}</button>
+    </div>
   </div>
 
 </header>
