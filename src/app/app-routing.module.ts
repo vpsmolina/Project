@@ -8,7 +8,6 @@ import { IncidentFormComponent } from "./incidents/incident-form/incident-form.c
 
 import { IncidentsComponent } from "./incidents/incidents.component";
 import { MainComponent } from "./main/main.component";
-import { ProcessComponent } from "./process/process.component";
 import { UsersFormComponent } from "./users/users-form/users-form.component";
 import { UsersComponent } from "./users/users.component";
 
@@ -22,7 +21,6 @@ const usersRoutes: Routes = [
 ];
 const childRoutes: Routes = [
   {path: "events", component: IncidentsComponent, children: incidentsRoutes},
-  {path: "process", component: ProcessComponent},
   {path: "users", component: UsersComponent, children: usersRoutes},
   {path: "auth", component: AuthComponent},
   {path: "edit/:id", component: ProfileComponent, canActivate: [AuthGuard]},
