@@ -38,6 +38,9 @@ mongoose.connection.on('error', (err) => {
   res.send('NOW');
 });*/
 
+/*app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});*/
 
 app.use('/account', account);
 app.use('/event', event);
